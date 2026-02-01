@@ -1,89 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dosfolio Admin</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Icon -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
     <style>
-        body {
-            background-color: #f0f2f5;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        body { background-color: #f0f2f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .login-container { max-width: 400px; margin: 100px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .dashboard { display: none; padding: 20px; }
+        .card { margin-bottom: 20px; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .table-responsive { max-height: 600px; overflow-y: auto; }
+        
+        /* Badges & Styling */
+        .badge-os { background: #212529; color: white; padding: 5px 8px; border-radius: 6px; font-size: 0.75em; }
+        .badge-source { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.5px; }
+        .timestamp { font-size: 0.85em; color: #6c757d; font-weight: 500; }
+        .avatar { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; }
+        
+        /* Map Button */
+        .btn-map { padding: 4px 10px; font-size: 12px; border-radius: 20px; transition: 0.2s; }
+        .btn-map:hover { transform: scale(1.05); }
 
-        .login-container {
-            max-width: 400px;
-            margin: 100px auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .dashboard {
-            display: none;
-            padding: 20px;
-        }
-
-        .card {
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .table-responsive {
-            max-height: 500px;
-            overflow-y: auto;
-        }
-
-        .badge-os {
-            background: #212529;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 6px;
-            font-size: 0.75em;
-            letter-spacing: 0.5px;
-        }
-
-        .timestamp {
-            font-size: 0.85em;
-            color: #6c757d;
-            font-weight: 500;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
+        /* Floating Map Modal */
+        .map-frame { width: 100%; height: 400px; border: 0; border-radius: 8px; }
     </style>
 </head>
-
 <body>
 
     <!-- 1. LOGIN SECTION -->
     <div id="loginSection" class="login-container text-center">
         <h3 class="mb-4 fw-bold">Admin Panel</h3>
-        <p class="text-muted mb-4">Secure access for Dosfolio</p>
-
-        <button id="googleLoginBtn"
-            class="btn btn-outline-dark w-100 py-2 d-flex align-items-center justify-content-center gap-2">
+        <button id="googleLoginBtn" class="btn btn-outline-dark w-100 py-2 d-flex align-items-center justify-content-center gap-2">
             <i class="bi bi-google"></i> Sign in with Google
         </button>
-
         <div id="loginError" class="text-danger mt-3 small"></div>
     </div>
 
     <!-- 2. DASHBOARD SECTION -->
     <div id="dashboardSection" class="dashboard container-fluid">
         <!-- Navbar -->
-        <div class="d-flex justify-content-between align-items-center mb-5 bg-white p-3 rounded shadow-sm">
+        <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded shadow-sm">
             <div class="d-flex align-items-center">
                 <img id="adminAvatar" src="" class="avatar" alt="Admin">
                 <div>
@@ -95,13 +56,40 @@
         </div>
 
         <div class="row">
-            <!-- CONTACTS -->
+            <!-- VISITORS (Moved to Top as requested) -->
             <div class="col-lg-12 mb-5">
                 <div class="card h-100">
                     <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-0">
-                        <h5 class="m-0 fw-bold text-primary"><i class="bi bi-envelope-paper me-2"></i>Inbox</h5>
-                        <button class="btn btn-sm btn-light border" onclick="fetchContacts()"><i
-                                class="bi bi-arrow-clockwise"></i></button>
+                        <h5 class="m-0 fw-bold text-success"><i class="bi bi-globe me-2"></i>Visitor Logs</h5>
+                        <button class="btn btn-sm btn-light border" onclick="fetchVisitors()"><i class="bi bi-arrow-clockwise"></i> Refresh</button>
+                    </div>
+                    <div class="card-body p-0 table-responsive">
+                        <table class="table table-hover align-middle mb-0" style="font-size: 13px;">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="ps-4">1. Time</th>
+                                    <th>2. GPS Data</th>
+                                    <th>3. Map</th>
+                                    <th>4. Device</th>
+                                    <th>5. OS</th>
+                                    <th>6. RAM</th>
+                                    <th>7. Browser</th>
+                                    <th>8. Screen</th>
+                                    <th>9. IP</th>
+                                </tr>
+                            </thead>
+                            <tbody id="visitorsTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACTS -->
+            <div class="col-lg-12">
+                <div class="card h-100">
+                    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-0">
+                        <h5 class="m-0 fw-bold text-primary"><i class="bi bi-envelope-paper me-2"></i>Contact Inbox</h5>
+                        <button class="btn btn-sm btn-light border" onclick="fetchContacts()"><i class="bi bi-arrow-clockwise"></i> Refresh</button>
                     </div>
                     <div class="card-body p-0 table-responsive">
                         <table class="table table-hover align-middle mb-0">
@@ -119,36 +107,31 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- VISITORS -->
-            <div class="col-lg-12">
-                <div class="card h-100">
-                    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center border-0">
-                        <h5 class="m-0 fw-bold text-success"><i class="bi bi-globe me-2"></i>Visitors</h5>
-                        <button class="btn btn-sm btn-light border" onclick="fetchVisitors()"><i
-                                class="bi bi-arrow-clockwise"></i></button>
-                    </div>
-                    <div class="card-body p-0 table-responsive">
-                        <table class="table table-hover align-middle mb-0" style="font-size: 13px;">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th class="ps-4">Time</th>
-                                    <th>Location</th>
-                                    <th>GPS</th>
-                                    <th>Device</th>
-                                    <th>Browser</th>
-                                    <th>IP</th>
-                                </tr>
-                            </thead>
-                            <tbody id="visitorsTable"></tbody>
-                        </table>
-                    </div>
+    <!-- 3. FLOATING MAP MODAL -->
+    <div class="modal fade" id="mapModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-geo-alt-fill text-danger"></i> Visitor Location</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <iframe id="googleMapFrame" class="map-frame" src="" loading="lazy"></iframe>
+                </div>
+                <div class="modal-footer bg-light">
+                    <small class="text-muted me-auto">Note: Exactness depends on GPS permission.</small>
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- FIREBASE SCRIPT -->
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
@@ -169,61 +152,130 @@
         const db = getFirestore(app);
         const provider = new GoogleAuthProvider();
 
-        // CHANGE THIS TO YOUR EXACT EMAIL
-        const MY_ADMIN_EMAIL = "dos.unique.dev@gmail.com";
+        // ⚠️ YOUR EMAIL ONLY
+        const MY_ADMIN_EMAIL = "dos.unique.dev@gmail.com"; 
 
-        const loginSection = document.getElementById('loginSection');
-        const dashboardSection = document.getElementById('dashboardSection');
-
-        // --- AUTH LOGIC ---
+        // --- AUTH ---
         onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // Security Check: Is this YOU?
-                if (user.email === MY_ADMIN_EMAIL) {
-                    showDashboard(user);
-                } else {
-                    // It's a stranger trying to login
-                    alert("Access Denied: You are not the admin.");
-                    signOut(auth);
-                }
+            if (user && user.email === MY_ADMIN_EMAIL) {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('dashboardSection').style.display = 'block';
+                document.getElementById('adminName').innerText = user.displayName;
+                document.getElementById('adminEmailDisplay').innerText = user.email;
+                document.getElementById('adminAvatar').src = user.photoURL;
+                fetchVisitors();
+                fetchContacts();
+            } else if (user) {
+                alert("Access Denied.");
+                signOut(auth);
             } else {
-                showLogin();
+                document.getElementById('loginSection').style.display = 'block';
+                document.getElementById('dashboardSection').style.display = 'none';
             }
         });
 
         document.getElementById('googleLoginBtn').addEventListener('click', () => {
-            signInWithPopup(auth, provider).catch((error) => {
-                document.getElementById('loginError').innerText = error.message;
-            });
+            signInWithPopup(auth, provider).catch(e => document.getElementById('loginError').innerText = e.message);
         });
-
         document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
 
-        function showDashboard(user) {
-            loginSection.style.display = 'none';
-            dashboardSection.style.display = 'block';
-            document.getElementById('adminName').innerText = user.displayName;
-            document.getElementById('adminEmailDisplay').innerText = user.email;
-            document.getElementById('adminAvatar').src = user.photoURL;
-
-            fetchContacts();
-            fetchVisitors();
-        }
-
-        function showLogin() {
-            loginSection.style.display = 'block';
-            dashboardSection.style.display = 'none';
-        }
-
-        // --- DATA FETCHING ---
+        // --- DATE FORMATTER ---
         function formatTime(timestamp) {
             if (!timestamp) return "N/A";
-            return new Date(timestamp.seconds * 1000).toLocaleString('en-IN', { timeStyle: 'short', dateStyle: 'short' });
+            return new Date(timestamp.seconds * 1000).toLocaleString('en-IN', { 
+                month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+            });
         }
 
-        window.fetchContacts = async function () {
+        // --- MAP MODAL LOGIC ---
+        window.openMap = function(coords) {
+            const mapFrame = document.getElementById('googleMapFrame');
+            // Remove spaces
+            const cleanCoords = coords.replace(/\s/g, '');
+            // Google Maps Embed Link
+            mapFrame.src = `https://maps.google.com/maps?q=${cleanCoords}&z=15&output=embed`;
+            
+            // Open Modal
+            const myModal = new bootstrap.Modal(document.getElementById('mapModal'));
+            myModal.show();
+        };
+
+        // --- FETCH VISITORS (UPDATED ORDER) ---
+        window.fetchVisitors = async function() {
+            const tbody = document.getElementById('visitorsTable');
+            tbody.innerHTML = '<tr><td colspan="9" class="text-center py-4">Loading data...</td></tr>';
+            
+            try {
+                const q = query(collection(db, "visitors"), orderBy("timestamp", "desc"));
+                const snapshot = await getDocs(q);
+                let html = "";
+                
+                snapshot.forEach(doc => {
+                    const d = doc.data();
+                    const loc = d.location || {};
+                    const dev = d.device || {};
+                    const ip = d.ip_info || {};
+
+                    // LOGIC: GPS Priority
+                    let finalCoords = "";
+                    let sourceLabel = "";
+                    let badgeColor = "";
+
+                    // Check if GPS is valid (Not "Denied", not "Timeout", and exists)
+                    if (d.gps_precise && !d.gps_precise.includes("Denied") && !d.gps_precise.includes("Timeout")) {
+                        finalCoords = d.gps_precise;
+                        sourceLabel = "GPS (Precise)";
+                        badgeColor = "text-success border-success";
+                    } else {
+                        // Fallback to IP Location
+                        finalCoords = loc.lat_long || "0,0";
+                        sourceLabel = "IP (Approx)";
+                        badgeColor = "text-warning border-warning";
+                    }
+
+                    // Only show map button if we have coordinates
+                    const mapBtn = (finalCoords && finalCoords !== "0,0") 
+                        ? `<button onclick="openMap('${finalCoords}')" class="btn btn-outline-primary btn-map"><i class="bi bi-map-fill"></i> View</button>` 
+                        : `<span class="text-muted">-</span>`;
+
+                    html += `<tr>
+                        <td class="ps-4 timestamp">${formatTime(d.timestamp)}</td>
+                        
+                        <!-- 2. GPS Data -->
+                        <td>
+                            <div class="fw-bold" style="font-size:12px">${finalCoords}</div>
+                            <span class="badge border ${badgeColor} badge-source">${sourceLabel}</span>
+                        </td>
+
+                        <!-- 3. Map Button -->
+                        <td>${mapBtn}</td>
+
+                        <!-- 4. Device -->
+                        <td class="small">${dev.type || 'Unknown'}</td>
+
+                        <!-- 5. OS -->
+                        <td><span class="badge-os">${dev.os || '-'}</span></td>
+
+                        <!-- 6. RAM -->
+                        <td class="small text-muted">${dev.ram || '-'}</td>
+
+                        <!-- 7. Browser -->
+                        <td class="small">${dev.browser || '-'}</td>
+
+                        <!-- 8. Screen -->
+                        <td class="small">${dev.screen || '-'}</td>
+
+                        <!-- 9. IP -->
+                        <td class="small font-monospace text-primary">${ip.ip || d.ip || 'Unknown'}</td>
+                    </tr>`;
+                });
+                tbody.innerHTML = html || '<tr><td colspan="9" class="text-center py-4">No visitors yet</td></tr>';
+            } catch (e) { tbody.innerHTML = `<tr><td colspan="9" class="text-danger text-center">Error: ${e.message}</td></tr>`; }
+        };
+
+        // --- FETCH CONTACTS ---
+        window.fetchContacts = async function() {
             const tbody = document.getElementById('contactsTable');
-            tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4">Loading...</td></tr>';
             try {
                 const q = query(collection(db, "contacts"), orderBy("sentAt", "desc"));
                 const snapshot = await getDocs(q);
@@ -233,41 +285,14 @@
                     html += `<tr>
                         <td class="ps-4 timestamp">${formatTime(d.sentAt)}</td>
                         <td class="fw-bold">${d.name}</td>
-                        <td><a href="mailto:${d.email}" class="text-decoration-none">${d.email}</a></td>
+                        <td>${d.email}</td>
                         <td>${d.subject}</td>
                         <td class="text-muted small">${d.message}</td>
                     </tr>`;
                 });
-                tbody.innerHTML = html || '<tr><td colspan="5" class="text-center py-4">No messages found</td></tr>';
-            } catch (e) { tbody.innerHTML = `<tr><td colspan="5" class="text-danger text-center">Error: ${e.message}</td></tr>`; }
-        };
-
-        window.fetchVisitors = async function () {
-            const tbody = document.getElementById('visitorsTable');
-            tbody.innerHTML = '<tr><td colspan="6" class="text-center py-4">Loading...</td></tr>';
-            try {
-                const q = query(collection(db, "visitors"), orderBy("timestamp", "desc"));
-                const snapshot = await getDocs(q);
-                let html = "";
-                snapshot.forEach(doc => {
-                    const d = doc.data();
-                    const loc = d.location || {};
-                    const dev = d.device || {};
-                    const ip = d.ip_info || {};
-
-                    html += `<tr>
-                        <td class="ps-4 timestamp">${formatTime(d.timestamp)}</td>
-                        <td>${loc.city || '-'}, ${loc.country || '-'}</td>
-                        <td class="small text-primary">${d.gps_precise || 'Denied'}</td>
-                        <td><span class="badge-os">${dev.os || 'Unknown'}</span> <br> <small>${dev.type}</small></td>
-                        <td class="small">${dev.browser}</td>
-                        <td class="small font-monospace">${ip.ip || d.ip || 'Unknown'}</td>
-                    </tr>`;
-                });
-                tbody.innerHTML = html || '<tr><td colspan="6" class="text-center py-4">No visitors yet</td></tr>';
-            } catch (e) { tbody.innerHTML = `<tr><td colspan="6" class="text-danger text-center">Error: ${e.message}</td></tr>`; }
+                tbody.innerHTML = html;
+            } catch (e) { console.error(e); }
         };
     </script>
 </body>
-
 </html>
