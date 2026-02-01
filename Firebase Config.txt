@@ -1,0 +1,8 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyCEOukgeJg6t4jQlN82ebIbBDPXDGEv4x4",
+  authDomain: "dosfolio-project.firebaseapp.com",
+  projectId: "dosfolio-project",
+  storageBucket: "dosfolio-project.firebasestorage.app",
+  messagingSenderId: "944442404065",
+  appId: "1:944442404065:web:2a1ae3bcde02f30fae9ba0"
+}

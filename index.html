@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>DOS-Folio</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- ✅ FIX 1: ADD UAPARSER LIBRARY HERE -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/1.0.35/ua-parser.min.js"></script>
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">DOS-Folio</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+      <img src="assets/img/hero-img.jpg" alt="" data-aos="fade-in">
+      <div class="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up"
+        data-aos-delay="100">
+        <h2>I am Tanmay Das</h2>
+        <p><span class="typed" data-typed-items="Designer, Developer, Freelancer"></span></p>
+      </div>
+    </section>
+
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p>Turning ideas into deployed applications.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-app">AI Apps</li>
+            <li data-filter=".filter-website">Websites</li>
+            <li data-filter=".filter-branding">Branding</li>
+            <li data-filter=".filter-books">Books</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- Item 1 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>AI Quote Generator</h4>
+                <p>React.js, Firebase, Google Gemini AI</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/app-1.jpg" title="Zoom" data-gallery="portfolio-gallery-app"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://ai-quote-generator-lake.vercel.app/" target="_blank" class="btn-live"><i
+                      class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 2 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Admin Panel Dashboard</h4>
+                <p>HTML5, CSS, Bootstrap, JS</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/product-1.jpg" title="Zoom" data-gallery="portfolio-gallery-product"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dosuniquedev-cloud.github.io/sample_pages/adminlogin" target="_blank"
+                    class="btn-live"><i class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 3 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Photography Showcase</h4>
+                <p>React, Node.js, MongoDB</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/branding-1.jpg" title="Zoom" data-gallery="portfolio-gallery-branding"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dosuniquedev-cloud.github.io/photography_website/" target="_blank"
+                    class="btn-live"><i class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 4 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Interactive Login Page</h4>
+                <p>HTML5, CSS, Bootstrap, JS</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/books-1.jpg" title="Zoom" data-gallery="portfolio-gallery-book"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dosuniquedev-cloud.github.io/sample_pages/login" target="_blank" class="btn-live"><i
+                      class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 5 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>AI Prescription Analyzer</h4>
+                <p>Python, React, OCR, AI</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/app-2.jpg" title="Zoom" data-gallery="portfolio-gallery-app"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dos2.pythonanywhere.com/" target="_blank" class="btn-live"><i
+                      class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 6 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Travel Agency Profile</h4>
+                <p>HTML5, CSS, Bootstrap, JS</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/product-2.jpg" title="Zoom" data-gallery="portfolio-gallery-product"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="portfolio-details.html" class="btn-live"><i class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 7 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Photography Dashboard</h4>
+                <p>React, Node.js, MongoDB</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/branding-2.jpg" title="Zoom" data-gallery="portfolio-gallery-branding"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dosuniquedev-cloud.github.io/photography_website/" target="_blank"
+                    class="btn-live"><i class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 8 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Registration Page</h4>
+                <p>HTML5, CSS, Bootstrap, JS</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/books-2.jpg" title="Zoom" data-gallery="portfolio-gallery-book"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dosuniquedev-cloud.github.io/sample_pages/register" target="_blank"
+                    class="btn-live"><i class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 9 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>ByteQuest Dashboard</h4>
+                <p>Laravel, MySQL, Bootstrap</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/app-3.jpg" title="Zoom" data-gallery="portfolio-gallery-app"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dosuniquedev-cloud.github.io/sample_pages/home" target="_blank" class="btn-live"><i
+                      class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 10 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-website">
+              <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Instagram Like History</h4>
+                <p>React, Node.js, MongoDB</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/product-3.jpg" title="Zoom" data-gallery="portfolio-gallery-product"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://ai-quote-generator-lake.vercel.app/history" target="_blank" class="btn-live"><i
+                      class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 11 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Booking Page</h4>
+                <p>HTML5, CSS, Bootstrap, JS</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/branding-3.jpg" title="Zoom" data-gallery="portfolio-gallery-branding"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dosuniquedev-cloud.github.io/sample_pages/booking" target="_blank"
+                    class="btn-live"><i class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <!-- Item 12 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+              <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Query Page</h4>
+                <p>HTML5, CSS, Bootstrap, JS</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/books-3.jpg" title="Zoom" data-gallery="portfolio-gallery-book"
+                    class="glightbox btn-zoom"><i class="bi bi-zoom-in"></i></a>
+                  <a href="https://dosuniquedev-cloud.github.io/sample_pages/contact" target="_blank"
+                    class="btn-live"><i class="bi bi-link-45deg"></i> Live Preview</a>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Delivering robust full-stack solutions, from complex ERP systems to AI-powered integrations.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <!-- Service 1: Full Stack Dev -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-laptop"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Full Stack Web Development</h3>
+              </a>
+              <p>Building responsive, dynamic websites using <strong>React.js</strong> for the frontend and
+                <strong>Laravel/PHP</strong> for the backend. I ensure clean code and fast load times.
+              </p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <!-- Service 2: ERP Solutions -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-briefcase"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Custom ERP Solutions</h3>
+              </a>
+              <p>Developing specialized modules for Inventory, Sales, and Purchasing. Experience creating automated
+                accounting features like <strong>GST generation</strong> and Ledger management.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <!-- Service 3: API Development -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-diagram-3"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>API Development & Integration</h3>
+              </a>
+              <p>Designing secure <strong>RESTful APIs</strong> to handle complex data relationships. Expertise in
+                integrating third-party services like Payment Gateways and Google Gemini AI.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <!-- Service 4: Hardware Integration -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>IoT & Hardware Integration</h3>
+              </a>
+              <p>Bridging the gap between physical hardware and web apps. Experience implementing <strong>RFID API
+                  scanning</strong> and working with Arduino robotics.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <!-- Service 5: Database Optimization -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-database-check"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>Database Architecture</h3>
+              </a>
+              <p>Designing scalable schemas using <strong>MySQL</strong> and <strong>MongoDB</strong>. Proficient in
+                writing optimized SQL queries to handle high-traffic data environments.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+          <!-- Service 6: AI & Python Scripts -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="bi bi-robot"></i>
+              </div>
+              <a href="#" class="stretched-link">
+                <h3>AI & Automation</h3>
+              </a>
+              <p>Leveraging <strong>Python</strong> and <strong>OCR technology</strong> to build intelligent tools (like
+                Prescription Analyzers) that process images and natural language.</p>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-md-6">
+
+            <div class="row justify-content-between gy-4">
+              <div class="col-lg-5">
+                <img src="assets/img/profile-img.jpg" class="img-fluid" alt="" hidden>
+              </div>
+              <div class="col-lg-7 about-info">
+                <p><strong>Name: </strong> <span>Tanmay Das</span></p>
+                <p><strong>Profile: </strong> <span>Sr. Full stack Web developer</span></p>
+                <p><strong>Email: </strong> <span>[ dos.unique.dev@gmail.com ]</span></p>
+                <p><strong>Phone: </strong> <span>+91 8348146101</span></p>
+              </div>
+            </div>
+
+            <div class="skills-content skills-animation">
+
+              <h5>Skills</h5>
+
+              <div class="progress">
+                <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div><!-- End Skills Item -->
+
+              <div class="progress">
+                <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div><!-- End Skills Item -->
+
+              <div class="progress">
+                <span class="skill"><span>JavaScript</span> <i class="val">96%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div><!-- End Skills Item -->
+
+              <div class="progress">
+                <span class="skill"><span>Photoshop</span> <i class="val">85%</i></span>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div><!-- End Skills Item -->
+
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="about-me">
+              <h4>About me</h4>
+              <p>
+                Hi, I’m Tanmay Das, a Full Stack Web Developer based in India.
+                My journey into tech has been driven by a passion for logic and problem-solving. With a unique
+                background in English Literature, I bring a strong emphasis on communication and structure to my code. I
+                don’t just write functions; I build solutions that people can understand and use.
+                Recently, I’ve been deep-diving into PHP (Laravel) and React.js, building complex enterprise
+                applications like Jewellery ERP systems and integrating hardware (RFID) with web software.
+                When I’m not debugging SQL queries or optimizing APIs, you can find me tinkering with Arduino robotics,
+                capturing moments through photography, or exploring the latest in AI integration.
+
+              </p>
+              <p>
+                I bridge the gap between complex backend logic and smooth frontend experiences. With a passion for clean
+                code and modern architecture, I build applications that work as good as they look.
+              </p>
+              <p>
+                Offline, I’m a team player on the soccer field, an amateur photographer, and a robotics enthusiast using
+                Arduino. Let’s build something great together!
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>Dedicated Full Stack Developer specializing in PHP (Laravel) and React.js. Proven track record of building
+          robust ERP systems and integrating hardware with web applications.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+
+          <!-- Left Column: Summary & Education -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Summary</h3>
+
+            <div class="resume-item pb-0">
+              <h4>Tanmay Das</h4>
+              <p><em>Versatile Web Developer with commercial experience in the full software development lifecycle
+                  (SDLC). Expert in building RESTful APIs, optimizing SQL databases, and creating responsive front-end
+                  interfaces using React.js.</em></p>
+              <ul>
+                <li>India</li>
+                <li>(+91) 8348146101</li>
+                <li>dastanmay50@gmail.com</li>
+              </ul>
+            </div><!-- End Resume Item -->
+
+            <h3 class="resume-title">Education & Certification</h3>
+
+            <!-- Most Relevant First -->
+            <div class="resume-item">
+              <h4>Full Stack Web Development Certification</h4>
+              <h5>2023 - 2024</h5>
+              <p><em>Ejobindia, Kolkata</em></p>
+              <p>Intensive training covering HTML5, CSS3, JavaScript (ES6+), React.js, PHP, Laravel, Python, and SQL
+                Server. Built multiple live projects including a Travel Booking Engine.</p>
+            </div><!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>Master of Arts (English)</h4>
+              <h5>2015</h5>
+              <p><em>University of Kalyani</em></p>
+              <p>Developed strong communication, analytical, and documentation skills.</p>
+            </div><!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>Bachelor of Arts (English Hons)</h4>
+              <h5>2013</h5>
+              <p><em>Raj College</em></p>
+            </div><!-- End Resume Item -->
+
+          </div>
+
+          <!-- Right Column: Professional Experience -->
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+
+            <div class="resume-item">
+              <h4>Web Developer (PHP/Laravel)</h4>
+              <h5>Jun 2024 - Jul 2025</h5>
+              <p><em>RPS Solutions Pvt. Ltd, Kolkata</em></p>
+              <ul>
+                <li><strong>Enterprise ERP Development:</strong> Spearheaded the full-stack development of a Jewellery
+                  ERP System using Laravel and React, managing Inventory, Purchasing, and Sales modules.</li>
+                <li><strong>Hardware Integration:</strong> Engineered a custom RFID API implementation to bridge
+                  scanning hardware with the web application, automating stock-taking.</li>
+                <li><strong>Financial Logic:</strong> Built accounting features including Ledger Books, Profit & Loss
+                  reports, and automated GST return generation.</li>
+                <li><strong>Optimization:</strong> Optimized SQL queries and RESTful APIs to handle complex data
+                  relationships efficiently.</li>
+              </ul>
+            </div><!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>Freelance Web Developer & Trainee</h4>
+              <h5>2023 - 2024</h5>
+              <p><em>Remote / Self-Employed</em></p>
+              <ul>
+                <li>Developed "AI Prescription Analyzer" using Python, OCR, and Gemini API to process medical
+                  prescriptions.</li>
+                <li>Built "ByteQuest Fusion," a comprehensive travel booking platform using PHP and MySQL.</li>
+                <li>Implemented Geo-Location REST APIs using Node.js and MongoDB for location-based services.</li>
+              </ul>
+            </div><!-- End Resume Item -->
+
+            <!-- Addressing the Gap Professionally -->
+            <div class="resume-item">
+              <h4>Previous Professional Career</h4>
+              <h5>2015 - 2023</h5>
+              <p><em>Freelancer / English Teacher / Content Writer</em></p>
+              <ul>
+                <li>Developed professional discipline, team management, and communication skills across different
+                  sectors before transitioning to Software Engineering.</li>
+                <li>Strengthened ability to explain complex concepts clearly and logically</li>
+              </ul>
+            </div><!-- End Resume Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Resume Section -->
+
+
+
+    <!-- Stats Section     HIDDEN -->
+    <section id="stats" class="stats section accent-background" hidden>
+
+      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="0"
+                class="purecounter">232</span>
+              <p>Clients</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="0"
+                class="purecounter">521</span>
+              <p>Projects</p>
+            </div>
+          </div>
+          <!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="0"
+                class="purecounter">1453</span>
+              <p>Hours Of Support</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="0"
+                class="purecounter">32</span>
+              <p>Awards</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Freelance Rates</h2>
+        <p>Flexible packages tailored to your project needs, from simple landing pages to complex enterprise systems.
+        </p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 gx-lg-5">
+
+          <div class="col-lg-6">
+            <div class="pricing-item d-flex justify-content-between">
+              <h3>Static Website / Landing Page</h3>
+              <h4>$150+</h4>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-lg-6">
+            <div class="pricing-item d-flex justify-content-between">
+              <h3>Dynamic Web App (React)</h3>
+              <h4>$450+</h4>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-lg-6">
+            <div class="pricing-item d-flex justify-content-between">
+              <h3>Backend API Development</h3>
+              <h4>$250+</h4>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-lg-6">
+            <div class="pricing-item d-flex justify-content-between">
+              <h3>Python Scripting & Automation</h3>
+              <h4>$100+</h4>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-lg-6">
+            <div class="pricing-item d-flex justify-content-between">
+              <h3>Full Stack ERP Solution (Laravel)</h3>
+              <h4>$900+</h4>
+            </div>
+          </div><!-- End Pricing Item -->
+
+          <div class="col-lg-6">
+            <div class="pricing-item d-flex justify-content-between">
+              <h3>Hourly Consultation / Bug Fixes</h3>
+              <h4>$25/hr</h4>
+            </div>
+          </div><!-- End Pricing Item -->
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>For more information, contact us</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
+          <div class="row gy-5">
+            <div class="col-lg-4">
+              <div class="info-item d-flex align-items-center">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Address</h3>
+                  <p>India</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-item d-flex align-items-center">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Call Me</h3>
+                  <p>+91 8348146101</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-item d-flex align-items-center">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email Me</h3>
+                  <p>[ dos.unique.dev@gmail.com ]</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <form id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" id="message" rows="6" placeholder="Message"
+                required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Sending...</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+              <button type="submit">Send Message</button>
+            </div>
+
+            <div class="footer">
+              <p>Total Visitor <span id="view-counter">...</span></p>
+              <div id="statusMsg" style="font-size: 11px; color: #777; margin-top:5px;">System: Initializing...</div>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer accent-background">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">DOS-Folio</strong> <span>All Rights Reserved</span>
+        </p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href=""><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/tanmaytony10"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/_tanmay9_/"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/tanmay-das-6bab35191/"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- REMOVED validate.js because it interferes with Firebase -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, doc, updateDoc, increment, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // --- CONFIGURATION ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyCEOukgeJg6t4jQlN82ebIbBDPXDGEv4x4",
+      authDomain: "dosfolio-project.firebaseapp.com",
+      projectId: "dosfolio-project",
+      storageBucket: "dosfolio-project.firebasestorage.app",
+      messagingSenderId: "944442404065",
+      appId: "1:944442404065:web:2a1ae3bcde02f30fae9ba0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // --- VISITOR TRACKING LOGIC ---
+    async function trackVisitor() {
+      const statusDiv = document.getElementById('statusMsg');
+
+      try {
+        // 1. Device Info (UAParser now works because we added the library in Head)
+        const parser = new UAParser();
+        const result = parser.getResult();
+
+        // 2. Safe IP Fetch (Prevents Crash on AdBlocker)
+        let ipData = {};
+        try {
+          const ipRes = await fetch('https://ipapi.co/json/');
+          if (ipRes.ok) ipData = await ipRes.json();
+        } catch (e) {
+          console.warn("IP Fetch blocked:", e);
+          ipData = { ip: "Unknown", city: "Unknown", country_name: "Unknown" };
+        }
+
+        // 3. Safe GPS (With Timeout)
+        const getGPS = () => new Promise(resolve => {
+          if (!navigator.geolocation) resolve("Not Supported");
+          setTimeout(() => resolve("Timeout"), 3000); // Wait max 3 seconds
+          navigator.geolocation.getCurrentPosition(
+            pos => resolve(`${pos.coords.latitude}, ${pos.coords.longitude}`),
+            err => resolve("Denied")
+          );
+        });
+        const gpsVal = await getGPS();
+
+        // 4. Gather Data
+        const visitorData = {
+          timestamp: new Date(),
+          ip_info: {
+            ip: ipData.ip || "Unknown",
+            city: ipData.city || "Unknown",
+            country: ipData.country_name || "Unknown",
+            lat_long: `${ipData.latitude || 0}, ${ipData.longitude || 0}`
+          },
+          device: {
+            os: `${result.os.name} ${result.os.version}`,
+            browser: `${result.browser.name}`,
+            screen: `${window.screen.width}x${window.screen.height}`,
+            ram: navigator.deviceMemory ? `${navigator.deviceMemory} GB` : "Unknown"
+          },
+          gps_precise: gpsVal
+        };
+
+        // 5. Save to Firebase
+        await addDoc(collection(db, "visitors"), visitorData);
+
+        // 6. Update Counter
+        const statsRef = doc(db, "dosfolio_stats", "general");
+        await updateDoc(statsRef, { views: increment(1) });
+
+        // 7. Display Counter
+        const docSnap = await getDoc(statsRef);
+        if (docSnap.exists()) {
+          document.getElementById('view-counter').innerText = docSnap.data().views;
+        }
+        statusDiv.innerText = "System: Online & Connected";
+
+      } catch (error) {
+        console.error("Tracking Error:", error);
+        statusDiv.innerText = "System: Tracking Offline";
+      }
+    }
+
+    // Run Tracking
+    trackVisitor();
+
+    // --- CONTACT FORM LOGIC ---
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Get Elements
+        const loading = document.querySelector('.loading');
+        const sentMsg = document.querySelector('.sent-message');
+        const errorMsg = document.querySelector('.error-message');
+        const btn = this.querySelector('button[type="submit"]');
+
+        // UI Updates
+        loading.style.display = 'block';
+        errorMsg.style.display = 'none';
+        sentMsg.style.display = 'none';
+        btn.disabled = true;
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        try {
+          await addDoc(collection(db, "contacts"), {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
+            sentAt: new Date()
+          });
+
+          // Success UI
+          loading.style.display = 'none';
+          sentMsg.style.display = 'block';
+          this.reset(); // Clear form
+
+        } catch (error) {
+          console.error("Contact Error:", error);
+          loading.style.display = 'none';
+          errorMsg.innerText = "Failed to send message. Please try again.";
+          errorMsg.style.display = 'block';
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>
