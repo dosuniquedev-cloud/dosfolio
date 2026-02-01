@@ -18,16 +18,19 @@
         
         /* Badges & Styling */
         .badge-os { background: #212529; color: white; padding: 5px 8px; border-radius: 6px; font-size: 0.75em; }
-        .badge-source { font-size: 0.65em; text-transform: uppercase; letter-spacing: 0.5px; }
         .timestamp { font-size: 0.85em; color: #6c757d; font-weight: 500; }
         .avatar { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; }
-        .coord-text { font-family: monospace; font-size: 11px; color: #0d6efd; }
         
+        /* Coordinate Styling */
+        .coord-box { font-size: 11px; margin-bottom: 4px; font-family: monospace; }
+        .coord-gps { color: #198754; font-weight: bold; } /* Green for GPS */
+        .coord-ip { color: #fd7e14; } /* Orange for IP */
+
         /* Map Button */
-        .btn-map { padding: 2px 8px; font-size: 11px; border-radius: 15px; }
+        .btn-map { padding: 2px 8px; font-size: 10px; border-radius: 15px; text-transform: uppercase; font-weight: bold; }
 
         /* Floating Map Modal */
-        .map-frame { width: 100%; height: 400px; border: 0; border-radius: 8px; }
+        .map-frame { width: 100%; height: 450px; border: 0; border-radius: 8px; }
     </style>
 </head>
 <body>
@@ -69,13 +72,13 @@
                                 <tr>
                                     <th class="ps-4">Time</th>
                                     <th>City & Country</th>
-                                    <th>Lat / Long</th>
-                                    <th>Map</th>
+                                    <th>GPS (Precise)</th>
+                                    <th>IP Location (Approx)</th>
                                     <th>OS</th>
                                     <th>RAM</th>
                                     <th>Browser</th>
                                     <th>Screen</th>
-                                    <th>IP</th>
+                                    <th>IP Addr</th>
                                 </tr>
                             </thead>
                             <tbody id="visitorsTable"></tbody>
@@ -115,14 +118,14 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="bi bi-geo-alt-fill text-danger"></i> Visitor Location</h5>
+                    <h5 class="modal-title"><i class="bi bi-geo-alt-fill text-danger"></i> Exact Location</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
                     <iframe id="googleMapFrame" class="map-frame" src="" loading="lazy"></iframe>
                 </div>
                 <div class="modal-footer bg-light">
-                    <small class="text-muted me-auto">Note: Exactness depends on user permission.</small>
+                    <small class="text-muted me-auto" id="mapNote">Source: GPS</small>
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -166,7 +169,7 @@
                 fetchVisitors();
                 fetchContacts();
             } else if (user) {
-                alert("Access Denied.");
+                alert("Access Denied. Incorrect Email.");
                 signOut(auth);
             } else {
                 document.getElementById('loginSection').style.display = 'block';
@@ -179,7 +182,7 @@
         });
         document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
 
-        // --- DATE FORMATTER ---
+        // --- HELPER FUNCTIONS ---
         function formatTime(timestamp) {
             if (!timestamp) return "N/A";
             return new Date(timestamp.seconds * 1000).toLocaleString('en-IN', { 
@@ -188,16 +191,21 @@
         }
 
         // --- MAP MODAL LOGIC ---
-        window.openMap = function(coords) {
+        window.openMap = function(coords, type) {
             const mapFrame = document.getElementById('googleMapFrame');
+            const mapNote = document.getElementById('mapNote');
+            
+            // Clean coords
             const cleanCoords = coords.replace(/\s/g, '');
             mapFrame.src = `https://maps.google.com/maps?q=${cleanCoords}&z=15&output=embed`;
+            
+            mapNote.innerText = type === 'GPS' ? "Source: Precise GPS (Device)" : "Source: Approximate Network Location (ISP)";
             
             const myModal = new bootstrap.Modal(document.getElementById('mapModal'));
             myModal.show();
         };
 
-        // --- FETCH VISITORS (UPDATED COLUMNS) ---
+        // --- FETCH VISITORS ---
         window.fetchVisitors = async function() {
             const tbody = document.getElementById('visitorsTable');
             tbody.innerHTML = '<tr><td colspan="9" class="text-center py-4">Loading data...</td></tr>';
@@ -209,70 +217,73 @@
                 
                 snapshot.forEach(doc => {
                     const d = doc.data();
-                    // Handle nested data gracefully
-                    const loc = d.location || {}; // city, region, country, lat_long_approx
-                    const dev = d.device || {};   // os, browser, ram, etc
-                    const ip = d.ip_info || {};   // ip
+                    
+                    // --- DATA EXTRACTION (FIXED PATHS) ---
+                    // 1. IP Data (Where City/Country lives)
+                    const ipData = d.ip_info || {}; 
+                    const city = ipData.city || 'Unknown';
+                    const country = ipData.country || ipData.country_name || '-';
+                    const ipAddr = ipData.ip || d.ip || 'Unknown';
+                    const ipLatLong = ipData.lat_long || ipData.lat_long_approx || "0,0";
 
-                    // LOGIC: GPS vs IP Priority
-                    let finalCoords = "";
-                    let sourceLabel = "";
-                    let badgeColor = "";
+                    // 2. GPS Data (Root level in new script)
+                    const gpsPrecise = d.gps_precise || "Denied";
 
-                    // Check if GPS is valid
-                    if (d.gps_precise && !d.gps_precise.includes("Denied") && !d.gps_precise.includes("Timeout")) {
-                        finalCoords = d.gps_precise;
-                        sourceLabel = "GPS";
-                        badgeColor = "text-success border-success";
+                    // 3. Device Data
+                    const dev = d.device || {};
+
+                    // --- GENERATE GPS BUTTON ---
+                    let gpsHtml = "";
+                    if (gpsPrecise && !gpsPrecise.includes("Denied") && !gpsPrecise.includes("Timeout")) {
+                        gpsHtml = `
+                            <div class="coord-box coord-gps">${gpsPrecise}</div>
+                            <button onclick="openMap('${gpsPrecise}', 'GPS')" class="btn btn-outline-success btn-map">
+                                <i class="bi bi-geo-fill"></i> Map
+                            </button>
+                        `;
                     } else {
-                        // Fallback to IP Location
-                        finalCoords = loc.lat_long_approx || "0,0";
-                        sourceLabel = "IP";
-                        badgeColor = "text-warning border-warning";
+                        gpsHtml = `<span class="text-muted small">${gpsPrecise}</span>`;
                     }
 
-                    // Map Button Logic
-                    const mapBtn = (finalCoords && finalCoords !== "0,0") 
-                        ? `<button onclick="openMap('${finalCoords}')" class="btn btn-outline-primary btn-map"><i class="bi bi-map-fill"></i> View</button>` 
-                        : `<span class="text-muted small">-</span>`;
+                    // --- GENERATE IP LOCATION BUTTON ---
+                    let ipLocHtml = "";
+                    if (ipLatLong && ipLatLong !== "0,0") {
+                        ipLocHtml = `
+                            <div class="coord-box coord-ip">${ipLatLong}</div>
+                            <button onclick="openMap('${ipLatLong}', 'IP')" class="btn btn-outline-warning text-dark btn-map">
+                                <i class="bi bi-wifi"></i> Map
+                            </button>
+                        `;
+                    } else {
+                        ipLocHtml = `<span class="text-muted small">-</span>`;
+                    }
 
-                    // City Logic
-                    const cityStr = (loc.city && loc.city !== 'Unknown') ? loc.city : 'Unknown';
-                    const countryStr = (loc.country && loc.country !== 'Unknown') ? loc.country : '-';
-
+                    // --- RENDER ROW ---
                     html += `<tr>
                         <td class="ps-4 timestamp">${formatTime(d.timestamp)}</td>
                         
-                        <!-- City & Country -->
-                        <td class="fw-bold text-dark">${cityStr}, <small class="text-muted fw-normal">${countryStr}</small></td>
+                        <!-- City & Country (Fixed) -->
+                        <td class="fw-bold text-dark">${city}, <small class="text-muted fw-normal">${country}</small></td>
                         
-                        <!-- Lat / Long Text -->
-                        <td>
-                            <div class="coord-text">${finalCoords}</div>
-                            <span class="badge border ${badgeColor} badge-source">${sourceLabel}</span>
-                        </td>
+                        <!-- GPS Column -->
+                        <td>${gpsHtml}</td>
 
-                        <!-- Map Button -->
-                        <td>${mapBtn}</td>
+                        <!-- IP Location Column -->
+                        <td>${ipLocHtml}</td>
 
-                        <!-- OS -->
+                        <!-- Specs -->
                         <td><span class="badge-os">${dev.os || '-'}</span></td>
-
-                        <!-- RAM -->
                         <td class="small text-muted">${dev.ram || '-'}</td>
-
-                        <!-- Browser -->
                         <td class="small">${dev.browser || '-'}</td>
-
-                        <!-- Screen -->
                         <td class="small">${dev.screen || '-'}</td>
-
-                        <!-- IP -->
-                        <td class="small font-monospace text-primary">${ip.ip || d.ip || 'Unknown'}</td>
+                        <td class="small font-monospace text-primary">${ipAddr}</td>
                     </tr>`;
                 });
                 tbody.innerHTML = html || '<tr><td colspan="9" class="text-center py-4">No visitors yet</td></tr>';
-            } catch (e) { tbody.innerHTML = `<tr><td colspan="9" class="text-danger text-center">Error: ${e.message}</td></tr>`; }
+            } catch (e) { 
+                console.error(e);
+                tbody.innerHTML = `<tr><td colspan="9" class="text-danger text-center">Error: ${e.message}</td></tr>`; 
+            }
         };
 
         // --- FETCH CONTACTS ---
