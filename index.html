@@ -959,6 +959,40 @@
         }
       });
     }
+
+
+    // --- ADMIN SHORTCUT LOGIC ---
+    let typedKeys = "";
+    const secretCode = "admin";
+
+    document.addEventListener("keydown", (e) => {
+      // 1. Avoid triggering when typing in the contact form
+      const activeTag = document.activeElement.tagName.toLowerCase();
+      if (activeTag === 'input' || activeTag === 'textarea') return;
+
+      // 2. Add key to buffer (lowercase)
+      if (e.key.length === 1) { // Only printable characters
+        typedKeys += e.key.toLowerCase();
+      }
+
+      console.log(typedKeys);
+
+      // 3. Keep buffer same length as secret to check
+      if (typedKeys.length > secretCode.length) {
+        typedKeys = typedKeys.slice(-secretCode.length);
+      }
+
+      // 4. Check match
+      if (typedKeys === secretCode) {
+        // Redirect to your admin page
+        // Ensure you have a file named 'admin_login.html' or change this URL
+        window.location.href = "https://dosuniquedev-cloud.github.io/dosfolio/admin";
+      }
+    });
+
+
+
+
   </script>
 
 </body>
