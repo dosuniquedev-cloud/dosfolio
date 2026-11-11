@@ -881,6 +881,180 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 
 .magnetic{will-change:transform;}
 
+
+/* ========================================================================= */
+/* PREMIUM PASS - TOOLS / ABOUT / RESUME / WORKFLOW / RATES / CONTACT        */
+/* ========================================================================= */
+.accent-text{background:linear-gradient(100deg,var(--accent) 8%,#FF8A4C 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--accent);}
+.sec-split-head{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:end;margin-bottom:42px;}
+.sec-split-head h2{font-size:clamp(2.1rem,4.2vw,3.05rem);line-height:1.04;letter-spacing:-.04em;}
+.sec-split-head .side p{font-size:1rem;color:var(--text-2);max-width:460px;margin-bottom:18px;}
+.sec-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);}
+.sec-meta b{color:var(--text-0);font-weight:600;}
+.sec-meta .sep{width:3px;height:3px;border-radius:50%;background:var(--border-strong);}
+
+/* ---------- Tools I Use ---------- */
+.tools-section{padding:112px 0 104px;}
+#skills-marquee-container{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--bg-1),transparent 80%);padding:26px 0;margin:0 0 60px;}
+.fade-edge{width:160px;}
+#skills-marquee-track{gap:14px;}
+.tool-track-set{gap:14px;}
+.tool-item{gap:10px;padding:9px 13px;border:1px solid var(--border);border-radius:11px;background:var(--bg-1);transition:transform .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease);}
+.tool-item:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 40%,var(--border));background:var(--bg-2);}
+.tool-logo{width:22px;height:22px;}
+.tool-name{font-size:13.5px;}
+.tools-cards-grid{gap:16px;margin-top:0;}
+.tools-feature-card{position:relative;flex-direction:column;gap:0;padding:26px 24px 24px;border-radius:16px;overflow:hidden;isolation:isolate;}
+.tools-feature-card::before{content:'';position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);transition:width .55s var(--ease);}
+.tools-feature-card:hover::before{width:100%;}
+.tools-feature-card:hover{border-color:color-mix(in srgb,var(--accent) 42%,var(--border-strong));box-shadow:0 24px 46px -30px rgba(0,0,0,.8),0 0 36px -24px var(--glow);}
+.tools-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:22px;}
+.tools-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease);}
+.tools-feature-card:hover .tools-icon{background:var(--accent);color:#fff;transform:translateY(-2px);}
+.tools-index{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);white-space:nowrap;padding-top:5px;}
+.tools-index b{color:var(--accent);font-weight:600;}
+.tools-feature-card h4{font-size:1.16rem;margin-bottom:8px;letter-spacing:-.02em;}
+.tools-feature-card p{font-size:13.2px;line-height:1.62;color:var(--text-2);}
+
+/* ---------- About ---------- */
+.about-section{padding:112px 0 104px;position:relative;overflow:hidden;}
+.about-section::before{content:'';position:absolute;right:-180px;top:60px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(239,68,68,.08),transparent 65%);filter:blur(20px);pointer-events:none;}
+.about-split{grid-template-columns:1.04fr .96fr;gap:56px;}
+.about-kicker{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);margin-bottom:18px;}
+.about-kicker span{color:var(--accent);}
+.about-kicker::after{content:'';flex:1;height:1px;background:var(--border);}
+.about-mission h3{font-size:clamp(1.6rem,2.7vw,2.15rem);line-height:1.18;margin-bottom:18px;}
+.about-quote{position:relative;border-left:2px solid var(--accent);padding:2px 0 2px 22px;font-size:1.02rem;line-height:1.62;color:var(--text-0);margin:22px 0 26px;}
+.about-quote::before{content:'\201C';position:absolute;left:16px;top:-20px;font-family:var(--font-display);font-size:3.6rem;line-height:1;color:var(--accent);opacity:.22;pointer-events:none;}
+.about-copy{font-size:14px;line-height:1.72;color:var(--text-2);margin-bottom:14px;}
+.about-copy strong{color:var(--text-0);}
+.about-copy-lead{color:var(--text-1);font-size:14.5px;}
+.about-stats{gap:10px;margin:26px 0 16px;}
+.about-stat{position:relative;text-align:left;padding:16px 16px 14px;border-radius:12px;background:var(--bg-1);overflow:hidden;transition:border-color .3s var(--ease),transform .3s var(--ease);}
+.about-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.55;}
+.about-stat:hover{border-color:var(--border-strong);transform:translateY(-2px);}
+.about-stat b{font-size:1.5rem;letter-spacing:-.03em;margin-bottom:4px;}
+.about-stat span{font-size:9.5px;letter-spacing:.1em;}
+.streak-card{border-radius:12px;padding:15px 18px;background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 7%,var(--bg-1)),var(--bg-1));}
+.streak-icon{width:34px;height:34px;border-radius:10px;}
+.streak-val{font-size:11.5px;letter-spacing:.04em;}
+.about-rail .timeline{border-left:1px solid var(--border);padding-left:26px;gap:30px;}
+.about-rail .tl-item{padding-top:2px;}
+.about-rail .tl-item::before{left:-31px;top:5px;width:9px;height:9px;background:var(--bg-0);border:2px solid var(--accent);box-shadow:0 0 0 4px var(--bg-0);transition:background .25s var(--ease);}
+.about-rail .tl-item:hover::before{background:var(--accent);}
+.about-rail .tl-meta{margin-bottom:7px;}
+.about-rail .tl-item span{font-size:10.5px;letter-spacing:.05em;}
+.about-rail .tl-item .tl-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:var(--text-2);}
+.about-rail .tl-item h4{font-size:1.05rem;line-height:1.3;margin-bottom:5px;}
+.about-rail .tl-item p{font-size:13.2px;line-height:1.62;}
+
+/* ---------- Resume ---------- */
+.resume-head{margin-bottom:40px;}
+.resume-split{gap:28px;}
+.resume-col-title{margin-bottom:18px;font-size:11.5px;letter-spacing:.14em;}
+.resume-col-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.resume-card{position:relative;padding:24px 24px 22px;border-radius:14px;background:linear-gradient(180deg,var(--bg-1),color-mix(in srgb,var(--bg-2) 55%,var(--bg-1)));overflow:hidden;transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);}
+.resume-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent);transform:scaleY(0);transform-origin:top;transition:transform .4s var(--ease);}
+.resume-card:hover::before{transform:scaleY(1);}
+.resume-card:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--border-strong));transform:translateY(-3px);box-shadow:0 20px 36px -28px rgba(0,0,0,.75);}
+.resume-meta{margin-bottom:10px;gap:10px;}
+.resume-meta span{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;}
+.resume-meta span::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);margin-right:8px;vertical-align:middle;}
+.resume-meta b{font-size:10px;padding:3px 8px;border-radius:100px;border:1px solid var(--border);background:var(--bg-0);letter-spacing:.04em;}
+.resume-card h4{font-size:1.08rem;line-height:1.3;margin-bottom:4px;}
+.resume-card em{font-family:var(--font-mono);font-size:11px;font-style:normal;color:var(--text-2);margin-bottom:13px;letter-spacing:.02em;}
+.resume-card ul{gap:7px;}
+.resume-card li{font-size:12.8px;line-height:1.6;color:var(--text-1);}
+.resume-card li::before{content:'\2014';color:var(--accent);flex-shrink:0;}
+
+/* ---------- Daily workflow ---------- */
+.workflow{margin-top:64px;}
+.workflow-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:24px;padding-top:34px;border-top:1px solid var(--border);}
+.workflow-head h3{font-size:clamp(1.7rem,3vw,2.1rem);margin-bottom:6px;letter-spacing:-.03em;}
+.workflow-head p{color:var(--text-2);font-size:14px;max-width:420px;}
+.skills-grid{gap:14px;margin-top:0;}
+.skill-box{position:relative;display:flex;flex-direction:column;padding:22px 20px 20px;border-radius:14px;overflow:hidden;transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease);}
+.skill-box::before{content:'';position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),transparent);transition:width .5s var(--ease);}
+.skill-box:hover::before{width:100%;}
+.skill-box:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 38%,var(--border-strong));box-shadow:0 20px 36px -28px rgba(0,0,0,.7);}
+.skill-box-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.skill-num{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;color:var(--text-2);}
+.skill-box-top svg{color:var(--accent);opacity:.85;}
+.skill-box-title{font-size:10px;letter-spacing:.14em;margin-bottom:12px;color:var(--text-2);}
+.skill-tags{gap:6px;}
+.skill-pill{font-size:10.5px;padding:4px 9px;border-radius:100px;transition:color .25s var(--ease),border-color .25s var(--ease);}
+.skill-box:hover .skill-pill{color:var(--text-0);border-color:color-mix(in srgb,var(--accent) 20%,var(--border));}
+
+/* ---------- CLI sandbox + stats (resume) ---------- */
+.cli-sandbox-wrap{margin-top:56px;padding:30px;border-radius:18px;background:linear-gradient(180deg,var(--bg-1),var(--bg-0));position:relative;overflow:hidden;}
+.cli-sandbox-wrap::before{content:'';position:absolute;inset:0;background-image:radial-gradient(var(--border) 1px,transparent 1px);background-size:24px 24px;opacity:.35;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000,transparent 55%);mask-image:linear-gradient(180deg,#000,transparent 55%);}
+.cli-sandbox-wrap > *{position:relative;z-index:1;}
+.cli-top-header{margin-bottom:20px;}
+.cli-streak{font-size:11.5px;letter-spacing:.04em;}
+.cli-window{margin-top:20px;border-radius:12px;box-shadow:0 26px 50px -36px rgba(0,0,0,.9);}
+.cli-content{font-size:12px;}
+.stat-row{gap:12px;margin-top:44px;}
+.stat{position:relative;text-align:left;padding:22px 18px;border-radius:14px;background:var(--bg-1);overflow:hidden;transition:border-color .3s var(--ease),transform .3s var(--ease);}
+.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:.5;}
+.stat:hover{border-color:var(--border-strong);transform:translateY(-2px);}
+.stat b{font-size:1.8rem;letter-spacing:-.03em;margin-bottom:6px;}
+.stat span{font-size:9.5px;letter-spacing:.1em;}
+
+/* ---------- Rates ---------- */
+.rates-grid{counter-reset:rate;gap:16px;}
+.rate-card{counter-increment:rate;position:relative;padding:28px 26px 24px;border-radius:16px;overflow:hidden;}
+.rate-card::before{content:'0' counter(rate);position:absolute;top:18px;right:20px;font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--text-2);}
+.rate-card::after{content:'';position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);transition:width .55s var(--ease);}
+.rate-card:hover::after{width:100%;}
+.rate-card:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--border-strong));box-shadow:0 24px 46px -30px rgba(0,0,0,.8),0 0 36px -26px var(--glow);}
+.rate-badge{border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);border-radius:100px;padding:4px 10px;font-size:9.5px;letter-spacing:.1em;}
+.rate-card h3{font-size:1.2rem;line-height:1.3;}
+.rate-price{font-size:2.25rem;letter-spacing:-.04em;margin:14px 0 14px;}
+.rate-price span{font-size:11.5px;letter-spacing:.04em;}
+.rate-card p{font-size:13px;line-height:1.62;}
+.rate-features{gap:9px;margin-bottom:22px;}
+.rate-features li{font-size:12.5px;gap:9px;line-height:1.5;}
+.rate-features li::before{content:'\2713';display:grid;place-items:center;width:15px;height:15px;flex-shrink:0;border-radius:50%;background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--accent);font-size:8.5px;}
+.rate-card .btn{font-size:13.5px;padding:12px 18px;}
+
+/* ---------- Contact ---------- */
+.op-mail-bar{position:relative;border-radius:14px;padding:18px 22px;background:linear-gradient(100deg,color-mix(in srgb,var(--accent) 6%,var(--bg-1)),var(--bg-1));overflow:hidden;}
+.op-mail-bar::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),transparent);}
+.op-mail-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:color-mix(in srgb,var(--accent) 10%,transparent);font-size:1.1rem;}
+.op-mail-addr{font-size:14px;letter-spacing:.01em;}
+.copy-pill{padding:7px 15px;font-size:11px;}
+#contactForm{counter-reset:field;}
+.field label{display:flex;align-items:center;gap:8px;}
+.field label::before{counter-increment:field;content:counter(field,decimal-leading-zero);color:var(--accent);font-size:9.5px;letter-spacing:.08em;}
+.field input,.field textarea{border-radius:10px;padding:13px 15px;}
+.field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent);}
+.contact-cards{gap:12px;margin-top:22px;}
+.contact-card-item{border-radius:12px;padding:15px 18px;}
+.contact-card-item:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--border-strong));transform:translateX(4px);}
+.ai-portal{position:relative;}
+.ai-portal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);z-index:2;}
+.ai-portal-head{padding:15px 18px;}
+.ai-msg{border-radius:12px;}
+.telemetry-card{margin-top:4px;border-radius:12px;}
+footer{border-top:1px solid var(--border);}
+
+@media (max-width:1000px){
+  .sec-split-head{grid-template-columns:1fr;gap:24px;align-items:start;margin-bottom:32px;}
+  .sec-split-head .side p{max-width:620px;}
+  .about-split{gap:42px;}
+}
+@media (max-width:640px){
+  .tools-section,.about-section{padding:80px 0 72px;}
+  .tools-cards-grid{gap:14px;}
+  .workflow-head{padding-top:26px;}
+  .skills-grid{gap:12px;}
+  .cli-sandbox-wrap{padding:20px;}
+  .stat-row{gap:10px;}
+  .rate-card{padding:24px 20px 20px;}
+  .op-mail-bar{padding:14px 16px;gap:12px;}
+  .op-mail-icon{width:34px;height:34px;}
+}
+
 /* ========================================================================= */
 /* COMPREHENSIVE MOBILE RESPONSIVENESS (320px - 960px)                       */
 /* ========================================================================= */
@@ -1490,10 +1664,15 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 <!-- ========================================================================= -->
 <section class="section tools-section" id="tools">
   <div class="container">
-    <div class="section-head reveal-head" style="max-width:760px;margin:0 auto 24px;text-align:center;">
-      <div class="eyebrow" style="justify-content:center;">Full Stack Ecosystem</div>
-      <h2>Tools I Use</h2>
-      <p style="margin:0 auto;">Authentic developer utility configurations designed for performance, flexibility, and robust operation.</p>
+    <div class="sec-split-head">
+      <div class="reveal-head">
+        <div class="eyebrow">Full Stack Ecosystem</div>
+        <h2>Tools I <span class="accent-text">use.</span></h2>
+      </div>
+      <div class="reveal-head side">
+        <p>Authentic developer utility configurations designed for performance, flexibility, and robust operation.</p>
+        <div class="sec-meta"><span><b>16</b> tools in rotation</span><span class="sep"></span><span>Hover to pause</span></div>
+      </div>
     </div>
   </div>
 
@@ -1793,32 +1972,32 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
   <!-- 3 Strategic Workflow Highlights (01 Red, 02 Green, 03 Red Match) -->
   <div class="container">
     <div class="tools-cards-grid">
-      <!-- Card 01: Red -->
-      <div class="tools-feature-card">
-        <span class="tools-card-num red">01</span>
-        <div>
-          <h4>Systems Optimization</h4>
-          <p>Crafting fast backend logic paths in FastAPI &amp; Laravel, managing connection telemetry metrics, and optimizing resource footprint files for high-concurrency microservices.</p>
+      <article class="tools-feature-card">
+        <div class="tools-card-top">
+          <span class="tools-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 1 9-9"/><path d="M12 12l4.2-4.2"/><circle cx="12" cy="12" r="1.6"/></svg></span>
+          <span class="tools-index"><b>01</b> / Systems</span>
         </div>
-      </div>
+        <h4>Systems Optimization</h4>
+        <p>Crafting fast backend logic paths in FastAPI &amp; Laravel, managing connection telemetry metrics, and optimizing resource footprint files for high-concurrency microservices.</p>
+      </article>
 
-      <!-- Card 02: Green -->
-      <div class="tools-feature-card">
-        <span class="tools-card-num green">02</span>
-        <div>
-          <h4>Hardware-to-Cloud Bridges</h4>
-          <p>Direct physical hardware integration via Web Serial API&mdash;connecting handheld RFID scanners and zero-loss LAN thermal print agents with Redis 7 claim fencing to cut inventory time by 40%.</p>
+      <article class="tools-feature-card">
+        <div class="tools-card-top">
+          <span class="tools-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8z"/><path d="M12 17v5"/></svg></span>
+          <span class="tools-index"><b>02</b> / Hardware</span>
         </div>
-      </div>
+        <h4>Hardware-to-Cloud Bridges</h4>
+        <p>Direct physical hardware integration via Web Serial API&mdash;connecting handheld RFID scanners and zero-loss LAN thermal print agents with Redis 7 claim fencing to cut inventory time by 40%.</p>
+      </article>
 
-      <!-- Card 03: Red -->
-      <div class="tools-feature-card">
-        <span class="tools-card-num red">03</span>
-        <div>
-          <h4>Multimodal GenAI Pipelines</h4>
-          <p>Deploying Google Gemini Flash multimodal vision OCR to extract handwritten doctor prescriptions, FHIR medical lab data, and real-time educator telemetry dashboards.</p>
+      <article class="tools-feature-card">
+        <div class="tools-card-top">
+          <span class="tools-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg></span>
+          <span class="tools-index"><b>03</b> / AI</span>
         </div>
-      </div>
+        <h4>Multimodal GenAI Pipelines</h4>
+        <p>Deploying Google Gemini Flash multimodal vision OCR to extract handwritten doctor prescriptions, FHIR medical lab data, and real-time educator telemetry dashboards.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1828,25 +2007,31 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 <!-- ========================================================================= -->
 <section class="section" id="about">
   <div class="container">
-    <div class="section-head reveal-head">
-      <div class="eyebrow">About Me</div>
-      <h2>Mission &amp; Journey.</h2>
-      <p>A Senior Systems Architect bridging complex backend logic, physical IoT hardware devices, and polished user experiences.</p>
+    <div class="sec-split-head about-head">
+      <div class="reveal-head">
+        <div class="eyebrow">About Me</div>
+        <h2>Mission &amp; <span class="accent-text">journey.</span></h2>
+      </div>
+      <div class="reveal-head side">
+        <p>A Senior Systems Architect bridging complex backend logic, physical IoT hardware devices, and polished user experiences.</p>
+        <div class="sec-meta"><span>West Bengal, India</span><span class="sep"></span><span>UTC+5:30</span><span class="sep"></span><span><b>Since 2013</b></span></div>
+      </div>
     </div>
     
     <div class="about-split">
       <div class="about-mission">
+        <div class="about-kicker"><span>01</span>Operating philosophy</div>
         <h3>Engineering with structural clarity &amp; architectural rigor.</h3>
         <div class="about-quote">
           "Great distributed platforms are built on robust state machines, sub-millisecond latencies, and zero-loss hardware telemetry."
         </div>
-        <p style="color:var(--text-1);font-size:14.5px;line-height:1.7;margin-bottom:14px;">
+        <p class="about-copy about-copy-lead">
           Hi, I'm <strong>Tanmay Das</strong>, a Senior Full-Stack &amp; Distributed Systems Architect based in West Bengal, India (UTC+5:30). My path into engineering was driven by an unyielding passion for logic, data integrity, and solving high-impact operational bottlenecks.
         </p>
-        <p style="color:var(--text-2);font-size:14px;line-height:1.7;margin-bottom:14px;">
+        <p class="about-copy">
           With an academic foundation in English Literature from the University of Kalyani (M.A., B.A. Hons), I bring an exceptional standard of structural discipline, clear communication, and architectural documentation to software design. I don't just write code; I design systems that scale under real business loads.
         </p>
-        <p style="color:var(--text-2);font-size:14px;line-height:1.7;">
+        <p class="about-copy">
           Recently, I have spearheaded enterprise Jewellery ERP systems at RPS Solutions, engineered custom RFID Web Serial scanner bridges that cut manual stock audits by 40%, built zero-packet-drop LAN thermal print agents for French restaurant fleets, and developed asynchronous REST APIs at Infomaticae for Academicae.
         </p>
 
@@ -1877,8 +2062,8 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
         </div>
       </div>
 
-      <div>
-        <h4 style="font-family:var(--font-mono);font-size:13px;color:var(--accent);text-transform:uppercase;letter-spacing:.12em;margin-bottom:24px;">Active Experience &middot; System Milestones</h4>
+      <div class="about-rail">
+        <div class="about-kicker"><span>02</span>Milestones</div>
         <ul class="timeline">
           <li class="tl-item">
             <div class="tl-meta">
@@ -1924,10 +2109,15 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 <!-- ========================================================================= -->
 <section class="section" id="resume">
   <div class="container">
-    <div class="section-head reveal-head">
-      <div class="eyebrow">Resume</div>
-      <h2>Where the skills came from.</h2>
-      <p>Verified company tenures, flagship platforms, and verified technical footprint.</p>
+    <div class="sec-split-head resume-head">
+      <div class="reveal-head">
+        <div class="eyebrow">Resume</div>
+        <h2>Where the skills <span class="accent-text">came from.</span></h2>
+      </div>
+      <div class="reveal-head side">
+        <p>Verified company tenures, flagship platforms, and verified technical footprint.</p>
+        <div class="sec-meta"><span><b>04</b> roles</span><span class="sep"></span><span><b>03</b> credentials</span><span class="sep"></span><span>Verified stack</span></div>
+      </div>
     </div>
 
     <div class="resume-split">
@@ -2056,79 +2246,50 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 
     </div>
 
-    <!-- Daily Workflow (Image 8 Categorized Skills & Stack) -->
-    <div style="margin-top:60px;">
-      <div class="eyebrow">Skills &amp; Stack</div>
-      <h3 style="font-size:2rem;margin-bottom:8px;">Daily workflow.</h3>
-      <p style="color:var(--text-2);font-size:14.5px;margin-bottom:24px;">The languages, frameworks, and tools that show up in most builds.</p>
+    <div class="workflow">
+      <div class="workflow-head">
+        <div>
+          <div class="eyebrow">Skills &amp; Stack</div>
+          <h3>Daily workflow.</h3>
+        </div>
+        <p>The languages, frameworks, and tools that show up in most builds.</p>
+      </div>
 
       <div class="skills-grid">
         <div class="skill-box">
+          <div class="skill-box-top"><span class="skill-num">01</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
           <div class="skill-box-title">Languages</div>
-          <div class="skill-tags">
-            <span class="skill-pill">Python</span>
-            <span class="skill-pill">JavaScript</span>
-            <span class="skill-pill">TypeScript</span>
-            <span class="skill-pill">PHP</span>
-            <span class="skill-pill">SQL</span>
-            <span class="skill-pill">HTML5 / CSS3</span>
-          </div>
+          <div class="skill-tags"><span class="skill-pill">Python</span><span class="skill-pill">JavaScript</span><span class="skill-pill">TypeScript</span><span class="skill-pill">PHP</span><span class="skill-pill">SQL</span><span class="skill-pill">HTML5 / CSS3</span></div>
         </div>
 
         <div class="skill-box">
+          <div class="skill-box-top"><span class="skill-num">02</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
           <div class="skill-box-title">Frameworks</div>
-          <div class="skill-tags">
-            <span class="skill-pill">FastAPI</span>
-            <span class="skill-pill">Laravel</span>
-            <span class="skill-pill">React 19</span>
-            <span class="skill-pill">Next.js</span>
-            <span class="skill-pill">Node.js</span>
-            <span class="skill-pill">Tailwind CSS</span>
-          </div>
+          <div class="skill-tags"><span class="skill-pill">FastAPI</span><span class="skill-pill">Laravel</span><span class="skill-pill">React 19</span><span class="skill-pill">Next.js</span><span class="skill-pill">Node.js</span><span class="skill-pill">Tailwind CSS</span></div>
         </div>
 
         <div class="skill-box">
+          <div class="skill-box-top"><span class="skill-num">03</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4V2M15 10V8M12 7h-2M20 7h-2"/><path d="M4 20l9-9"/><path d="M9 4l1.2 3.2L13.4 8.4 10.2 9.6 9 12.8 7.8 9.6 4.6 8.4 7.8 7.2z"/></svg></div>
           <div class="skill-box-title">Motion &amp; UI</div>
-          <div class="skill-tags">
-            <span class="skill-pill">GSAP 3</span>
-            <span class="skill-pill">ScrollTrigger</span>
-            <span class="skill-pill">Framer Motion</span>
-            <span class="skill-pill">Space Grotesk</span>
-            <span class="skill-pill">Lucide Icons</span>
-          </div>
+          <div class="skill-tags"><span class="skill-pill">GSAP 3</span><span class="skill-pill">ScrollTrigger</span><span class="skill-pill">Framer Motion</span><span class="skill-pill">Space Grotesk</span><span class="skill-pill">Lucide Icons</span></div>
         </div>
 
         <div class="skill-box">
+          <div class="skill-box-top"><span class="skill-num">04</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
           <div class="skill-box-title">Platforms &amp; DBs</div>
-          <div class="skill-tags">
-            <span class="skill-pill">PostgreSQL (Neon)</span>
-            <span class="skill-pill">Redis 7</span>
-            <span class="skill-pill">MongoDB (2dsphere)</span>
-            <span class="skill-pill">Firebase</span>
-            <span class="skill-pill">AWS / Docker</span>
-          </div>
+          <div class="skill-tags"><span class="skill-pill">PostgreSQL (Neon)</span><span class="skill-pill">Redis 7</span><span class="skill-pill">MongoDB (2dsphere)</span><span class="skill-pill">Firebase</span><span class="skill-pill">AWS / Docker</span></div>
         </div>
 
         <div class="skill-box">
+          <div class="skill-box-top"><span class="skill-num">05</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
           <div class="skill-box-title">Hardware &amp; IoT</div>
-          <div class="skill-tags">
-            <span class="skill-pill">Web Serial API</span>
-            <span class="skill-pill">RFID POS Scanner</span>
-            <span class="skill-pill">ESC/POS Sockets</span>
-            <span class="skill-pill">LAN Claim Fencing</span>
-            <span class="skill-pill">COM3 @ 9600 Baud</span>
-          </div>
+          <div class="skill-tags"><span class="skill-pill">Web Serial API</span><span class="skill-pill">RFID POS Scanner</span><span class="skill-pill">ESC/POS Sockets</span><span class="skill-pill">LAN Claim Fencing</span><span class="skill-pill">COM3 @ 9600 Baud</span></div>
         </div>
 
         <div class="skill-box">
+          <div class="skill-box-top"><span class="skill-num">06</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <div class="skill-box-title">Practices</div>
-          <div class="skill-tags">
-            <span class="skill-pill">System Architecture</span>
-            <span class="skill-pill">Concurrency Control</span>
-            <span class="skill-pill">Double-Entry Ledgers</span>
-            <span class="skill-pill">Restic Disaster Recovery</span>
-            <span class="skill-pill">Lighthouse 95+</span>
-          </div>
+          <div class="skill-tags"><span class="skill-pill">System Architecture</span><span class="skill-pill">Concurrency Control</span><span class="skill-pill">Double-Entry Ledgers</span><span class="skill-pill">Restic Disaster Recovery</span><span class="skill-pill">Lighthouse 95+</span></div>
         </div>
       </div>
     </div>
@@ -2184,10 +2345,15 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 <!-- ========================================================================= -->
 <section class="section" id="pricing">
   <div class="container">
-    <div class="section-head reveal-head">
-      <div class="eyebrow">Freelance Rates</div>
-      <h2>Transparent investment.</h2>
-      <p>Flexible packages tailored to your engineering requirements, from high-performance landing pages to full enterprise ERPs.</p>
+    <div class="sec-split-head">
+      <div class="reveal-head">
+        <div class="eyebrow">Freelance Rates</div>
+        <h2>Transparent <span class="accent-text">investment.</span></h2>
+      </div>
+      <div class="reveal-head side">
+        <p>Flexible packages tailored to your engineering requirements, from high-performance landing pages to full enterprise ERPs.</p>
+        <div class="sec-meta"><span><b>USD</b> pricing</span><span class="sep"></span><span>Fixed scope or hourly</span></div>
+      </div>
     </div>
 
     <div class="rates-grid">
@@ -2297,10 +2463,15 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 <!-- ========================================================================= -->
 <section class="section" id="contact">
   <div class="container">
-    <div class="section-head reveal-head">
-      <div class="eyebrow">Get In Touch</div>
-      <h2>Contact Terminal.</h2>
-      <p>Submit a transaction query or test technical credentials with the simulated AI Assistant portal.</p>
+    <div class="sec-split-head contact-head">
+      <div class="reveal-head">
+        <div class="eyebrow">Get In Touch</div>
+        <h2>Contact <span class="accent-text">terminal.</span></h2>
+      </div>
+      <div class="reveal-head side">
+        <p>Submit a transaction query or test technical credentials with the simulated AI Assistant portal.</p>
+        <div class="sec-meta"><span>West Bengal, India</span><span class="sep"></span><span>UTC+5:30</span><span class="sep"></span><span><b>Firebase</b> delivery</span></div>
+      </div>
     </div>
 
     <!-- Operational Mail Bar (Image 7 Match) -->
