@@ -109,30 +109,392 @@ h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-0);font-weight:600;
 .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
 .badge{font-family:var(--font-mono);font-size:12px;padding:8px 14px;border:1px solid var(--border);border-radius:100px;color:var(--text-1);background:var(--glass);display:flex;align-items:center;gap:7px;}
 
-/* ---------- Hero workspace cluster (overflow strictly prevented) ---------- */
-.workspace{position:relative;height:470px;perspective:1200px;}
-.wcard{position:absolute;border-radius:12px;background:var(--bg-1);border:1px solid var(--border-strong);box-shadow:0 30px 60px -20px rgba(0,0,0,.35),0 0 50px -20px var(--glow);will-change:transform;overflow:hidden !important;contain:paint;}
-.wcard-editor{width:100%;max-width:430px;height:260px;top:10px;right:0;z-index:3;animation:floatA 7s ease-in-out infinite;}
-.wcard-terminal{width:330px;height:175px;bottom:10px;left:-10px;z-index:4;animation:floatB 8s ease-in-out infinite;overflow:hidden !important;contain:paint;}
-.wcard-browser{width:210px;height:115px;top:-10px;left:20px;z-index:2;animation:floatC 6.5s ease-in-out infinite;}
-@keyframes floatA{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-10px) rotate(.3deg);}}
-@keyframes floatB{0%,100%{transform:translateY(0);}50%{transform:translateY(12px);}}
-@keyframes floatC{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-8px) rotate(1deg);}}
-.wchrome{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--border);background:var(--bg-1);}
-.wdot{width:9px;height:9px;border-radius:50%;}
-.wdot.r{background:#EF4444;} .wdot.y{background:#F5B84A;} .wdot.g{background:#3ABF6E;}
-.wtab{margin-left:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-2);background:var(--bg-2);padding:3px 10px;border-radius:5px;}
-.wbody{padding:12px 14px;font-family:var(--font-mono);font-size:11.5px;line-height:1.7;white-space:pre;overflow:hidden !important;height:calc(100% - 36px);contain:paint;}
-.tok-kw{color:#F472B6;} .tok-fn{color:#60A5FA;} .tok-str{color:#34D399;} .tok-com{color:var(--text-2);} .tok-tag{color:var(--accent);} .tok-var{color:#FBBF24;} .tok-punc{color:var(--text-1);}
+/* ---------- Hero workspace cluster (Premium 3D Layered Architecture) ---------- */
+.workspace{
+  position:relative;
+  height:490px;
+  perspective:1200px;
+  transform-style:preserve-3d;
+}
+.wspace-glow{
+  position:absolute;
+  top:15%;
+  right:15%;
+  width:360px;
+  height:360px;
+  background:radial-gradient(circle, var(--glow) 0%, rgba(239,68,68,0) 70%);
+  filter:blur(60px);
+  pointer-events:none;
+  z-index:1;
+  opacity:.65;
+  border-radius:50%;
+  animation:glowBreathe 8s ease-in-out infinite alternate;
+}
+@keyframes glowBreathe{
+  0%{transform:scale(0.95);opacity:.5;}
+  100%{transform:scale(1.1);opacity:.75;}
+}
+.wcard{
+  position:absolute;
+  border-radius:14px;
+  background:color-mix(in srgb, var(--bg-1) 88%, transparent);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid var(--border-strong);
+  box-shadow:0 25px 60px -15px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.07) inset, 0 10px 30px -10px var(--glow);
+  will-change:transform;
+  overflow:hidden !important;
+  contain:paint;
+  transition:border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+html[data-theme="light"] .wcard{
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 24px 50px -15px rgba(15,23,42,.14), 0 0 0 1px rgba(255,255,255,.9) inset, 0 12px 35px -12px rgba(239,68,68,.18);
+}
+.wcard:hover{
+  border-color:color-mix(in srgb, var(--accent) 40%, var(--border-strong));
+  box-shadow:0 30px 70px -18px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.12) inset, 0 15px 40px -10px var(--glow);
+}
+html[data-theme="light"] .wcard:hover{
+  box-shadow:0 30px 65px -15px rgba(15,23,42,.18), 0 0 0 1px rgba(255,255,255,.95) inset, 0 16px 45px -10px rgba(239,68,68,.25);
+}
+
+/* Card 1: Telemetry & Edge Monitor (Layered behind middle card, Top-Left) */
+.wcard-browser, .wcard-telemetry{
+  width:300px;
+  height:165px;
+  top:-15px;
+  left:-25px;
+  z-index:2;
+  animation:floatC 7s ease-in-out infinite;
+}
+
+/* Card 2: Production Code Editor (Middle centerpiece, in front of 1st card) */
+.wcard-editor{
+  width:100%;
+  max-width:440px;
+  height:250px;
+  top:70px;
+  right:0;
+  z-index:3;
+  animation:floatA 7.6s ease-in-out infinite;
+}
+
+/* Card 3: Interactive Terminal (Bottom-Left, anchored in front) */
+.wcard-terminal{
+  width:340px;
+  height:155px;
+  bottom:0;
+  left:15px;
+  z-index:4;
+  animation:floatB 8.2s ease-in-out infinite;
+  overflow:hidden !important;
+  contain:paint;
+}
+
+@keyframes floatA{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-8px) rotate(.3deg);}
+}
+@keyframes floatB{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(8px);}
+}
+@keyframes floatC{
+  0%,100%{transform:translateY(0) rotate(-.5deg);}
+  50%{transform:translateY(-6px) rotate(.4deg);}
+}
+
+/* Window Chrome (Universal macOS-inspired Header) */
+.wchrome{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:9px 12px;
+  border-bottom:1px solid var(--border);
+  background:color-mix(in srgb, var(--bg-1) 75%, transparent);
+  user-select:none;
+}
+.wchrome-left{display:flex;align-items:center;gap:7px;}
+.wchrome-right{display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10.5px;}
+.wdot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  display:inline-block;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.35), 0 1px 2px rgba(0,0,0,.15);
+}
+.wdot.r{background:#FF5F56;border:1px solid #E0443E;}
+.wdot.y{background:#FFBD2E;border:1px solid #DEA123;}
+.wdot.g{background:#27C93F;border:1px solid #1AAB29;}
+
+/* Card 1: Telemetry Content */
+.wtele-url{
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:var(--text-1);
+  background:var(--bg-2);
+  padding:2px 8px;
+  border-radius:6px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  border:1px solid var(--border);
+}
+.wtele-badge{
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:600;
+  color:#10B981;
+  background:rgba(16,185,129,.12);
+  border:1px solid rgba(16,185,129,.25);
+  padding:2px 7px;
+  border-radius:100px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  letter-spacing:.04em;
+}
+.wtele-pulse{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#10B981;
+  box-shadow:0 0 8px #10B981;
+  animation:pulseDot 2s ease-in-out infinite;
+}
+.wtele-body{
+  padding:6px 10px;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.wtele-nodes{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+.wtele-node{
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:4px 7px;
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+}
+.wtele-lbl{
+  font-family:var(--font-mono);
+  font-size:8px;
+  color:var(--text-2);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  display:flex;
+  align-items:center;
+}
+.wtele-val{
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:600;
+  color:var(--text-0);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.wtele-val.ok{color:#10B981;}
+.wtele-spark{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:3px 7px;
+  border-radius:5px;
+  background:linear-gradient(90deg, rgba(239,68,68,.08), rgba(16,185,129,.08));
+  border:1px solid var(--border);
+  font-family:var(--font-mono);
+  font-size:9px;
+  color:var(--text-2);
+}
+.wtele-spark b{color:var(--text-0);font-weight:600;}
+.wtele-spark-rate{color:#10B981;font-weight:500;}
+.wtele-wave{
+  display:flex;
+  align-items:flex-end;
+  gap:2px;
+  height:11px;
+}
+.wtele-wave .bar{
+  width:2.5px;
+  height:var(--h, 50%);
+  background:#10B981;
+  border-radius:1px;
+  animation:wavePulse 1.6s ease-in-out infinite alternate;
+}
+.wtele-wave .bar:nth-child(2){animation-delay:.2s;}
+.wtele-wave .bar:nth-child(3){animation-delay:.4s;}
+.wtele-wave .bar:nth-child(4){animation-delay:.1s;}
+.wtele-wave .bar:nth-child(5){animation-delay:.3s;}
+.wtele-wave .bar:nth-child(6){animation-delay:.5s;}
+.wtele-wave .bar:nth-child(7){animation-delay:.25s;}
+.wtele-wave .bar:nth-child(8){animation-delay:.35s;}
+@keyframes wavePulse{
+  0%{transform:scaleY(.3);opacity:.35;}
+  100%{transform:scaleY(1);opacity:1;}
+}
+
+/* Card 2: Code Editor Content */
+.wtab{
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--text-2);
+  background:var(--bg-2);
+  padding:3px 9px;
+  border-radius:5px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid var(--border);
+}
+.wtab.active{
+  color:var(--text-0);
+  background:var(--bg-1);
+  border-color:var(--border-strong);
+  font-weight:500;
+}
+.wtab-icon{
+  color:var(--accent);
+  font-size:9.5px;
+  font-weight:700;
+  font-family:var(--font-mono);
+  background:color-mix(in srgb, var(--accent) 14%, transparent);
+  padding:1px 5px;
+  border-radius:4px;
+  display:inline-flex;
+  align-items:center;
+}
+.wbadge-git{
+  color:var(--text-2);
+  font-size:10.5px;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.wbody-wrap{
+  display:flex;
+  height:calc(100% - 68px);
+  position:relative;
+  overflow:hidden !important;
+}
+.wlines{
+  width:28px;
+  padding:10px 0 10px 8px;
+  display:flex;
+  flex-direction:column;
+  font-family:var(--font-mono);
+  font-size:11px;
+  line-height:1.68;
+  color:var(--text-2);
+  opacity:.4;
+  user-select:none;
+  text-align:right;
+  border-right:1px solid var(--border);
+}
+.wlines span{display:block;}
+.wbody{
+  flex:1;
+  padding:10px 12px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  line-height:1.68;
+  white-space:pre;
+  overflow:hidden !important;
+  contain:paint;
+}
+.tok-kw{color:#F472B6;font-weight:600;}
+.tok-fn{color:#60A5FA;}
+.tok-str{color:#34D399;}
+.tok-com{color:var(--text-2);font-style:italic;}
+.tok-tag{color:var(--accent);}
+.tok-var{color:#FBBF24;}
+.tok-punc{color:var(--text-1);}
 #editorCode{white-space:pre;}
-.cursor-blink{display:inline-block;width:7px;height:14px;background:var(--accent);vertical-align:middle;animation:blink 1s step-end infinite;margin-left:1px;}
+.cursor-blink{
+  display:inline-block;
+  width:7px;
+  height:14px;
+  background:var(--accent);
+  vertical-align:middle;
+  animation:blink 1s step-end infinite;
+  margin-left:1px;
+  border-radius:1px;
+  box-shadow:0 0 8px var(--glow);
+}
 @keyframes blink{50%{opacity:0;}}
-.wterm-body{padding:12px 14px;font-family:var(--font-mono);font-size:11px;color:var(--text-1);line-height:1.6;overflow:hidden !important;height:calc(100% - 34px);contain:paint;display:flex;flex-direction:column;justify-content:flex-start;}
-.wterm-body div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.wterm-body .prompt{color:var(--accent);} .wterm-body .ok{color:#3ABF6E;}
-.wbrowser-body{padding:12px 14px;font-family:var(--font-mono);font-size:11px;}
-.wbrowser-url{font-size:10px;color:var(--text-2);background:var(--bg-2);border-radius:5px;padding:3px 8px;margin-bottom:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.wbrowser-preview{height:44px;border-radius:6px;background:linear-gradient(135deg,rgba(239,68,68,.16),rgba(239,68,68,.02));display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--accent);gap:6px;}
+.weditor-foot{
+  height:30px;
+  border-top:1px solid var(--border);
+  background:color-mix(in srgb, var(--bg-1) 85%, transparent);
+  padding:0 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:var(--text-2);
+  user-select:none;
+}
+.wfoot-item{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+}
+.wfoot-item.ok{color:#10B981;}
+.wfoot-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#10B981;
+  display:inline-block;
+  box-shadow:0 0 6px #10B981;
+}
+
+/* Card 3: Terminal Content */
+.wterm-status{
+  color:var(--text-2);
+  font-size:10px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  background:var(--bg-2);
+  padding:2px 7px;
+  border-radius:4px;
+  border:1px solid var(--border);
+}
+.wterm-body{
+  padding:12px 14px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--text-1);
+  line-height:1.65;
+  overflow:hidden !important;
+  height:calc(100% - 34px);
+  contain:paint;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+.wterm-body div{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  animation:fadeSlideIn .25s ease forwards;
+}
+@keyframes fadeSlideIn{
+  from{opacity:0;transform:translateY(4px);}
+  to{opacity:1;transform:translateY(0);}
+}
+.wterm-body .prompt{color:var(--accent);font-weight:600;}
+.wterm-body .ok{color:#10B981;font-weight:500;}
 
 /* ---------- Portfolio (Section 2 - Backup Exact Items) ---------- */
 .filter-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px;}
@@ -356,8 +718,10 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 
 @media (max-width: 920px) {
   .hero .container{grid-template-columns:1fr;gap:30px;}
-  .workspace{height:380px;margin-top:20px;}
-  .wcard-editor{max-width:100%;}
+  .workspace{height:410px;margin-top:20px;max-width:540px;margin-left:auto;margin-right:auto;}
+  .wcard-browser, .wcard-telemetry{width:270px;height:140px;top:-10px;left:0;z-index:2;}
+  .wcard-editor{max-width:100%;top:65px;height:245px;z-index:3;}
+  .wcard-terminal{width:310px;height:155px;bottom:0;left:0;z-index:4;}
   .portfolio-grid{grid-template-columns:repeat(2,1fr);}
 }
 
@@ -382,10 +746,11 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
   .badges{gap:8px;margin-top:24px;}
   .badge{font-size:11.5px;padding:7px 12px;}
   
-  .workspace{height:330px;margin-top:20px;}
-  .wcard-editor{height:220px;}
-  .wcard-terminal{width:calc(100% - 10px);left:5px;height:145px;bottom:0;}
-  .wcard-browser{display:none;}
+  .workspace{height:360px;margin-top:20px;}
+  .wcard-browser, .wcard-telemetry{width:calc(100% - 10px);left:5px;height:72px;top:0;z-index:2;}
+  .wcard-browser .wtele-nodes, .wcard-telemetry .wtele-nodes{display:none;}
+  .wcard-editor{width:100%;top:50px;height:210px;z-index:3;}
+  .wcard-terminal{width:calc(100% - 10px);left:5px;height:140px;bottom:0;z-index:4;}
   
   .portfolio-grid{grid-template-columns:1fr;gap:18px;}
   .service-grid{grid-template-columns:1fr;gap:18px;}
@@ -480,23 +845,103 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
     </div>
     <div class="hero-right">
       <div class="workspace" id="workspace">
+        <div class="wspace-glow"></div>
+
+        <!-- Card 1: Hardware-to-Cloud Bridge & Edge Telemetry (100% visible, elevated in front) -->
+        <div class="wcard wcard-browser wcard-telemetry">
+          <div class="wchrome">
+            <div class="wchrome-left">
+              <span class="wdot r"></span><span class="wdot y"></span><span class="wdot g"></span>
+              <span class="wtele-url">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:2px;"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                mesh://lan-bridge
+              </span>
+            </div>
+            <div class="wchrome-right">
+              <span class="wtele-badge"><span class="wtele-pulse"></span>LIVE</span>
+            </div>
+          </div>
+          <div class="wtele-body">
+            <div class="wtele-nodes">
+              <div class="wtele-node">
+                <span class="wtele-lbl">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:3px;"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/></svg>
+                  RFID POS
+                </span>
+                <span class="wtele-val ok">COM3 &bull; SYNC</span>
+              </div>
+              <div class="wtele-node">
+                <span class="wtele-lbl">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:3px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+                  ESC/POS
+                </span>
+                <span class="wtele-val ok">0-Loss Queue</span>
+              </div>
+            </div>
+            <div class="wtele-spark">
+              <span class="wtele-spark-info">Cluster P99: <b>1.1ms</b></span>
+              <div class="wtele-wave">
+                <span class="bar" style="--h:40%"></span>
+                <span class="bar" style="--h:75%"></span>
+                <span class="bar" style="--h:50%"></span>
+                <span class="bar" style="--h:90%"></span>
+                <span class="bar" style="--h:60%"></span>
+                <span class="bar" style="--h:85%"></span>
+                <span class="bar" style="--h:100%"></span>
+                <span class="bar" style="--h:65%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Production Code Editor (Centerpiece) -->
         <div class="wcard wcard-editor">
           <div class="wchrome">
-            <span class="wdot r"></span><span class="wdot y"></span><span class="wdot g"></span>
-            <span class="wtab" id="editorTab">rfid_bridge.py</span>
+            <div class="wchrome-left">
+              <span class="wdot r"></span><span class="wdot y"></span><span class="wdot g"></span>
+              <div class="wtab active">
+                <span class="wtab-icon" id="editorIcon">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </span>
+                <span class="wtab-title" id="editorTab">lan_print_agent.ts</span>
+              </div>
+            </div>
+            <div class="wchrome-right">
+              <span class="wbadge-git">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:2px;"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+                main*
+              </span>
+            </div>
           </div>
-          <div class="wbody"><span id="editorCode"></span><span class="cursor-blink"></span></div>
+          <div class="wbody-wrap">
+            <div class="wlines" id="editorLines">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+            </div>
+            <div class="wbody"><span id="editorCode"></span><span class="cursor-blink"></span></div>
+          </div>
+          <div class="weditor-foot">
+            <span class="wfoot-item">&#10004; TS Strict</span>
+            <span class="wfoot-item" id="editorLang">TypeScript 5.4</span>
+            <span class="wfoot-item">UTF-8</span>
+            <span class="wfoot-item ok"><span class="wfoot-dot"></span>Redis NX Locked</span>
+          </div>
         </div>
+
+        <!-- Card 3: Interactive Live Terminal -->
         <div class="wcard wcard-terminal">
-          <div class="wchrome"><span class="wdot r"></span><span class="wdot y"></span><span class="wdot g"></span><span class="wtab">zsh</span></div>
-          <div class="wterm-body" id="termBody"></div>
-        </div>
-        <div class="wcard wcard-browser">
-          <div class="wchrome"><span class="wdot r"></span><span class="wdot y"></span><span class="wdot g"></span></div>
-          <div class="wbrowser-body">
-            <div class="wbrowser-url">academicae.com &bull; rpssolutions.com</div>
-            <div class="wbrowser-preview">&#9679; Deployment successful</div>
+          <div class="wchrome">
+            <div class="wchrome-left">
+              <span class="wdot r"></span><span class="wdot y"></span><span class="wdot g"></span>
+              <span class="wtab">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:3px;"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                zsh &mdash; 80&times;24
+              </span>
+            </div>
+            <div class="wchrome-right">
+              <span class="wterm-status"><span class="wfoot-dot"></span>cluster:8000</span>
+            </div>
           </div>
+          <div class="wterm-body" id="termBody"></div>
         </div>
       </div>
     </div>
@@ -1836,8 +2281,9 @@ if(!reduced && matchMedia('(hover:hover)').matches && workspace){
     const px = (e.clientX - r.left)/r.width - 0.5;
     const py = (e.clientY - r.top)/r.height - 0.5;
     workspace.querySelectorAll('.wcard').forEach((card,i)=>{
-      const depth = (i+1) * 6;
-      card.style.transform = `rotateY(${px*depth}deg) rotateX(${-py*depth}deg)`;
+      const depths = [5, 8, 12];
+      const depth = depths[i] || ((i+1)*6);
+      card.style.transform = `rotateY(${px*depth}deg) rotateX(${-py*depth}deg) translateZ(${depth*2}px)`;
     });
   });
   workspace.addEventListener('mouseleave', ()=>{
@@ -1848,7 +2294,21 @@ if(!reduced && matchMedia('(hover:hover)').matches && workspace){
 /* Real-world Code Typing Animation (Concise, fit without overflow) */
 const snippets = [
 {
+  tab: 'lan_print_agent.ts',
+  icon: 'TS',
+  lang: 'TypeScript 5.4',
+  code: `<span class="tok-com">// Zero-Loss LAN Thermal Print Agent</span>
+<span class="tok-kw">export async function</span> <span class="tok-fn">claimJob</span>(<span class="tok-var">ticketId</span>: <span class="tok-fn">string</span>) {
+  <span class="tok-kw">const</span> leaseKey = <span class="tok-str">\`lease:ticket:\${ticketId}\`</span>;
+  <span class="tok-kw">const</span> ok = <span class="tok-kw">await</span> redis.set(leaseKey, UUID, <span class="tok-str">'NX'</span>, <span class="tok-str">'EX'</span>, <span class="tok-punc">15</span>);
+  <span class="tok-kw">if</span> (!ok) <span class="tok-kw">throw new</span> <span class="tok-fn">Error</span>(<span class="tok-str">"Duplicate prevented"</span>);
+  <span class="tok-kw">return</span> sendEscPos(ticketId);
+}`
+},
+{
   tab: 'rfid_bridge.py',
+  icon: 'PY',
+  lang: 'Python 3.12',
   code: `<span class="tok-kw">@router.post</span>(<span class="tok-str">"/v1/pos/rfid/scan"</span>)
 <span class="tok-kw">async def</span> <span class="tok-fn">rfid_scan</span>(<span class="tok-var">tag</span>: <span class="tok-fn">RFIDTag</span>):
   <span class="tok-com"># -40% inventory time at RPS Jewel Pro</span>
@@ -1858,17 +2318,9 @@ const snippets = [
     <span class="tok-kw">return</span> {<span class="tok-str">"purity"</span>: row[<span class="tok-str">"karat"</span>], <span class="tok-str">"stock"</span>: <span class="tok-punc">-1</span>}`
 },
 {
-  tab: 'lan_print_agent.ts',
-  code: `<span class="tok-com">// Zero-Loss LAN Thermal Print Agent</span>
-<span class="tok-kw">export async function</span> <span class="tok-fn">claimJob</span>(<span class="tok-var">ticketId</span>: <span class="tok-fn">string</span>) {
-  <span class="tok-kw">const</span> leaseKey = <span class="tok-str">\`lease:ticket:\${ticketId}\`</span>;
-  <span class="tok-kw">const</span> ok = <span class="tok-kw">await</span> redis.set(leaseKey, UUID, <span class="tok-str">'NX'</span>, <span class="tok-str">'EX'</span>, <span class="tok-punc">15</span>);
-  <span class="tok-kw">if</span> (!ok) <span class="tok-kw">throw new</span> <span class="tok-fn">Error</span>(<span class="tok-str">"Duplicate ticket prevented"</span>);
-  <span class="tok-kw">return</span> sendEscPos(ticketId);
-}`
-},
-{
   tab: 'gemini_ocr.py',
+  icon: 'AI',
+  lang: 'Gemini 1.5 Pro',
   code: `<span class="tok-com"># Multimodal Vision OCR Pipeline</span>
 <span class="tok-kw">async def</span> <span class="tok-fn">parse_prescription</span>(<span class="tok-var">img_bytes</span>: <span class="tok-fn">bytes</span>):
   prompt = <span class="tok-str">"Extract drugs, dosage &amp; Bengali localization."</span>
@@ -1880,30 +2332,64 @@ const snippets = [
 
 const editorEl = document.getElementById('editorCode');
 const editorTab = document.getElementById('editorTab');
+const editorIcon = document.getElementById('editorIcon');
+const editorLang = document.getElementById('editorLang');
 let sIndex = 0;
 
 function typeSnippet(){
   if(reduced){ 
-    editorTab.textContent = snippets[0].tab;
+    if(editorTab) editorTab.textContent = snippets[0].tab;
+    if(editorIcon) editorIcon.textContent = snippets[0].icon;
+    if(editorLang) editorLang.textContent = snippets[0].lang;
     editorEl.innerHTML = snippets[0].code; 
     return; 
   }
   const item = snippets[sIndex];
-  editorTab.textContent = item.tab;
+  if(editorTab) editorTab.textContent = item.tab;
+  if(editorIcon) editorIcon.textContent = item.icon;
+  if(editorLang) editorLang.textContent = item.lang;
   const plain = item.code;
   let i = 0;
   editorEl.innerHTML = '';
   const interval = setInterval(()=>{
     i += 3;
-    editorEl.innerHTML = plain.slice(0, i);
+    if (i < plain.length) {
+      const lastOpen = plain.lastIndexOf('<', i);
+      const lastClose = plain.lastIndexOf('>', i);
+      if (lastOpen > lastClose) {
+        const nextClose = plain.indexOf('>', i);
+        if (nextClose !== -1) i = nextClose + 1;
+      }
+    }
+    const slice = plain.slice(0, Math.min(i, plain.length));
+    const openTags = [];
+    const tagRegex = /<(\/)?([a-z0-9]+)(?:\s+[^>]*?)?(\/)?>/gi;
+    let tMatch;
+    while ((tMatch = tagRegex.exec(slice)) !== null) {
+      const isClose = !!tMatch[1];
+      const tag = tMatch[2].toLowerCase();
+      const isSelf = !!tMatch[3] || ['br', 'img', 'hr', 'input'].includes(tag);
+      if (isSelf) continue;
+      if (isClose) {
+        if (openTags.length && openTags[openTags.length - 1] === tag) openTags.pop();
+      } else {
+        openTags.push(tag);
+      }
+    }
+    let safeHtml = slice;
+    for (let t = openTags.length - 1; t >= 0; t--) {
+      safeHtml += `</${openTags[t]}>`;
+    }
+    editorEl.innerHTML = safeHtml;
     if(i >= plain.length){
       clearInterval(interval);
+      editorEl.innerHTML = plain;
       setTimeout(()=>{ 
         sIndex = (sIndex+1) % snippets.length; 
         typeSnippet(); 
-      }, 3500);
+      }, 4000);
     }
-  }, 14);
+  }, 16);
 }
 typeSnippet();
 
@@ -1911,9 +2397,9 @@ typeSnippet();
 const termLines = [
   {p:'~/repo', c:'fastapi dev --workers 4'},
   {p:'[SYS]', c:'Redis 7 cluster: OK (1.1ms)'},
-  {p:'[RFID]', c:'COM3 @ 9600 baud [SYNC]'},
-  {p:'[PRINT]', c:'LAN claim: 0 drop'},
-  {p:'~/prod', c:'status: 100% nominal', ok:'&#10004; Deployment active'}
+  {p:'[RFID]', c:'COM3 @ 9600 baud [SYNC: 0 err]'},
+  {p:'[PRINT]', c:'LAN claim ticket: zero-loss [OK]'},
+  {p:'~/prod', c:'status: 100% nominal', ok:'&#10004; Deployment active & healthy'}
 ];
 const termEl = document.getElementById('termBody');
 function runTerminal(){
