@@ -496,22 +496,160 @@ html[data-theme="light"] .wcard:hover{
 .wterm-body .prompt{color:var(--accent);font-weight:600;}
 .wterm-body .ok{color:#10B981;font-weight:500;}
 
-/* ---------- Portfolio (Section 2 - Backup Exact Items) ---------- */
-.filter-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px;}
-.filter-btn{font-family:var(--font-mono);font-size:12.5px;padding:8px 18px;border-radius:100px;border:1px solid var(--border);color:var(--text-2);background:var(--glass);transition:all .2s;}
-.filter-btn.active, .filter-btn:hover{color:var(--text-0);border-color:var(--accent);background:color-mix(in srgb, var(--accent) 12%, transparent);}
-.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.portfolio-card{background:var(--bg-1);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column;justify-content:space-between;}
-.portfolio-card:hover{transform:translateY(-6px);border-color:var(--border-strong);box-shadow:0 24px 50px -24px rgba(0,0,0,.6),0 0 40px -24px var(--glow);}
-.portfolio-img-box{width:100%;height:200px;overflow:hidden;position:relative;background:var(--bg-2);border-bottom:1px solid var(--border);}
-.portfolio-img-box img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease);}
-.portfolio-card:hover .portfolio-img-box img{transform:scale(1.05);}
-.portfolio-info{padding:20px;display:flex;flex-direction:column;flex-grow:1;justify-content:space-between;}
-.portfolio-info h4{font-size:1.15rem;margin-bottom:6px;}
-.portfolio-info p{font-size:13.5px;color:var(--text-2);margin-bottom:16px;}
-.portfolio-links{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:12.5px;}
-.portfolio-links a{color:var(--accent);display:inline-flex;align-items:center;gap:4px;font-weight:500;}
-.portfolio-links a:hover{text-decoration:underline;}
+/* ---------- Portfolio (Selected Work - Premium Editorial Showcase) ---------- */
+.work-section{padding:96px 0 82px;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.work-bg{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.work-bg .work-dots{position:absolute;inset:0;background-image:radial-gradient(var(--border-strong) 1px,transparent 1px);background-size:26px 26px;opacity:.4;-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 58%);mask-image:linear-gradient(180deg,#000 0%,transparent 58%);}
+.work-bg .work-glow{position:absolute;top:-190px;right:-140px;width:660px;height:660px;border-radius:50%;background:radial-gradient(circle,rgba(239,68,68,.13),transparent 62%);filter:blur(30px);}
+html[data-theme="light"] .work-bg .work-glow{background:radial-gradient(circle,rgba(239,68,68,.09),transparent 62%);}
+
+.work-head{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:end;margin-bottom:30px;}
+.work-head h2{font-size:clamp(2.2rem,4.4vw,3.2rem);line-height:1;letter-spacing:-.04em;}
+.work-accent{background:linear-gradient(100deg,var(--accent) 12%,#FF8A4C 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--accent);}
+.work-lede{font-size:1.02rem;color:var(--text-2);max-width:440px;margin-bottom:20px;}
+.work-stats{display:flex;gap:34px;flex-wrap:wrap;}
+.work-stat{position:relative;padding-left:16px;}
+.work-stat::before{content:'';position:absolute;left:0;top:3px;bottom:3px;width:1px;background:var(--border-strong);}
+.work-stat b{display:block;font-family:var(--font-display);font-size:1.6rem;line-height:1;color:var(--text-0);letter-spacing:-.03em;margin-bottom:7px;}
+.work-stat b em{font-style:normal;color:var(--accent);font-size:.7em;}
+.work-stat span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);}
+
+.work-toolbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+.filter-nav{display:inline-flex;align-items:center;gap:4px;padding:5px;border-radius:100px;border:1px solid var(--border);background:color-mix(in srgb,var(--bg-1) 72%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 34px -26px rgba(0,0,0,.8);}
+.filter-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 17px;border-radius:100px;border:none;background:transparent;color:var(--text-2);font-family:var(--font-mono);font-size:12px;letter-spacing:.01em;transition:color .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease);}
+.filter-btn span{font-size:10.5px;padding:1.5px 7px;border-radius:100px;background:var(--bg-2);color:var(--text-2);transition:background .25s var(--ease),color .25s var(--ease);}
+.filter-btn:hover{color:var(--text-0);}
+.filter-btn.active{background:var(--accent);color:#fff;box-shadow:0 10px 26px -12px var(--glow);}
+.filter-btn.active span{background:rgba(255,255,255,.2);color:#fff;}
+.work-count{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);}
+.work-count b{color:var(--text-0);font-weight:600;}
+.work-live{width:6px;height:6px;border-radius:50%;background:#10B981;box-shadow:0 0 10px rgba(16,185,129,.85);animation:pulseDot 2.4s ease-in-out infinite;flex-shrink:0;}
+
+.portfolio-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;grid-auto-flow:dense;}
+
+/* Card: media plate + solid information panel */
+.work-card{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;border:1px solid var(--border);background:var(--bg-1);aspect-ratio:16/11;isolation:isolate;transition:transform .45s var(--ease),border-color .35s var(--ease),box-shadow .45s var(--ease);}
+.work-card.is-spotlight{grid-column:1 / -1;display:grid;grid-template-columns:1.18fr .82fr;aspect-ratio:auto;min-height:288px;}
+.work-card.is-wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;aspect-ratio:auto;min-height:200px;}
+
+/* LIVE badge */
+.work-card::before{content:'LIVE';position:absolute;top:12px;left:12px;z-index:5;font-family:var(--font-mono);font-size:8.5px;font-weight:600;letter-spacing:.18em;color:#fff;padding:4px 8px 4px 19px;border-radius:100px;background:rgba(6,6,6,.52);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+.work-card::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .4s var(--ease);background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(239,68,68,.16),transparent 70%);}
+.work-card:hover::after{opacity:1;}
+.work-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 55%,var(--border-strong));box-shadow:0 26px 50px -30px rgba(0,0,0,.8),0 0 0 1px color-mix(in srgb,var(--accent) 26%,transparent),0 0 44px -26px var(--glow);}
+html[data-theme="light"] .work-card:hover{box-shadow:0 26px 50px -30px rgba(15,23,42,.35),0 0 0 1px rgba(239,68,68,.2),0 0 44px -26px rgba(239,68,68,.4);}
+
+.work-media{position:relative;flex:1 1 auto;min-height:0;overflow:hidden;background:var(--bg-2);}
+.work-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.01);filter:saturate(.9) contrast(1.03) brightness(.96);transition:transform 1.1s var(--ease),filter .5s var(--ease);}
+.work-card:hover .work-media img{transform:scale(1.05);filter:saturate(1.06) contrast(1.04) brightness(1);}
+.work-media::before{content:'';position:absolute;top:19px;left:21px;z-index:3;width:5px;height:5px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981;animation:pulseDot 2.4s ease-in-out infinite;pointer-events:none;}
+.work-media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,6,6,.22) 0%,rgba(6,6,6,0) 45%,rgba(6,6,6,.6) 100%);opacity:.9;transition:opacity .45s var(--ease);}
+.work-card:hover .work-media::after{opacity:1;background:linear-gradient(180deg,rgba(6,6,6,.3) 0%,rgba(6,6,6,0) 38%,rgba(6,6,6,.82) 100%);}
+
+/* Whole-image zoom target */
+.work-zoom-hit{position:absolute;inset:0;z-index:2;border:none;background:transparent;cursor:zoom-in;}
+.work-zoom-hit:focus-visible{outline:2px solid var(--accent);outline-offset:-3px;}
+
+/* Hover action bar */
+.work-actions{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;gap:7px;padding:11px;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .3s var(--ease),transform .4s var(--ease);}
+.work-card:hover .work-actions,.work-card:focus-within .work-actions{opacity:1;transform:none;pointer-events:auto;}
+.work-action{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:100px;font-family:var(--font-mono);font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(8,8,8,.58);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;transform:translateY(6px);transition:opacity .3s var(--ease),transform .35s var(--ease),background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);}
+.work-card:hover .work-action,.work-card:focus-within .work-action{opacity:1;transform:none;}
+.work-card:hover .work-action:nth-child(2){transition-delay:.05s;}
+.work-action:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.work-action-live{background:#fff;color:#0A0A0A;border-color:#fff;}
+.work-action-live:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+.work-body{position:relative;z-index:3;flex:0 0 auto;display:flex;flex-direction:column;gap:7px;padding:14px 16px 15px;background:var(--bg-1);border-top:1px solid var(--border);}
+.work-body::before{content:'';position:absolute;left:0;top:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);transition:width .5s var(--ease);}
+.work-card:hover .work-body::before{width:100%;}
+.work-meta{display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;}
+.work-num{color:var(--accent);font-weight:600;}
+.work-cat{padding:2.5px 8px;border-radius:100px;border:1px solid var(--border);background:var(--bg-2);color:var(--text-2);font-size:8.5px;letter-spacing:.12em;}
+.work-card.filter-app .work-cat{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,transparent);background:color-mix(in srgb,var(--accent) 10%,transparent);}
+.work-title{font-family:var(--font-display);font-size:1.02rem;font-weight:600;line-height:1.28;letter-spacing:-.02em;color:var(--text-0);}
+.work-desc{display:none;font-size:13.2px;line-height:1.55;color:var(--text-2);max-width:50ch;}
+.work-sub{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:9.5px;color:var(--text-2);white-space:nowrap;overflow:hidden;}
+.work-sub::before{content:'';flex-shrink:0;width:12px;height:1px;background:var(--accent);opacity:.75;}
+
+.work-card.is-spotlight .work-body,.work-card.is-wide .work-body{border-top:0;border-left:1px solid var(--border);justify-content:center;padding:26px 28px;}
+.work-card.is-spotlight .work-title{font-size:clamp(1.45rem,2.3vw,1.85rem);margin-top:2px;}
+.work-card.is-spotlight .work-desc{display:block;}
+.work-card.is-wide .work-title{font-size:1.25rem;}
+.work-link{display:inline-flex;align-items:center;gap:6px;width:fit-content;margin-top:6px;padding:8px 15px;border-radius:100px;background:color-mix(in srgb,var(--accent) 10%,transparent);border:1px solid color-mix(in srgb,var(--accent) 38%,transparent);color:var(--accent);font-size:12px;font-weight:600;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);}
+.work-link:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.work-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+/* Project image lightbox */
+body.no-scroll{overflow:hidden;}
+.lightbox{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px;}
+.lightbox[hidden]{display:none;}
+.lightbox-backdrop{position:absolute;inset:0;background:rgba(4,4,4,.74);backdrop-filter:blur(16px) saturate(130%);-webkit-backdrop-filter:blur(16px) saturate(130%);}
+.lightbox-inner{position:relative;z-index:1;width:min(960px,100%);}
+.lightbox-figure{margin:0;border-radius:18px;overflow:hidden;background:var(--bg-1);border:1px solid var(--border-strong);box-shadow:0 50px 120px -40px rgba(0,0,0,.9);}
+.lightbox-figure img{display:block;width:auto;height:auto;max-width:100%;max-height:72vh;margin:0 auto;background:#0A0A0A;}
+.lightbox-cap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;background:var(--bg-1);border-top:1px solid var(--border);}
+.lightbox-cap > div{min-width:0;}
+.lightbox-cap b{display:block;font-family:var(--font-display);font-size:1rem;color:var(--text-0);letter-spacing:-.01em;}
+.lightbox-cap span{font-family:var(--font-mono);font-size:10.5px;color:var(--text-2);}
+.lightbox-live{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;padding:8px 14px;border-radius:100px;background:var(--accent);color:#fff;font-size:12px;font-weight:600;}
+.lightbox-live:hover{background:var(--accent-dark);}
+.lightbox-close{position:absolute;top:-14px;right:-14px;z-index:3;width:38px;height:38px;border-radius:50%;background:var(--bg-1);border:1px solid var(--border-strong);color:var(--text-0);display:grid;place-items:center;box-shadow:0 12px 30px -12px rgba(0,0,0,.6);transition:background .2s,color .2s,transform .2s;}
+.lightbox-close:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:rotate(90deg);}
+
+.work-foot{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+.work-foot p{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.04em;color:var(--text-2);}
+.work-foot-cta{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;color:var(--text-0);padding:10px 18px;border:1px solid var(--border-strong);border-radius:100px;background:var(--glass);transition:border-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);}
+.work-foot-cta svg{transition:transform .3s var(--ease);}
+.work-foot-cta:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 14px 30px -18px var(--glow);}
+.work-foot-cta:hover svg{transform:translateX(3px);}
+
+@media (hover:none){
+  .work-actions,.work-actions .work-action{opacity:1;transform:none;pointer-events:auto;}
+}
+@media (min-width:922px){
+  .portfolio-grid.is-filtered .work-card.is-wide{grid-column:span 1;display:flex;flex-direction:column;aspect-ratio:16/11;min-height:0;}
+  .portfolio-grid.is-filtered .work-card.is-wide .work-body{border-left:0;border-top:1px solid var(--border);padding:14px 16px 15px;justify-content:flex-start;}
+}
+@media (max-width:1100px){
+  .work-head{grid-template-columns:1fr;gap:26px;align-items:start;margin-bottom:28px;}
+  .work-lede{margin-bottom:20px;}
+}
+@media (max-width:921px){
+  .work-section{padding:78px 0 70px;}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
+  .work-card{aspect-ratio:4/3;}
+  .work-card.is-spotlight{grid-template-columns:1fr;min-height:0;}
+  .work-card.is-spotlight .work-media{min-height:220px;}
+  .work-card.is-spotlight .work-body{border-left:0;border-top:1px solid var(--border);padding:20px 22px;justify-content:flex-start;}
+  .work-card.is-spotlight .work-desc{display:none;}
+  .work-card.is-spotlight .work-title{font-size:1.35rem;}
+  .work-card.is-wide{grid-column:span 2;min-height:190px;}
+  .work-card.is-wide .work-body{padding:20px 22px;}
+}
+@media (max-width:640px){
+  .work-section{padding:64px 0 56px;}
+  .work-head h2{font-size:2rem;}
+  .portfolio-grid{grid-template-columns:1fr;gap:13px;}
+  .work-card,.work-card.is-spotlight,.work-card.is-wide{grid-column:span 1;display:flex;flex-direction:column;aspect-ratio:4/3;min-height:0;}
+  .work-card.is-spotlight{aspect-ratio:auto;}
+  .work-card.is-spotlight .work-media{min-height:196px;}
+  .work-card.is-wide .work-media{min-height:160px;}
+  .work-card.is-spotlight .work-body,.work-card.is-wide .work-body{border-left:0;border-top:1px solid var(--border);padding:16px 18px 17px;justify-content:flex-start;}
+  .work-card.is-spotlight .work-title,.work-card.is-wide .work-title{font-size:1.18rem;}
+  .work-stats{gap:20px;}
+  .work-stat b{font-size:1.4rem;}
+  .work-toolbar{gap:10px;}
+  .filter-nav{width:100%;justify-content:space-between;}
+  .filter-btn{padding:8px 11px;font-size:11px;}
+  .work-foot{margin-top:22px;padding-top:18px;}
+  .lightbox{padding:14px;}
+  .lightbox-close{top:8px;right:8px;}
+}
+@media (max-width:400px){
+  .work-actions{padding:8px;gap:6px;}
+  .work-action{padding:6px 9px;font-size:8.5px;}
+}
 
 /* ---------- Services (Section 3 - Full-Stack Capabilities + Marquee) ---------- */
 .marquee-wrap{overflow:hidden;user-select:none;margin-bottom:50px;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent);mask-image:linear-gradient(90deg,transparent,black 15%,black 85%,transparent);}
@@ -520,22 +658,63 @@ html[data-theme="light"] .wcard:hover{
 .marquee-item{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:13.5px;color:var(--text-2);padding:10px 18px;border:1px solid var(--border);border-radius:100px;background:var(--glass);white-space:nowrap;}
 .marquee-item b{color:var(--text-0);font-weight:600;}
 
-.service-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:34px;}
-.pillar-card{background:var(--bg-1);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color .3s;}
-.pillar-card:hover{border-color:var(--accent);}
-.pillar-num{font-family:var(--font-mono);font-size:13px;color:var(--accent);font-weight:700;margin-bottom:12px;display:block;}
-.pillar-card h3{font-size:1.25rem;margin-bottom:10px;}
-.pillar-card p{font-size:13.5px;color:var(--text-2);line-height:1.65;}
+.service-section{padding:112px 0 96px;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.service-bg{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.service-bg .service-dots{position:absolute;inset:0;background-image:radial-gradient(var(--border-strong) 1px,transparent 1px);background-size:26px 26px;opacity:.32;-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 62%);mask-image:linear-gradient(180deg,#000 0%,transparent 62%);}
+.service-bg .service-glow{position:absolute;left:-170px;top:-140px;width:580px;height:580px;border-radius:50%;background:radial-gradient(circle,rgba(239,68,68,.10),transparent 62%);filter:blur(30px);}
+html[data-theme="light"] .service-bg .service-glow{background:radial-gradient(circle,rgba(239,68,68,.07),transparent 62%);}
 
-.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.service-card{background:var(--bg-1);border:1px solid var(--border);border-radius:var(--radius);padding:30px;transition:transform .3s var(--ease),border-color .3s;position:relative;display:flex;flex-direction:column;justify-content:space-between;}
-.service-card:hover{transform:translateY(-5px);border-color:var(--border-strong);box-shadow:0 20px 40px -20px var(--glow);}
-.service-top{margin-bottom:16px;}
-.service-icon{width:48px;height:48px;border-radius:12px;background:var(--bg-2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;border:1px solid var(--border);}
-.service-card h3{font-size:1.2rem;margin-bottom:10px;}
-.service-card p{font-size:13.8px;color:var(--text-2);line-height:1.65;}
-.service-tech-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border);}
-.service-tech-tags span{font-family:var(--font-mono);font-size:11px;color:var(--text-1);background:var(--bg-2);padding:3px 8px;border-radius:5px;}
+.service-head{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:end;margin-bottom:38px;}
+.service-head h2{font-size:clamp(2.1rem,4.2vw,3.05rem);line-height:1.04;letter-spacing:-.04em;}
+.service-accent{background:linear-gradient(100deg,var(--accent) 12%,#FF8A4C 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--accent);}
+.service-lede{font-size:1rem;color:var(--text-2);max-width:470px;margin-bottom:22px;}
+.service-stats{display:flex;gap:30px;flex-wrap:wrap;}
+.service-stat{position:relative;padding-left:15px;}
+.service-stat::before{content:'';position:absolute;left:0;top:3px;bottom:3px;width:1px;background:var(--border-strong);}
+.service-stat b{display:block;font-family:var(--font-display);font-size:1.55rem;line-height:1;color:var(--text-0);letter-spacing:-.03em;margin-bottom:6px;}
+.service-stat b em{font-style:normal;font-size:.7em;color:var(--accent);}
+.service-stat span{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);}
+
+.service-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.service-card{position:relative;display:flex;flex-direction:column;padding:24px 22px 20px;background:var(--bg-1);border:1px solid var(--border);border-radius:16px;overflow:hidden;isolation:isolate;transition:transform .45s var(--ease),border-color .35s var(--ease),box-shadow .45s var(--ease);}
+.service-card::before{content:'';position:absolute;top:0;left:0;height:2px;width:0;z-index:2;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);transition:width .55s var(--ease);}
+.service-card:hover::before{width:100%;}
+.service-card::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .4s var(--ease);background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(239,68,68,.12),transparent 70%);}
+.service-card:hover::after{opacity:1;}
+.service-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 48%,var(--border-strong));box-shadow:0 26px 50px -32px rgba(0,0,0,.8),0 0 40px -26px var(--glow);}
+html[data-theme="light"] .service-card:hover{box-shadow:0 26px 50px -32px rgba(15,23,42,.32),0 0 40px -26px rgba(239,68,68,.35);}
+.service-card-top{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px;}
+.service-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease);}
+.service-card:hover .service-icon{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px -12px var(--glow);}
+.service-num{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);white-space:nowrap;padding-top:4px;}
+.service-num b{color:var(--accent);font-weight:600;}
+.service-card h3{position:relative;z-index:2;font-size:1.14rem;line-height:1.28;margin-bottom:8px;letter-spacing:-.02em;}
+.service-card p{position:relative;z-index:2;font-size:13.2px;color:var(--text-2);line-height:1.62;margin-bottom:16px;}
+.service-tech-tags{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px;border-top:1px solid var(--border);}
+.service-tech-tags span{font-family:var(--font-mono);font-size:10px;color:var(--text-1);background:var(--bg-2);border:1px solid var(--border);padding:3px 8px;border-radius:100px;transition:color .25s var(--ease),border-color .25s var(--ease);}
+.service-card:hover .service-tech-tags span{color:var(--text-0);border-color:color-mix(in srgb,var(--accent) 22%,var(--border));}
+
+.service-foot{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:26px;padding-top:20px;border-top:1px solid var(--border);}
+.service-foot p{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--text-2);}
+.service-dot{width:6px;height:6px;border-radius:50%;background:#10B981;box-shadow:0 0 8px rgba(16,185,129,.8);animation:pulseDot 2.4s ease-in-out infinite;flex-shrink:0;}
+.service-foot-cta{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;color:var(--text-0);padding:10px 18px;border:1px solid var(--border-strong);border-radius:100px;background:var(--glass);transition:border-color .3s var(--ease),color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);}
+.service-foot-cta svg{transition:transform .3s var(--ease);}
+.service-foot-cta:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 14px 30px -18px var(--glow);}
+.service-foot-cta:hover svg{transform:translateX(3px);}
+
+@media (max-width:1100px){
+  .service-head{grid-template-columns:1fr;gap:26px;align-items:start;margin-bottom:30px;}
+}
+@media (max-width:640px){
+  .service-section{padding:76px 0 66px;}
+  .service-head h2{font-size:2rem;}
+  .service-card{padding:22px 20px 18px;}
+  .service-stats{gap:20px;}
+  .service-foot{margin-top:22px;padding-top:18px;}
+}
+@media (max-width:400px){
+  .service-num{font-size:8.5px;}
+}
 
 /* ---------- Tools I Use (Full Stack Ecosystem Section) ---------- */
 .tools-section{padding:100px 0;position:relative;border-bottom:1px solid var(--border);overflow:hidden;}
@@ -710,7 +889,6 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
   .nav-links.open{opacity:1;visibility:visible;transform:translateY(0);}
   .nav-links a{padding:12px 16px;}
   .burger{display:flex;}
-  .service-pillars{grid-template-columns:1fr;}
   .service-grid{grid-template-columns:repeat(2,1fr);}
   .skills-grid{grid-template-columns:repeat(2,1fr);}
   .rates-grid{grid-template-columns:repeat(2,1fr);}
@@ -949,300 +1127,360 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 </section>
 
 <!-- ========================================================================= -->
-<!-- 2. PORTFOLIO SECTION (EXACT ITEMS FROM BACKUP FILE) -->
+<!-- 2. SELECTED WORK (PREMIUM EDITORIAL SHOWCASE) -->
 <!-- ========================================================================= -->
-<section class="section" id="portfolio">
+<section class="section work-section" id="portfolio">
   <div class="container">
-    <div class="section-head reveal-head">
-      <div class="eyebrow">Portfolio</div>
-      <h2>Selected work.</h2>
-      <p>Turning ideas into deployed applications.</p>
+    <div class="work-bg" aria-hidden="true">
+      <div class="work-dots"></div>
+      <div class="work-glow"></div>
     </div>
 
-    <!-- Portfolio Filters -->
-    <div class="filter-nav">
-      <button class="filter-btn active" data-filter="*">All</button>
-      <button class="filter-btn" data-filter=".filter-app">AI Apps</button>
-      <button class="filter-btn" data-filter=".filter-website">Websites</button>
+    <div class="work-head">
+      <div class="reveal-head">
+        <div class="eyebrow">Portfolio</div>
+        <h2>Selected <span class="work-accent">work.</span></h2>
+      </div>
+      <div class="reveal-head">
+        <p class="work-lede">Twelve builds taken from idea to live production &mdash; AI vision pipelines, high-concurrency backends, and interfaces that hold up on real devices.</p>
+        <div class="work-stats">
+          <div class="work-stat"><b>12</b><span>Shipped builds</span></div>
+          <div class="work-stat"><b>3</b><span>AI systems</span></div>
+          <div class="work-stat"><b>100<em>%</em></b><span>Live links</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters + live result count -->
+    <div class="work-toolbar reveal-head">
+      <div class="filter-nav" role="group" aria-label="Filter projects">
+        <button class="filter-btn active" data-filter="*" aria-pressed="true">All <span>12</span></button>
+        <button class="filter-btn" data-filter=".filter-app" aria-pressed="false">AI Apps <span>3</span></button>
+        <button class="filter-btn" data-filter=".filter-website" aria-pressed="false">Websites <span>9</span></button>
+      </div>
+      <div class="work-count"><span class="work-live"></span>Showing <b id="workVisibleCount">12</b> of 12</div>
     </div>
 
     <div class="portfolio-grid" id="portfolioContainer">
-      
-      <!-- Item 1: Tour & Travel Website -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
-          <img src="assets/img/portfolio/app-3.jpg" alt="Tour & Travel Website" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Tour &amp; Travel Website</h4>
-          <p>Laravel, MySQL, Bootstrap</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/sample_pages/home" target="_blank" rel="noopener">Live Preview &#8599;</a>
+
+      <article class="work-card is-spotlight filter-app">
+        <div class="work-media">
+          <img src="assets/img/portfolio/app-2.jpg" alt="AI Prescription Analyzer interface" loading="lazy">
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/app-2.jpg" data-zoom-title="AI Prescription Analyzer interface" data-zoom-sub="Python &middot; React &middot; OCR &middot; AI" data-zoom-href="https://dos2.pythonanywhere.com/"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/app-2.jpg" data-zoom-title="AI Prescription Analyzer interface" data-zoom-sub="Python &middot; React &middot; OCR &middot; AI" data-zoom-href="https://dos2.pythonanywhere.com/" aria-label="Zoom AI Prescription Analyzer interface image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dos2.pythonanywhere.com/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">01</span><span class="work-cat">AI App &middot; Flagship</span></div>
+          <h3 class="work-title">AI Prescription Analyzer</h3>
+          <p class="work-desc">A multimodal vision pipeline that reads handwritten prescriptions and returns structured, dosage-checked drug data from a single scan.</p>
+          <p class="work-sub">Python &middot; React &middot; OCR &middot; AI</p>
+          <a class="work-link" href="https://dos2.pythonanywhere.com/" target="_blank" rel="noopener">Open live build <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
         </div>
       </article>
 
-      <!-- Item 2: AI Prescription Analyzer -->
-      <article class="portfolio-card filter-app">
-        <div class="portfolio-img-box">
-          <img src="assets/img/portfolio/app-2.jpg" alt="AI Prescription Analyzer" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>AI Prescription Analyzer</h4>
-          <p>Python, React, OCR, AI</p>
-          <div class="portfolio-links">
-            <a href="https://dos2.pythonanywhere.com/" target="_blank" rel="noopener">Live Preview &#8599;</a>
+      <article class="work-card filter-website">
+        <div class="work-media">
+          <img src="assets/img/portfolio/app-3.jpg" alt="Tour &amp; Travel Website" loading="lazy">
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/app-3.jpg" data-zoom-title="Tour &amp; Travel Website" data-zoom-sub="Laravel &middot; MySQL &middot; Bootstrap" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/home"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/app-3.jpg" data-zoom-title="Tour &amp; Travel Website" data-zoom-sub="Laravel &middot; MySQL &middot; Bootstrap" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/home" aria-label="Zoom Tour &amp; Travel Website image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/sample_pages/home" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">02</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Tour &amp; Travel Website</h3>
+
+          <p class="work-sub">Laravel &middot; MySQL &middot; Bootstrap</p>
+
         </div>
       </article>
 
-      <!-- Item 3: AI Quote Generator -->
-      <article class="portfolio-card filter-app">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-app">
+        <div class="work-media">
           <img src="assets/img/portfolio/app-1.jpg" alt="AI Quote Generator" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>AI Quote Generator</h4>
-          <p>React.js, Firebase, Google Gemini AI</p>
-          <div class="portfolio-links">
-            <a href="https://ai-quote-generator-lake.vercel.app/" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/app-1.jpg" data-zoom-title="AI Quote Generator" data-zoom-sub="React.js &middot; Firebase &middot; Gemini" data-zoom-href="https://ai-quote-generator-lake.vercel.app/"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/app-1.jpg" data-zoom-title="AI Quote Generator" data-zoom-sub="React.js &middot; Firebase &middot; Gemini" data-zoom-href="https://ai-quote-generator-lake.vercel.app/" aria-label="Zoom AI Quote Generator image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://ai-quote-generator-lake.vercel.app/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">03</span><span class="work-cat">AI App</span></div>
+          <h3 class="work-title">AI Quote Generator</h3>
+
+          <p class="work-sub">React.js &middot; Firebase &middot; Gemini</p>
+
         </div>
       </article>
 
-      <!-- Item 4: Admin Panel Dashboard -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-website">
+        <div class="work-media">
           <img src="assets/img/portfolio/product-1.jpg" alt="Admin Panel Dashboard" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Admin Panel Dashboard</h4>
-          <p>HTML5, CSS, Bootstrap, JS</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/sample_pages/adminlogin" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/product-1.jpg" data-zoom-title="Admin Panel Dashboard" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/adminlogin"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/product-1.jpg" data-zoom-title="Admin Panel Dashboard" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/adminlogin" aria-label="Zoom Admin Panel Dashboard image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/sample_pages/adminlogin" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">04</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Admin Panel Dashboard</h3>
+
+          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+
         </div>
       </article>
 
-      <!-- Item 5: Photography Showcase -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-website">
+        <div class="work-media">
           <img src="assets/img/portfolio/branding-1.jpg" alt="Photography Showcase" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Photography Showcase</h4>
-          <p>React, Node.js, MongoDB</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/photography_website/" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/branding-1.jpg" data-zoom-title="Photography Showcase" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://dosuniquedev-cloud.github.io/photography_website/"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/branding-1.jpg" data-zoom-title="Photography Showcase" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://dosuniquedev-cloud.github.io/photography_website/" aria-label="Zoom Photography Showcase image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/photography_website/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">05</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Photography Showcase</h3>
+
+          <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
+
         </div>
       </article>
 
-      <!-- Item 6: Interactive Login Page -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-website">
+        <div class="work-media">
           <img src="assets/img/portfolio/books-1.jpg" alt="Interactive Login Page" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Interactive Login Page</h4>
-          <p>HTML5, CSS, Bootstrap, JS</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/sample_pages/login" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/books-1.jpg" data-zoom-title="Interactive Login Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/login"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/books-1.jpg" data-zoom-title="Interactive Login Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/login" aria-label="Zoom Interactive Login Page image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/sample_pages/login" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">06</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Interactive Login Page</h3>
+
+          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+
         </div>
       </article>
 
-      <!-- Item 7: Travel Agency Profile -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-website">
+        <div class="work-media">
           <img src="assets/img/portfolio/product-2.jpg" alt="Travel Agency Profile" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Travel Agency Profile</h4>
-          <p>HTML5, CSS, Bootstrap, JS</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/sample_pages/user_profile" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/product-2.jpg" data-zoom-title="Travel Agency Profile" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/user_profile"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/product-2.jpg" data-zoom-title="Travel Agency Profile" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/user_profile" aria-label="Zoom Travel Agency Profile image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/sample_pages/user_profile" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">07</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Travel Agency Profile</h3>
+
+          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+
         </div>
       </article>
 
-      <!-- Item 8: Photography Dashboard -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-website">
+        <div class="work-media">
           <img src="assets/img/portfolio/branding-2.jpg" alt="Photography Dashboard" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Photography Dashboard</h4>
-          <p>React, Node.js, MongoDB</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/photography_website/" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/branding-2.jpg" data-zoom-title="Photography Dashboard" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://dosuniquedev-cloud.github.io/photography_website/"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/branding-2.jpg" data-zoom-title="Photography Dashboard" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://dosuniquedev-cloud.github.io/photography_website/" aria-label="Zoom Photography Dashboard image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/photography_website/" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">08</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Photography Dashboard</h3>
+
+          <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
+
         </div>
       </article>
 
-      <!-- Item 9: Registration Page -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-website">
+        <div class="work-media">
           <img src="assets/img/portfolio/books-2.jpg" alt="Registration Page" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Registration Page</h4>
-          <p>HTML5, CSS, Bootstrap, JS</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/sample_pages/register" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/books-2.jpg" data-zoom-title="Registration Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/register"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/books-2.jpg" data-zoom-title="Registration Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/register" aria-label="Zoom Registration Page image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/sample_pages/register" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">09</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Registration Page</h3>
+
+          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+
         </div>
       </article>
 
-      <!-- Item 10: Instagram Like History -->
-      <article class="portfolio-card filter-app">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-app">
+        <div class="work-media">
           <img src="assets/img/portfolio/product-3.jpg" alt="Instagram Like History" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Instagram Like History</h4>
-          <p>React, Node.js, MongoDB</p>
-          <div class="portfolio-links">
-            <a href="https://ai-quote-generator-lake.vercel.app/history" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/product-3.jpg" data-zoom-title="Instagram Like History" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://ai-quote-generator-lake.vercel.app/history"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/product-3.jpg" data-zoom-title="Instagram Like History" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://ai-quote-generator-lake.vercel.app/history" aria-label="Zoom Instagram Like History image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://ai-quote-generator-lake.vercel.app/history" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">10</span><span class="work-cat">AI App</span></div>
+          <h3 class="work-title">Instagram Like History</h3>
+
+          <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
+
         </div>
       </article>
 
-      <!-- Item 11: Booking Page -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-website">
+        <div class="work-media">
           <img src="assets/img/portfolio/branding-3.jpg" alt="Booking Page" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Booking Page</h4>
-          <p>HTML5, CSS, Bootstrap, JS</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/sample_pages/booking" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/branding-3.jpg" data-zoom-title="Booking Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/booking"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/branding-3.jpg" data-zoom-title="Booking Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/booking" aria-label="Zoom Booking Page image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/sample_pages/booking" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
+        </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">11</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Booking Page</h3>
+
+          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+
         </div>
       </article>
 
-      <!-- Item 12: Query Page -->
-      <article class="portfolio-card filter-website">
-        <div class="portfolio-img-box">
+      <article class="work-card filter-website is-wide">
+        <div class="work-media">
           <img src="assets/img/portfolio/books-3.jpg" alt="Query Page" loading="lazy">
-        </div>
-        <div class="portfolio-info">
-          <h4>Query Page</h4>
-          <p>HTML5, CSS, Bootstrap, JS</p>
-          <div class="portfolio-links">
-            <a href="https://dosuniquedev-cloud.github.io/sample_pages/contact" target="_blank" rel="noopener">Live Preview &#8599;</a>
+          <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/books-3.jpg" data-zoom-title="Query Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/contact"></button>
+          <div class="work-actions">
+            <button type="button" class="work-action" data-zoom-src="assets/img/portfolio/books-3.jpg" data-zoom-title="Query Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/contact" aria-label="Zoom Query Page image"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Zoom</span></button>
+            <a class="work-action work-action-live" href="https://dosuniquedev-cloud.github.io/sample_pages/contact" target="_blank" rel="noopener"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg><span>Live preview</span></a>
           </div>
         </div>
+        <div class="work-body">
+          <div class="work-meta"><span class="work-num">12</span><span class="work-cat">Website</span></div>
+          <h3 class="work-title">Query Page</h3>
+
+          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+
+        </div>
       </article>
+
+      
+    </div>
+
+    <div class="work-foot">
+      <p><span class="work-live"></span>Every build is live &mdash; open one and click around.</p>
+      <a href="#contact" class="work-foot-cta">Start a project
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
 
     </div>
   </div>
 </section>
 
 <!-- ========================================================================= -->
-<!-- 3. SERVICES SECTION (FULL-STACK CAPABILITIES + ECOSYSTEM MARQUEE) -->
+<!-- 3. SERVICES (PREMIUM CAPABILITIES) -->
 <!-- ========================================================================= -->
-<section class="section" id="services">
+<section class="section service-section" id="services">
+  <div class="service-bg" aria-hidden="true">
+    <div class="service-dots"></div>
+    <div class="service-glow"></div>
+  </div>
   <div class="container">
-    <div class="section-head reveal-head">
-      <div class="eyebrow">Services</div>
-      <h2>Full-stack capabilities.</h2>
-      <p>Architecting resilient asynchronous systems, real-time physical hardware bridges, and high-concurrency enterprise SaaS.</p>
+    <div class="service-head">
+      <div class="reveal-head">
+        <div class="eyebrow">Services</div>
+        <h2>Full-stack capability,<br><span class="service-accent">production discipline.</span></h2>
+      </div>
+      <div class="reveal-head">
+        <p class="service-lede">Six disciplines under one roof &mdash; browser-to-hardware bridges, distributed print fleets, async APIs, enterprise ERP, multimodal AI, and the data layer underneath.</p>
+        <div class="service-stats">
+          <div class="service-stat"><b>06</b><span>Disciplines</span></div>
+          <div class="service-stat"><b>40<em>%</em></b><span>Faster inventory</span></div>
+          <div class="service-stat"><b>0</b><span>Dropped print jobs</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="service-grid">
-      
-      <!-- Capability 1 -->
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon">&#9889;</div>
-          <h3>Hardware-to-Cloud Bridges</h3>
-          <p>Direct physical hardware integration with modern browser interfaces. Bridging handheld RFID scanners, precision scales, and barcode devices via Web Serial API (COM ports @ 9600 baud) directly to cloud POS counters&mdash;cutting inventory processing time by 40% at RPS Jewel Pro.</p>
+      <article class="service-card">
+        <div class="service-card-top">
+          <span class="service-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8z"/><path d="M12 17v5"/></svg></span>
+          <span class="service-num"><b>01</b> / Hardware</span>
         </div>
-        <div class="service-tech-tags">
-          <span>Web Serial API</span>
-          <span>RFID Bridges</span>
-          <span>Hardware POS</span>
-          <span>USB COM</span>
-        </div>
-      </div>
+        <h3>Hardware-to-Cloud Bridges</h3>
+        <p>Direct physical hardware integration with modern browser interfaces. Bridging handheld RFID scanners, precision scales, and barcode devices via Web Serial API (COM ports @ 9600 baud) directly to cloud POS counters&mdash;cutting inventory processing time by 40% at RPS Jewel Pro.</p>
+        <div class="service-tech-tags"><span>Web Serial API</span><span>RFID Bridges</span><span>Hardware POS</span><span>USB COM</span></div>
+      </article>
 
-      <!-- Capability 2 -->
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon">&#128424;&#65039;</div>
-          <h3>Zero-Loss LAN Print Fencing</h3>
-          <p>Engineered distributed LAN thermal print agents (PrintAgentController) with dynamic mDNS network discovery, atomic claim fencing, and Redis 7 lease tokens to eliminate dropped or duplicate kitchen tickets over unstable commercial Wi-Fi across French restaurant fleets.</p>
+      <article class="service-card">
+        <div class="service-card-top">
+          <span class="service-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></span>
+          <span class="service-num"><b>02</b> / Infrastructure</span>
         </div>
-        <div class="service-tech-tags">
-          <span>Redis 7</span>
-          <span>ESC/POS Sockets</span>
-          <span>Claim Fencing</span>
-          <span>Lease Tokens</span>
-        </div>
-      </div>
+        <h3>Zero-Loss LAN Print Fencing</h3>
+        <p>Engineered distributed LAN thermal print agents (PrintAgentController) with dynamic mDNS network discovery, atomic claim fencing, and Redis 7 lease tokens to eliminate dropped or duplicate kitchen tickets over unstable commercial Wi-Fi across French restaurant fleets.</p>
+        <div class="service-tech-tags"><span>Redis 7</span><span>ESC/POS Sockets</span><span>Claim Fencing</span><span>Lease Tokens</span></div>
+      </article>
 
-      <!-- Capability 3 -->
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon">&#128640;</div>
-          <h3>Async Microservices &amp; APIs</h3>
-          <p>Architecting high-throughput asynchronous REST APIs using Python (FastAPI) and Node.js. Optimized for SQLAlchemy 2.0 (asyncpg) connection pooling, background tasks (Celery/APScheduler), and high student-educator concurrency at Academicae (Infomaticae).</p>
+      <article class="service-card">
+        <div class="service-card-top">
+          <span class="service-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><line x1="6" y1="7" x2="6.01" y2="7"/><line x1="6" y1="17" x2="6.01" y2="17"/></svg></span>
+          <span class="service-num"><b>03</b> / Backend</span>
         </div>
-        <div class="service-tech-tags">
-          <span>FastAPI</span>
-          <span>SQLAlchemy 2.0</span>
-          <span>asyncpg</span>
-          <span>Celery</span>
-        </div>
-      </div>
+        <h3>Async Microservices &amp; APIs</h3>
+        <p>Architecting high-throughput asynchronous REST APIs using Python (FastAPI) and Node.js. Optimized for SQLAlchemy 2.0 (asyncpg) connection pooling, background tasks (Celery/APScheduler), and high student-educator concurrency at Academicae (Infomaticae).</p>
+        <div class="service-tech-tags"><span>FastAPI</span><span>SQLAlchemy 2.0</span><span>asyncpg</span><span>Celery</span></div>
+      </article>
 
-      <!-- Capability 4 -->
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon">&#240;&#376;&#162;</div>
-          <h3>Omnichannel ERP &amp; Accounting</h3>
-          <p>Full-stack enterprise architectures using Laravel &amp; React: live metal purity inventory deduction, automated Shopify variants synchronization, and complete accounting modules covering general ledgers, P&amp;L reports, and automated GST return generation.</p>
+      <article class="service-card">
+        <div class="service-card-top">
+          <span class="service-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+          <span class="service-num"><b>04</b> / Enterprise</span>
         </div>
-        <div class="service-tech-tags">
-          <span>Laravel</span>
-          <span>React.js</span>
-          <span>Shopify Sync</span>
-          <span>GST Accounting</span>
-        </div>
-      </div>
+        <h3>Omnichannel ERP &amp; Accounting</h3>
+        <p>Full-stack enterprise architectures using Laravel &amp; React: live metal purity inventory deduction, automated Shopify variants synchronization, and complete accounting modules covering general ledgers, P&amp;L reports, and automated GST return generation.</p>
+        <div class="service-tech-tags"><span>Laravel</span><span>React.js</span><span>Shopify Sync</span><span>GST Accounting</span></div>
+      </article>
 
-      <!-- Capability 5 -->
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon">&#129302;</div>
-          <h3>Multimodal GenAI &amp; Vision OCR</h3>
-          <p>Production AI pipelines using Google Gemini Flash multimodal vision OCR to parse handwritten doctor prescriptions and medical lab PDFs into structured records with sub-second latency and regional Bengali localization.</p>
+      <article class="service-card">
+        <div class="service-card-top">
+          <span class="service-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg></span>
+          <span class="service-num"><b>05</b> / AI</span>
         </div>
-        <div class="service-tech-tags">
-          <span>Gemini Flash</span>
-          <span>Multimodal OCR</span>
-          <span>Python</span>
-          <span>FHIR Records</span>
-        </div>
-      </div>
+        <h3>Multimodal GenAI &amp; Vision OCR</h3>
+        <p>Production AI pipelines using Google Gemini Flash multimodal vision OCR to parse handwritten doctor prescriptions and medical lab PDFs into structured records with sub-second latency and regional Bengali localization.</p>
+        <div class="service-tech-tags"><span>Gemini Flash</span><span>Multimodal OCR</span><span>Python</span><span>FHIR Records</span></div>
+      </article>
 
-      <!-- Capability 6 -->
-      <div class="service-card">
-        <div class="service-top">
-          <div class="service-icon">&#128452;&#65039;</div>
-          <h3>Resilient Data Architecture</h3>
-          <p>Designing scalable schemas across PostgreSQL (Neon), MongoDB (2dsphere geospatial), and Redis. Implementing automated nightly medicine expiry audits, automated 2:00 AM stock reconciliations, and Restic/Backblaze B2 encrypted disaster recovery.</p>
+      <article class="service-card">
+        <div class="service-card-top">
+          <span class="service-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+          <span class="service-num"><b>06</b> / Data</span>
         </div>
-        <div class="service-tech-tags">
-          <span>Neon PostgreSQL</span>
-          <span>MongoDB 2dsphere</span>
-          <span>Restic / B2</span>
-          <span>Locust Tests</span>
-        </div>
-      </div>
+        <h3>Resilient Data Architecture</h3>
+        <p>Designing scalable schemas across PostgreSQL (Neon), MongoDB (2dsphere geospatial), and Redis. Implementing automated nightly medicine expiry audits, automated 2:00 AM stock reconciliations, and Restic/Backblaze B2 encrypted disaster recovery.</p>
+        <div class="service-tech-tags"><span>Neon PostgreSQL</span><span>MongoDB 2dsphere</span><span>Restic / B2</span><span>Locust Tests</span></div>
+      </article>
+    </div>
 
+    <div class="service-foot">
+      <p><span class="service-dot"></span>Available for architecture reviews, audits, and build work.</p>
+      <a href="#contact" class="service-foot-cta">Discuss a project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 </section>
@@ -2190,6 +2428,25 @@ footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
 <!-- ========================================================================= -->
 <!-- SCRIPTS & GSAP CHOREOGRAPHY -->
 <!-- ========================================================================= -->
+<!-- Project image lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project image preview" hidden>
+  <div class="lightbox-backdrop" data-lightbox-close></div>
+  <div class="lightbox-inner">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close image preview">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" src="" alt="">
+      <figcaption class="lightbox-cap">
+        <div><b id="lightboxTitle"></b><span id="lightboxSub"></span></div>
+        <a class="lightbox-live" id="lightboxLive" href="#" target="_blank" rel="noopener">Live preview
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
 <script>
 gsap.registerPlugin(ScrollTrigger);
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2435,22 +2692,47 @@ function runTerminal(){
 }
 runTerminal();
 
-/* Portfolio filter logic (Matches backup file items) */
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portfolioCards = document.querySelectorAll('#portfolioContainer .portfolio-card');
-filterBtns.forEach(btn=>{
+/* Selected work — animated filtering, live count, per-card cursor glow */
+const workGrid = document.getElementById('portfolioContainer');
+const workCount = document.getElementById('workVisibleCount');
+const workCards = workGrid ? Array.from(workGrid.querySelectorAll('.work-card')) : [];
+const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function filterWork(filter, animate){
+  if(!workGrid) return;
+  const matched = [];
+  workCards.forEach(card=>{
+    const show = filter === '*' || card.matches(filter);
+    card.hidden = !show;
+    card.style.display = show ? '' : 'none';
+    if(show) matched.push(card);
+  });
+  if(workCount) workCount.textContent = matched.length;
+  workGrid.classList.toggle('is-filtered', filter !== '*');
+  if(animate !== false && motionOK && window.gsap){
+    gsap.fromTo(matched, {opacity:0, y:16, scale:.985}, {opacity:1, y:0, scale:1, duration:.55, stagger:.045, ease:'power3.out', clearProps:'transform,opacity'});
+  }
+  if(window.ScrollTrigger) ScrollTrigger.refresh();
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
-    filterBtns.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.getAttribute('data-filter');
-    portfolioCards.forEach(card=>{
-      if(filter === '*' || card.matches(filter)){
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
+    document.querySelectorAll('.filter-btn').forEach(b=>{
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed','false');
     });
-    ScrollTrigger.refresh();
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed','true');
+    filterWork(btn.getAttribute('data-filter') || '*');
+  });
+});
+
+/* Cursor-tracked spotlight inside each project tile */
+workCards.forEach(card=>{
+  card.addEventListener('pointermove', e=>{
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(2) + '%');
+    card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(2) + '%');
   });
 });
 
@@ -2582,6 +2864,106 @@ if(aiChatForm){
   });
 }
 
+/* Cursor-tracked glow across capability cards */
+document.querySelectorAll('.service-card').forEach(card=>{
+  card.addEventListener('pointermove', e=>{
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(2) + '%');
+    card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(2) + '%');
+  });
+});
+
+/* Premium project lightbox: zooms from the thumbnail into a framed preview */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxTitleEl = document.getElementById('lightboxTitle');
+const lightboxSubEl = document.getElementById('lightboxSub');
+const lightboxLive = document.getElementById('lightboxLive');
+const lightboxCloseBtn = document.getElementById('lightboxClose');
+let lightboxThumb = null;
+let lightboxReturn = null;
+
+function openLightbox(btn){
+  if(!lightbox || !lightboxImg) return;
+  lightboxReturn = document.activeElement;
+  const media = btn.closest('.work-media');
+  lightboxThumb = media ? media.querySelector('img') : null;
+  lightboxImg.src = btn.getAttribute('data-zoom-src') || '';
+  lightboxImg.alt = btn.getAttribute('data-zoom-title') || '';
+  if(lightboxTitleEl) lightboxTitleEl.textContent = btn.getAttribute('data-zoom-title') || '';
+  if(lightboxSubEl) lightboxSubEl.textContent = btn.getAttribute('data-zoom-sub') || '';
+  const liveHref = btn.getAttribute('data-zoom-href');
+  if(lightboxLive){
+    if(liveHref){ lightboxLive.href = liveHref; lightboxLive.style.display = ''; }
+    else { lightboxLive.style.display = 'none'; }
+  }
+  lightbox.hidden = false;
+  document.body.classList.add('no-scroll');
+  if(lightboxCloseBtn) lightboxCloseBtn.focus({preventScroll:true});
+
+  requestAnimationFrame(()=>{
+    if(!motionOK || !window.gsap) return;
+    const backdrop = lightbox.querySelector('.lightbox-backdrop');
+    const inner = lightbox.querySelector('.lightbox-inner');
+    const thumbRect = lightboxThumb ? lightboxThumb.getBoundingClientRect() : null;
+    const finalRect = lightboxImg.getBoundingClientRect();
+    if(backdrop) gsap.fromTo(backdrop, {opacity:0}, {opacity:1, duration:.35, ease:'power2.out'});
+    if(inner) gsap.fromTo(inner, {opacity:0, y:14}, {opacity:1, y:0, duration:.45, ease:'power3.out', clearProps:'transform,opacity'});
+    if(thumbRect && finalRect.width > 40){
+      gsap.fromTo(lightboxImg, {
+        x: thumbRect.left - finalRect.left,
+        y: thumbRect.top - finalRect.top,
+        scaleX: thumbRect.width / finalRect.width,
+        scaleY: thumbRect.height / finalRect.height,
+        transformOrigin: 'top left',
+        opacity: .6
+      }, {x:0, y:0, scaleX:1, scaleY:1, opacity:1, duration:.62, ease:'expo.out', clearProps:'transform,opacity'});
+    }
+  });
+}
+
+function closeLightbox(){
+  if(!lightbox || lightbox.hidden) return;
+  const inner = lightbox.querySelector('.lightbox-inner');
+  const backdrop = lightbox.querySelector('.lightbox-backdrop');
+  const finish = ()=>{
+    lightbox.hidden = true;
+    document.body.classList.remove('no-scroll');
+    if(window.gsap) gsap.set([lightboxImg, inner, backdrop], {clearProps:'all'});
+    if(lightboxReturn && lightboxReturn.focus) lightboxReturn.focus({preventScroll:true});
+  };
+  if(motionOK && window.gsap){
+    const tl = gsap.timeline({onComplete: finish});
+    if(backdrop) tl.to(backdrop, {opacity:0, duration:.24, ease:'power2.in'}, 0);
+    if(inner) tl.to(inner, {opacity:0, y:8, duration:.2, ease:'power2.in'}, 0);
+  } else {
+    finish();
+  }
+}
+
+document.querySelectorAll('[data-zoom-src]').forEach(btn=>{
+  btn.addEventListener('click', e=>{
+    e.preventDefault();
+    openLightbox(btn);
+  });
+});
+if(lightbox){
+  lightbox.querySelectorAll('[data-lightbox-close]').forEach(el=>el.addEventListener('click', closeLightbox));
+  if(lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+}
+document.addEventListener('keydown', e=>{
+  if(!lightbox || lightbox.hidden) return;
+  if(e.key === 'Escape'){ closeLightbox(); return; }
+  if(e.key === 'Tab'){
+    const focusables = lightbox.querySelectorAll('button, a[href]');
+    if(!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+});
+
 /* ========================================================================= */
 /* PREMIUM GSAP ENTRANCE & SCROLLTRIGGER CHOREOGRAPHY                        */
 /* ========================================================================= */
@@ -2626,14 +3008,15 @@ if (!reduced) {
   });
 
   // 4. Portfolio Cards Stagger
-  ScrollTrigger.batch(".portfolio-card", {
-    start: "top 85%",
+  ScrollTrigger.batch(".work-card", {
+    start: "top 88%",
     onEnter: batch => gsap.from(batch, {
       y: 40,
       opacity: 0,
-      stagger: 0.08,
-      duration: 0.7,
-      ease: "power2.out"
+      stagger: 0.07,
+      duration: 0.8,
+      ease: "power3.out",
+      clearProps: "transform,opacity"
     }),
     once: true
   });
