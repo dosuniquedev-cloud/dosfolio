@@ -514,71 +514,417 @@ html[data-theme="light"] .work-bg .work-glow{background:radial-gradient(circle,r
 .work-stat b em{font-style:normal;color:var(--accent);font-size:.7em;}
 .work-stat span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);}
 
-.work-toolbar{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
-.filter-nav{display:inline-flex;align-items:center;gap:4px;padding:5px;border-radius:100px;border:1px solid var(--border);background:color-mix(in srgb,var(--bg-1) 72%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 14px 34px -26px rgba(0,0,0,.8);}
-.filter-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 17px;border-radius:100px;border:none;background:transparent;color:var(--text-2);font-family:var(--font-mono);font-size:12px;letter-spacing:.01em;transition:color .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease);}
-.filter-btn span{font-size:10.5px;padding:1.5px 7px;border-radius:100px;background:var(--bg-2);color:var(--text-2);transition:background .25s var(--ease),color .25s var(--ease);}
-.filter-btn:hover{color:var(--text-0);}
-.filter-btn.active{background:var(--accent);color:#fff;box-shadow:0 10px 26px -12px var(--glow);}
-.filter-btn.active span{background:rgba(255,255,255,.2);color:#fff;}
-.work-count{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);}
-.work-count b{color:var(--text-0);font-weight:600;}
-.work-live{width:6px;height:6px;border-radius:50%;background:#10B981;box-shadow:0 0 10px rgba(16,185,129,.85);animation:pulseDot 2.4s ease-in-out infinite;flex-shrink:0;}
+/* ---------- Premium Segmented Filter Switcher ---------- */
+.work-toolbar{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:32px;
+}
+.filter-nav{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px;
+  border-radius:100px;
+  border:1px solid var(--border-strong);
+  background:color-mix(in srgb,var(--bg-1) 85%,transparent);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  box-shadow:0 16px 36px -20px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.08);
+}
+html[data-theme="light"] .filter-nav{
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(0,0,0,.12);
+  box-shadow:0 14px 32px -18px rgba(15,23,42,.12), inset 0 1px 0 rgba(255,255,255,.95);
+}
+.filter-btn{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 18px;
+  border-radius:100px;
+  border:1px solid transparent;
+  background:transparent;
+  color:var(--text-2);
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  font-weight:500;
+  letter-spacing:.02em;
+  cursor:pointer;
+  transition:all .25s var(--ease);
+  user-select:none;
+}
+.filter-btn .filter-icon{
+  width:13px;
+  height:13px;
+  flex-shrink:0;
+  opacity:.75;
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.filter-btn .filter-count{
+  font-size:10px;
+  font-weight:600;
+  padding:2px 7px;
+  border-radius:100px;
+  background:var(--bg-2);
+  color:var(--text-2);
+  border:1px solid var(--border);
+  transition:all .25s var(--ease);
+}
+.filter-btn:hover{
+  color:var(--text-0);
+  background:color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.filter-btn:hover .filter-icon{
+  opacity:1;
+  transform:scale(1.1);
+}
+.filter-btn.active{
+  background:var(--accent);
+  color:#fff;
+  border-color:var(--accent);
+  box-shadow:0 8px 24px -6px var(--glow), inset 0 1px 0 rgba(255,255,255,.3);
+}
+.filter-btn.active .filter-icon{
+  opacity:1;
+  color:#fff;
+}
+.filter-btn.active .filter-count{
+  background:rgba(255,255,255,.24);
+  color:#fff;
+  border-color:rgba(255,255,255,.3);
+}
+.work-count{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:8px 16px;
+  border-radius:100px;
+  border:1px solid var(--border);
+  background:color-mix(in srgb, var(--bg-1) 60%, transparent);
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  letter-spacing:.04em;
+  color:var(--text-2);
+}
+.work-count b{
+  color:var(--text-0);
+  font-weight:600;
+}
+.work-live{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#10B981;
+  box-shadow:0 0 10px rgba(16,185,129,.9);
+  animation:pulseDot 2.4s ease-in-out infinite;
+  flex-shrink:0;
+}
 
-.portfolio-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;grid-auto-flow:dense;}
+/* ---------- Uniform Portfolio Grid & Cards ---------- */
+.portfolio-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:24px;
+  align-items:stretch;
+}
 
-/* Card: media plate + solid information panel */
-.work-card{position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;border:1px solid var(--border);background:var(--bg-1);aspect-ratio:16/11;isolation:isolate;transition:transform .45s var(--ease),border-color .35s var(--ease),box-shadow .45s var(--ease);}
-.work-card.is-spotlight{grid-column:1 / -1;display:grid;grid-template-columns:1.18fr .82fr;aspect-ratio:auto;min-height:288px;}
-.work-card.is-wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;aspect-ratio:auto;min-height:200px;}
+.work-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:var(--bg-1);
+  overflow:hidden;
+  isolation:isolate;
+  transition:transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+.work-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .4s var(--ease);
+  background:radial-gradient(350px circle at var(--mx,50%) var(--my,50%),rgba(239,68,68,.14),transparent 70%);
+}
+.work-card:hover::after{
+  opacity:1;
+}
+.work-card:hover{
+  transform:translateY(-6px);
+  border-color:color-mix(in srgb,var(--accent) 55%,var(--border-strong));
+  box-shadow:0 26px 50px -25px rgba(0,0,0,.75), 0 0 0 1px color-mix(in srgb,var(--accent) 26%,transparent), 0 0 40px -20px var(--glow);
+}
+html[data-theme="light"] .work-card:hover{
+  box-shadow:0 24px 45px -20px rgba(15,23,42,.22), 0 0 0 1px rgba(239,68,68,.25), 0 0 35px -15px rgba(239,68,68,.3);
+}
 
-/* LIVE badge */
-.work-card::before{content:'LIVE';position:absolute;top:12px;left:12px;z-index:5;font-family:var(--font-mono);font-size:8.5px;font-weight:600;letter-spacing:.18em;color:#fff;padding:4px 8px 4px 19px;border-radius:100px;background:rgba(6,6,6,.52);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
-.work-card::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .4s var(--ease);background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(239,68,68,.16),transparent 70%);}
-.work-card:hover::after{opacity:1;}
-.work-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent) 55%,var(--border-strong));box-shadow:0 26px 50px -30px rgba(0,0,0,.8),0 0 0 1px color-mix(in srgb,var(--accent) 26%,transparent),0 0 44px -26px var(--glow);}
-html[data-theme="light"] .work-card:hover{box-shadow:0 26px 50px -30px rgba(15,23,42,.35),0 0 0 1px rgba(239,68,68,.2),0 0 44px -26px rgba(239,68,68,.4);}
+/* Card Media Plate (Uniform 200px height for all cards) */
+.work-media{
+  position:relative;
+  width:100%;
+  height:200px;
+  flex-shrink:0;
+  overflow:hidden;
+  background:var(--bg-2);
+}
+.work-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.01);
+  filter:saturate(.95) contrast(1.02);
+  transition:transform .8s var(--ease), filter .4s var(--ease);
+}
+.work-card:hover .work-media img{
+  transform:scale(1.06);
+  filter:saturate(1.06) contrast(1.04);
+}
+.work-media::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,6,6,.28) 0%,rgba(6,6,6,0) 45%,rgba(6,6,6,.65) 100%);
+  opacity:.9;
+  transition:opacity .4s var(--ease);
+}
+.work-card:hover .work-media::after{
+  opacity:1;
+  background:linear-gradient(180deg,rgba(6,6,6,.35) 0%,rgba(6,6,6,0) 38%,rgba(6,6,6,.82) 100%);
+}
 
-.work-media{position:relative;flex:1 1 auto;min-height:0;overflow:hidden;background:var(--bg-2);}
-.work-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.01);filter:saturate(.9) contrast(1.03) brightness(.96);transition:transform 1.1s var(--ease),filter .5s var(--ease);}
-.work-card:hover .work-media img{transform:scale(1.05);filter:saturate(1.06) contrast(1.04) brightness(1);}
-.work-media::before{content:'';position:absolute;top:19px;left:21px;z-index:3;width:5px;height:5px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981;animation:pulseDot 2.4s ease-in-out infinite;pointer-events:none;}
-.work-media::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,6,6,.22) 0%,rgba(6,6,6,0) 45%,rgba(6,6,6,.6) 100%);opacity:.9;transition:opacity .45s var(--ease);}
-.work-card:hover .work-media::after{opacity:1;background:linear-gradient(180deg,rgba(6,6,6,.3) 0%,rgba(6,6,6,0) 38%,rgba(6,6,6,.82) 100%);}
+/* Live Badge on Card Media */
+.work-card-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  z-index:4;
+  font-family:var(--font-mono);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.14em;
+  color:#fff;
+  padding:4px 9px;
+  border-radius:100px;
+  background:rgba(8,8,8,.65);
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  pointer-events:none;
+}
+.work-card-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#10B981;
+  box-shadow:0 0 6px #10B981;
+  animation:pulseDot 2.4s ease-in-out infinite;
+}
 
-/* Whole-image zoom target */
-.work-zoom-hit{position:absolute;inset:0;z-index:2;border:none;background:transparent;cursor:zoom-in;}
-.work-zoom-hit:focus-visible{outline:2px solid var(--accent);outline-offset:-3px;}
+/* Hover Action Bar */
+.work-actions{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:5;
+  display:flex;
+  gap:7px;
+  padding:12px;
+  opacity:0;
+  transform:translateY(8px);
+  pointer-events:none;
+  transition:opacity .3s var(--ease),transform .35s var(--ease);
+}
+.work-card:hover .work-actions,
+.work-card:focus-within .work-actions{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+.work-action{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 12px;
+  border-radius:100px;
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#fff;
+  background:rgba(8,8,8,.65);
+  border:1px solid rgba(255,255,255,.24);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  transition:all .25s var(--ease);
+  cursor:pointer;
+}
+.work-action:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+.work-action-live{
+  background:#fff;
+  color:#0A0A0A;
+  border-color:#fff;
+}
+.work-action-live:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+.work-zoom-hit{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  border:none;
+  background:transparent;
+  cursor:zoom-in;
+}
+.work-zoom-hit:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:-3px;
+}
 
-/* Hover action bar */
-.work-actions{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;gap:7px;padding:11px;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .3s var(--ease),transform .4s var(--ease);}
-.work-card:hover .work-actions,.work-card:focus-within .work-actions{opacity:1;transform:none;pointer-events:auto;}
-.work-action{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:100px;font-family:var(--font-mono);font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(8,8,8,.58);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;transform:translateY(6px);transition:opacity .3s var(--ease),transform .35s var(--ease),background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);}
-.work-card:hover .work-action,.work-card:focus-within .work-action{opacity:1;transform:none;}
-.work-card:hover .work-action:nth-child(2){transition-delay:.05s;}
-.work-action:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
-.work-action-live{background:#fff;color:#0A0A0A;border-color:#fff;}
-.work-action-live:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
-
-.work-body{position:relative;z-index:3;flex:0 0 auto;display:flex;flex-direction:column;gap:7px;padding:14px 16px 15px;background:var(--bg-1);border-top:1px solid var(--border);}
-.work-body::before{content:'';position:absolute;left:0;top:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);transition:width .5s var(--ease);}
-.work-card:hover .work-body::before{width:100%;}
-.work-meta{display:flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;}
-.work-num{color:var(--accent);font-weight:600;}
-.work-cat{padding:2.5px 8px;border-radius:100px;border:1px solid var(--border);background:var(--bg-2);color:var(--text-2);font-size:8.5px;letter-spacing:.12em;}
-.work-card.filter-app .work-cat{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 35%,transparent);background:color-mix(in srgb,var(--accent) 10%,transparent);}
-.work-title{font-family:var(--font-display);font-size:1.02rem;font-weight:600;line-height:1.28;letter-spacing:-.02em;color:var(--text-0);}
-.work-desc{display:none;font-size:13.2px;line-height:1.55;color:var(--text-2);max-width:50ch;}
-.work-sub{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:9.5px;color:var(--text-2);white-space:nowrap;overflow:hidden;}
-.work-sub::before{content:'';flex-shrink:0;width:12px;height:1px;background:var(--accent);opacity:.75;}
-
-.work-card.is-spotlight .work-body,.work-card.is-wide .work-body{border-top:0;border-left:1px solid var(--border);justify-content:center;padding:26px 28px;}
-.work-card.is-spotlight .work-title{font-size:clamp(1.45rem,2.3vw,1.85rem);margin-top:2px;}
-.work-card.is-spotlight .work-desc{display:block;}
-.work-card.is-wide .work-title{font-size:1.25rem;}
-.work-link{display:inline-flex;align-items:center;gap:6px;width:fit-content;margin-top:6px;padding:8px 15px;border-radius:100px;background:color-mix(in srgb,var(--accent) 10%,transparent);border:1px solid color-mix(in srgb,var(--accent) 38%,transparent);color:var(--accent);font-size:12px;font-weight:600;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);}
-.work-link:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
-.work-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+/* Card Body (Uniform layout, height, and content for every card) */
+.work-body{
+  position:relative;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  flex-grow:1;
+  padding:18px 20px 20px;
+  background:var(--bg-1);
+  border-top:1px solid var(--border);
+  gap:12px;
+}
+.work-body::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:-1px;
+  height:2px;
+  width:0;
+  background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);
+  transition:width .5s var(--ease);
+}
+.work-card:hover .work-body::before{
+  width:100%;
+}
+.work-body-top{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.work-meta{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.work-num{
+  color:var(--accent);
+  font-weight:700;
+}
+.work-cat{
+  padding:2.5px 8px;
+  border-radius:100px;
+  border:1px solid var(--border);
+  background:var(--bg-2);
+  color:var(--text-2);
+  font-size:8.5px;
+  letter-spacing:.1em;
+}
+.work-card.filter-app .work-cat{
+  color:var(--accent);
+  border-color:color-mix(in srgb,var(--accent) 35%,transparent);
+  background:color-mix(in srgb,var(--accent) 10%,transparent);
+}
+.work-title{
+  font-family:var(--font-display);
+  font-size:1.1rem;
+  font-weight:600;
+  line-height:1.25;
+  letter-spacing:-.02em;
+  color:var(--text-0);
+  transition:color .25s var(--ease);
+}
+.work-card:hover .work-title{
+  color:var(--accent);
+}
+.work-sub{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:var(--text-2);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.work-sub::before{
+  content:'';
+  flex-shrink:0;
+  width:10px;
+  height:1px;
+  background:var(--accent);
+  opacity:.75;
+}
+.work-body-foot{
+  padding-top:12px;
+  border-top:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.work-card-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  font-weight:600;
+  color:var(--text-1);
+  transition:color .25s var(--ease), transform .25s var(--ease);
+}
+.work-card-link svg{
+  transition:transform .25s var(--ease);
+  color:var(--accent);
+}
+.work-card:hover .work-card-link{
+  color:var(--accent);
+}
+.work-card:hover .work-card-link svg{
+  transform:translate(2px, -2px);
+}
+.work-card:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
 
 /* Project image lightbox */
 body.no-scroll{overflow:hidden;}
@@ -607,41 +953,24 @@ body.no-scroll{overflow:hidden;}
 @media (hover:none){
   .work-actions,.work-actions .work-action{opacity:1;transform:none;pointer-events:auto;}
 }
-@media (min-width:922px){
-  .portfolio-grid.is-filtered .work-card.is-wide{grid-column:span 1;display:flex;flex-direction:column;aspect-ratio:16/11;min-height:0;}
-  .portfolio-grid.is-filtered .work-card.is-wide .work-body{border-left:0;border-top:1px solid var(--border);padding:14px 16px 15px;justify-content:flex-start;}
-}
 @media (max-width:1100px){
   .work-head{grid-template-columns:1fr;gap:26px;align-items:start;margin-bottom:28px;}
   .work-lede{margin-bottom:20px;}
 }
 @media (max-width:921px){
   .work-section{padding:78px 0 70px;}
-  .portfolio-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
-  .work-card{aspect-ratio:4/3;}
-  .work-card.is-spotlight{grid-template-columns:1fr;min-height:0;}
-  .work-card.is-spotlight .work-media{min-height:220px;}
-  .work-card.is-spotlight .work-body{border-left:0;border-top:1px solid var(--border);padding:20px 22px;justify-content:flex-start;}
-  .work-card.is-spotlight .work-desc{display:none;}
-  .work-card.is-spotlight .work-title{font-size:1.35rem;}
-  .work-card.is-wide{grid-column:span 2;min-height:190px;}
-  .work-card.is-wide .work-body{padding:20px 22px;}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
 }
 @media (max-width:640px){
   .work-section{padding:64px 0 56px;}
   .work-head h2{font-size:2rem;}
-  .portfolio-grid{grid-template-columns:1fr;gap:13px;}
-  .work-card,.work-card.is-spotlight,.work-card.is-wide{grid-column:span 1;display:flex;flex-direction:column;aspect-ratio:4/3;min-height:0;}
-  .work-card.is-spotlight{aspect-ratio:auto;}
-  .work-card.is-spotlight .work-media{min-height:196px;}
-  .work-card.is-wide .work-media{min-height:160px;}
-  .work-card.is-spotlight .work-body,.work-card.is-wide .work-body{border-left:0;border-top:1px solid var(--border);padding:16px 18px 17px;justify-content:flex-start;}
-  .work-card.is-spotlight .work-title,.work-card.is-wide .work-title{font-size:1.18rem;}
+  .portfolio-grid{grid-template-columns:1fr;gap:16px;}
   .work-stats{gap:20px;}
   .work-stat b{font-size:1.4rem;}
-  .work-toolbar{gap:10px;}
-  .filter-nav{width:100%;justify-content:space-between;}
-  .filter-btn{padding:8px 11px;font-size:11px;}
+  .work-toolbar{gap:14px;}
+  .filter-nav{width:100%;justify-content:space-between;gap:4px;padding:4px;}
+  .filter-btn{padding:8px 12px;font-size:11.5px;gap:6px;}
+  .filter-btn .filter-count{padding:1px 5px;font-size:9.5px;}
   .work-foot{margin-top:22px;padding-top:18px;}
   .lightbox{padding:14px;}
   .lightbox-close{top:8px;right:8px;}
@@ -1325,20 +1654,34 @@ footer{border-top:1px solid var(--border);}
       </div>
     </div>
 
-    <!-- Filters + live result count -->
+    <!-- Premium Segmented Filter Switcher -->
     <div class="work-toolbar reveal-head">
-      <div class="filter-nav" role="group" aria-label="Filter projects">
-        <button class="filter-btn active" data-filter="*" aria-pressed="true">All <span>12</span></button>
-        <button class="filter-btn" data-filter=".filter-app" aria-pressed="false">AI Apps <span>3</span></button>
-        <button class="filter-btn" data-filter=".filter-website" aria-pressed="false">Websites <span>9</span></button>
+      <div class="filter-nav" role="tablist" aria-label="Filter projects">
+        <button class="filter-btn active" data-filter="*" role="tab" aria-selected="true" aria-pressed="true">
+          <svg class="filter-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+          <span>All</span>
+          <span class="filter-count">12</span>
+        </button>
+        <button class="filter-btn" data-filter=".filter-app" role="tab" aria-selected="false" aria-pressed="false">
+          <svg class="filter-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="M2 12h4"/><path d="m4.93 19.07 2.83-2.83"/><path d="M12 22v-4"/><path d="m19.07 19.07-2.83-2.83"/><path d="M22 12h-4"/><path d="m19.07 4.93-2.83 2.83"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>AI Apps</span>
+          <span class="filter-count">3</span>
+        </button>
+        <button class="filter-btn" data-filter=".filter-website" role="tab" aria-selected="false" aria-pressed="false">
+          <svg class="filter-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>Websites</span>
+          <span class="filter-count">9</span>
+        </button>
       </div>
       <div class="work-count"><span class="work-live"></span>Showing <b id="workVisibleCount">12</b> of 12</div>
     </div>
 
     <div class="portfolio-grid" id="portfolioContainer">
 
-      <article class="work-card is-spotlight filter-app">
+      <!-- Card 01: AI Prescription Analyzer -->
+      <article class="work-card filter-app">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/app-2.jpg" alt="AI Prescription Analyzer interface" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/app-2.jpg" data-zoom-title="AI Prescription Analyzer interface" data-zoom-sub="Python &middot; React &middot; OCR &middot; AI" data-zoom-href="https://dos2.pythonanywhere.com/"></button>
           <div class="work-actions">
@@ -1347,16 +1690,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">01</span><span class="work-cat">AI App &middot; Flagship</span></div>
-          <h3 class="work-title">AI Prescription Analyzer</h3>
-          <p class="work-desc">A multimodal vision pipeline that reads handwritten prescriptions and returns structured, dosage-checked drug data from a single scan.</p>
-          <p class="work-sub">Python &middot; React &middot; OCR &middot; AI</p>
-          <a class="work-link" href="https://dos2.pythonanywhere.com/" target="_blank" rel="noopener">Open live build <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">01</span><span class="work-cat">AI App</span></div>
+            <h3 class="work-title">AI Prescription Analyzer</h3>
+            <p class="work-sub">Python &middot; React &middot; OCR &middot; AI</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dos2.pythonanywhere.com/" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 02: Tour & Travel Website -->
       <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/app-3.jpg" alt="Tour &amp; Travel Website" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/app-3.jpg" data-zoom-title="Tour &amp; Travel Website" data-zoom-sub="Laravel &middot; MySQL &middot; Bootstrap" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/home"></button>
           <div class="work-actions">
@@ -1365,16 +1716,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">02</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Tour &amp; Travel Website</h3>
-
-          <p class="work-sub">Laravel &middot; MySQL &middot; Bootstrap</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">02</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Tour &amp; Travel Website</h3>
+            <p class="work-sub">Laravel &middot; MySQL &middot; Bootstrap</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/sample_pages/home" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 03: AI Quote Generator -->
       <article class="work-card filter-app">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/app-1.jpg" alt="AI Quote Generator" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/app-1.jpg" data-zoom-title="AI Quote Generator" data-zoom-sub="React.js &middot; Firebase &middot; Gemini" data-zoom-href="https://ai-quote-generator-lake.vercel.app/"></button>
           <div class="work-actions">
@@ -1383,16 +1742,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">03</span><span class="work-cat">AI App</span></div>
-          <h3 class="work-title">AI Quote Generator</h3>
-
-          <p class="work-sub">React.js &middot; Firebase &middot; Gemini</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">03</span><span class="work-cat">AI App</span></div>
+            <h3 class="work-title">AI Quote Generator</h3>
+            <p class="work-sub">React.js &middot; Firebase &middot; Gemini</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://ai-quote-generator-lake.vercel.app/" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 04: Admin Panel Dashboard -->
       <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/product-1.jpg" alt="Admin Panel Dashboard" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/product-1.jpg" data-zoom-title="Admin Panel Dashboard" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/adminlogin"></button>
           <div class="work-actions">
@@ -1401,16 +1768,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">04</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Admin Panel Dashboard</h3>
-
-          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">04</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Admin Panel Dashboard</h3>
+            <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/sample_pages/adminlogin" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 05: Photography Showcase -->
       <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/branding-1.jpg" alt="Photography Showcase" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/branding-1.jpg" data-zoom-title="Photography Showcase" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://dosuniquedev-cloud.github.io/photography_website/"></button>
           <div class="work-actions">
@@ -1419,16 +1794,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">05</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Photography Showcase</h3>
-
-          <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">05</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Photography Showcase</h3>
+            <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/photography_website/" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 06: Interactive Login Page -->
       <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/books-1.jpg" alt="Interactive Login Page" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/books-1.jpg" data-zoom-title="Interactive Login Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/login"></button>
           <div class="work-actions">
@@ -1437,16 +1820,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">06</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Interactive Login Page</h3>
-
-          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">06</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Interactive Login Page</h3>
+            <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/sample_pages/login" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 07: Travel Agency Profile -->
       <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/product-2.jpg" alt="Travel Agency Profile" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/product-2.jpg" data-zoom-title="Travel Agency Profile" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/user_profile"></button>
           <div class="work-actions">
@@ -1455,16 +1846,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">07</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Travel Agency Profile</h3>
-
-          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">07</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Travel Agency Profile</h3>
+            <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/sample_pages/user_profile" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 08: Photography Dashboard -->
       <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/branding-2.jpg" alt="Photography Dashboard" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/branding-2.jpg" data-zoom-title="Photography Dashboard" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://dosuniquedev-cloud.github.io/photography_website/"></button>
           <div class="work-actions">
@@ -1473,16 +1872,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">08</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Photography Dashboard</h3>
-
-          <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">08</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Photography Dashboard</h3>
+            <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/photography_website/" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 09: Registration Page -->
       <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/books-2.jpg" alt="Registration Page" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/books-2.jpg" data-zoom-title="Registration Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/register"></button>
           <div class="work-actions">
@@ -1491,16 +1898,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">09</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Registration Page</h3>
-
-          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">09</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Registration Page</h3>
+            <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/sample_pages/register" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 10: Instagram Like History -->
       <article class="work-card filter-app">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/product-3.jpg" alt="Instagram Like History" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/product-3.jpg" data-zoom-title="Instagram Like History" data-zoom-sub="React &middot; Node.js &middot; MongoDB" data-zoom-href="https://ai-quote-generator-lake.vercel.app/history"></button>
           <div class="work-actions">
@@ -1509,16 +1924,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">10</span><span class="work-cat">AI App</span></div>
-          <h3 class="work-title">Instagram Like History</h3>
-
-          <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">10</span><span class="work-cat">AI App</span></div>
+            <h3 class="work-title">Instagram Like History</h3>
+            <p class="work-sub">React &middot; Node.js &middot; MongoDB</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://ai-quote-generator-lake.vercel.app/history" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
+      <!-- Card 11: Booking Page -->
       <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/branding-3.jpg" alt="Booking Page" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/branding-3.jpg" data-zoom-title="Booking Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/booking"></button>
           <div class="work-actions">
@@ -1527,16 +1950,24 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">11</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Booking Page</h3>
-
-          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">11</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Booking Page</h3>
+            <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/sample_pages/booking" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <article class="work-card filter-website is-wide">
+      <!-- Card 12: Query Page -->
+      <article class="work-card filter-website">
         <div class="work-media">
+          <span class="work-card-badge"><span class="work-card-dot"></span>LIVE</span>
           <img src="assets/img/portfolio/books-3.jpg" alt="Query Page" loading="lazy">
           <button type="button" class="work-zoom-hit" tabindex="-1" aria-hidden="true" data-zoom-src="assets/img/portfolio/books-3.jpg" data-zoom-title="Query Page" data-zoom-sub="HTML5 &middot; CSS &middot; Bootstrap &middot; JS" data-zoom-href="https://dosuniquedev-cloud.github.io/sample_pages/contact"></button>
           <div class="work-actions">
@@ -1545,15 +1976,20 @@ footer{border-top:1px solid var(--border);}
           </div>
         </div>
         <div class="work-body">
-          <div class="work-meta"><span class="work-num">12</span><span class="work-cat">Website</span></div>
-          <h3 class="work-title">Query Page</h3>
-
-          <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
-
+          <div class="work-body-top">
+            <div class="work-meta"><span class="work-num">12</span><span class="work-cat">Website</span></div>
+            <h3 class="work-title">Query Page</h3>
+            <p class="work-sub">HTML5 &middot; CSS &middot; Bootstrap &middot; JS</p>
+          </div>
+          <div class="work-body-foot">
+            <a class="work-card-link" href="https://dosuniquedev-cloud.github.io/sample_pages/contact" target="_blank" rel="noopener">
+              <span>Live Preview</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      
     </div>
 
     <div class="work-foot">
@@ -2891,9 +3327,11 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     document.querySelectorAll('.filter-btn').forEach(b=>{
       b.classList.remove('active');
       b.setAttribute('aria-pressed','false');
+      b.setAttribute('aria-selected','false');
     });
     btn.classList.add('active');
     btn.setAttribute('aria-pressed','true');
+    btn.setAttribute('aria-selected','true');
     filterWork(btn.getAttribute('data-filter') || '*');
   });
 });
