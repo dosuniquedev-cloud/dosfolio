@@ -1103,46 +1103,7 @@ html[data-theme="light"] .service-card:hover{box-shadow:0 24px 48px -20px rgba(1
 
 /* Freelance Rates defined in master section below */
 
-/* ---------- Contact Terminal (Section 7 - Image 7 Match) ---------- */
-.contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;}
-.op-mail-bar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border:1px solid var(--border);border-radius:12px;background:var(--bg-1);margin-bottom:24px;}
-.op-mail-left{display:flex;align-items:center;gap:14px;}
-.op-mail-icon{font-size:1.4rem;color:var(--accent);}
-.op-mail-lbl{font-size:11.5px;font-family:var(--font-mono);color:var(--text-2);display:block;}
-.op-mail-addr{font-family:var(--font-mono);font-size:14px;color:var(--text-0);font-weight:600;}
-.copy-pill{font-family:var(--font-mono);font-size:12px;padding:6px 14px;border:1px solid var(--border);border-radius:100px;background:var(--bg-2);color:var(--text-1);transition:all .2s;}
-.copy-pill:hover{border-color:var(--accent);color:var(--text-0);}
-
-.field{margin-bottom:18px;}
-.field label{display:block;font-size:12.5px;font-family:var(--font-mono);color:var(--text-2);margin-bottom:8px;}
-.field input,.field textarea{width:100%;background:var(--bg-1);border:1px solid var(--border);border-radius:10px;padding:13px 14px;color:var(--text-0);font-family:var(--font-body);font-size:14.5px;transition:border-color .2s;}
-.field input:focus,.field textarea:focus{border-color:var(--accent);outline:none;}
-.field textarea{resize:vertical;min-height:120px;}
-
-.contact-cards{display:flex;flex-direction:column;gap:14px;margin-top:24px;}
-.contact-card-item{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border:1px solid var(--border);border-radius:12px;background:var(--bg-1);transition:border-color .2s,transform .2s var(--ease);}
-.contact-card-item:hover{border-color:var(--border-strong);transform:translateX(4px);}
-.contact-card-item b{font-size:14.5px;color:var(--text-0);display:block;margin-bottom:2px;}
-.contact-card-item span{font-size:12px;color:var(--text-2);font-family:var(--font-mono);}
-
-/* AI Assistant Portal (From Image 7) */
-.ai-portal{background:var(--bg-1);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 40px -20px var(--glow);}
-.ai-portal-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg-2);}
-.ai-portal-title{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12.5px;color:var(--text-0);font-weight:600;}
-.ai-portal-badge{font-family:var(--font-mono);font-size:10.5px;color:#3ABF6E;background:rgba(58,191,110,.12);padding:3px 8px;border-radius:4px;}
-.ai-chat-body{padding:18px;min-height:280px;max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;font-family:var(--font-mono);font-size:12.5px;}
-.ai-msg{line-height:1.65;padding:10px 14px;border-radius:10px;}
-.ai-msg.bot{background:var(--bg-2);color:var(--text-1);border-left:3px solid var(--accent);}
-.ai-msg.user{background:color-mix(in srgb, var(--accent) 15%, transparent);color:var(--text-0);align-self:flex-end;max-width:85%;}
-.ai-input-wrap{display:flex;align-items:center;gap:8px;padding:14px 18px;border-top:1px solid var(--border);background:var(--bg-2);}
-.ai-input{flex-grow:1;background:var(--bg-1);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text-0);font-family:var(--font-mono);font-size:12.5px;outline:none;}
-.ai-input:focus{border-color:var(--accent);}
-.ai-send-btn{width:38px;height:38px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .2s;}
-.ai-send-btn:hover{transform:scale(1.05);}
-
-.telemetry-card{background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:14px;}
-.telemetry-card h4{font-size:13.5px;font-family:var(--font-mono);color:var(--text-0);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
-.telemetry-card p{font-size:12.5px;color:var(--text-2);font-family:var(--font-mono);line-height:1.7;}
+/* Contact Terminal defined in master section below */
 
 /* ---------- Footer ---------- */
 footer{padding:44px 0;background:var(--bg-1);}
@@ -1295,25 +1256,61 @@ html[data-theme="light"] .rate-card:hover{box-shadow:0 24px 48px -20px rgba(15,2
 .rate-card .btn{position:relative;z-index:2;width:100%;justify-content:center;font-size:13.5px;font-weight:600;padding:12px 20px;border-radius:100px;transition:all .3s var(--ease);}
 .rate-card:hover .btn{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 8px 24px -8px var(--glow);}
 
-/* ---------- Contact ---------- */
-.op-mail-bar{position:relative;border-radius:14px;padding:18px 22px;background:linear-gradient(100deg,color-mix(in srgb,var(--accent) 6%,var(--bg-1)),var(--bg-1));overflow:hidden;}
-.op-mail-bar::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),transparent);}
-.op-mail-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;background:color-mix(in srgb,var(--accent) 10%,transparent);font-size:1.1rem;}
-.op-mail-addr{font-size:14px;letter-spacing:.01em;}
-.copy-pill{padding:7px 15px;font-size:11px;}
-#contactForm{counter-reset:field;}
-.field label{display:flex;align-items:center;gap:8px;}
-.field label::before{counter-increment:field;content:counter(field,decimal-leading-zero);color:var(--accent);font-size:9.5px;letter-spacing:.08em;}
-.field input,.field textarea{border-radius:10px;padding:13px 15px;}
-.field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent);}
-.contact-cards{gap:12px;margin-top:22px;}
-.contact-card-item{border-radius:12px;padding:15px 18px;}
-.contact-card-item:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--border-strong));transform:translateX(4px);}
-.ai-portal{position:relative;}
-.ai-portal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);z-index:2;}
-.ai-portal-head{padding:15px 18px;}
-.ai-msg{border-radius:12px;}
-.telemetry-card{margin-top:4px;border-radius:12px;}
+/* ---------- Contact Terminal (Master Section) ---------- */
+.contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start;}
+
+.op-mail-bar{position:relative;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-radius:18px;background:var(--bg-1);border:1px solid var(--border);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 4px 20px -4px rgba(0,0,0,.06);margin-bottom:30px;overflow:hidden;transition:border-color .3s var(--ease),box-shadow .3s var(--ease);}
+html[data-theme="light"] .op-mail-bar{box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 6px 20px -6px rgba(15,23,42,.06);}
+.op-mail-bar::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),#FF8A4C);}
+.op-mail-left{display:flex;align-items:center;gap:16px;}
+.op-mail-icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 10%,var(--bg-2));border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);color:var(--accent);font-size:1.25rem;flex-shrink:0;}
+.op-mail-lbl{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-2);display:block;margin-bottom:3px;}
+.op-mail-addr{font-family:var(--font-mono);font-size:14.5px;font-weight:600;color:var(--text-0);letter-spacing:.02em;}
+.copy-pill{font-family:var(--font-mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;padding:8px 18px;border-radius:100px;background:var(--bg-2);border:1px solid var(--border);color:var(--text-1);cursor:pointer;transition:all .25s var(--ease);flex-shrink:0;}
+.copy-pill:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 6px 16px -6px var(--glow);}
+
+#contactForm{counter-reset:field;background:var(--bg-1);border:1px solid var(--border);border-radius:20px;padding:30px 26px;position:relative;overflow:hidden;isolation:isolate;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 4px 24px -4px rgba(0,0,0,.08);}
+html[data-theme="light"] #contactForm{box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 6px 24px -6px rgba(15,23,42,.06);}
+#contactForm::before{content:'';position:absolute;top:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);z-index:2;}
+.field{margin-bottom:18px;}
+.field label{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-1);margin-bottom:8px;}
+.field label::before{counter-increment:field;content:counter(field,decimal-leading-zero);color:var(--accent);font-size:9.5px;font-weight:700;}
+.field input,.field textarea{width:100%;background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:13px 16px;color:var(--text-0);font-family:var(--font-body);font-size:14px;transition:all .25s var(--ease);}
+.field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 14%,transparent);outline:none;background:var(--bg-1);}
+.field textarea{resize:vertical;min-height:120px;}
+
+.contact-cards{display:flex;flex-direction:column;gap:12px;margin-top:24px;}
+.contact-card-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border-radius:16px;background:var(--bg-1);border:1px solid var(--border);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 2px 12px -2px rgba(0,0,0,.04);transition:transform .3s var(--ease),border-color .3s var(--ease),box-shadow .3s var(--ease);}
+html[data-theme="light"] .contact-card-item{box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 4px 14px -4px rgba(15,23,42,.05);}
+.contact-card-item:hover{transform:translateX(4px);border-color:color-mix(in srgb,var(--accent) 40%,var(--border));box-shadow:0 12px 26px -10px rgba(0,0,0,.25);}
+.contact-card-item b{font-family:var(--font-display);font-size:14.5px;font-weight:600;color:var(--text-0);display:block;margin-bottom:2px;}
+.contact-card-item span{font-family:var(--font-mono);font-size:11.5px;color:var(--text-2);word-break:break-all;}
+.contact-card-action{font-family:var(--font-mono);font-size:11.5px;font-weight:600;color:var(--accent);padding:5px 12px;border-radius:100px;background:color-mix(in srgb,var(--accent) 9%,var(--bg-2));border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);flex-shrink:0;transition:all .25s var(--ease);}
+.contact-card-item:hover .contact-card-action{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 4px 12px -4px var(--glow);}
+
+.telemetry-card{background:var(--bg-1);border:1px solid var(--border);border-radius:16px;padding:18px 22px;margin-top:4px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.04);}
+html[data-theme="light"] .telemetry-card{box-shadow:inset 0 1px 0 rgba(255,255,255,.9);}
+.telemetry-card h4{font-family:var(--font-mono);font-size:12.5px;font-weight:600;letter-spacing:.04em;color:var(--text-0);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.telemetry-dot{width:7px;height:7px;border-radius:50%;background:#10B981;box-shadow:0 0 8px rgba(16,185,129,.85);animation:pulseDot 2.4s ease-in-out infinite;display:inline-block;flex-shrink:0;}
+.telemetry-card p{font-family:var(--font-mono);font-size:11.5px;color:var(--text-2);line-height:1.7;}
+
+/* AI Assistant Portal */
+.ai-portal{position:relative;background:var(--bg-1);border:1px solid var(--border);border-radius:20px;overflow:hidden;isolation:isolate;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 18px 40px -20px var(--glow);}
+html[data-theme="light"] .ai-portal{box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 12px 30px -15px rgba(239,68,68,.18);}
+.ai-portal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),#FF8A4C,transparent);z-index:3;}
+.ai-portal-head{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:color-mix(in srgb,var(--text-0) 2%,var(--bg-2));}
+.ai-portal-title{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--text-0);}
+.ai-portal-badge{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#10B981;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);padding:3px 9px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;}
+.ai-portal-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:#10B981;box-shadow:0 0 6px rgba(16,185,129,.8);}
+.ai-chat-body{padding:20px;min-height:280px;max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;font-family:var(--font-mono);font-size:12.5px;}
+.ai-msg{line-height:1.65;padding:12px 16px;border-radius:14px;}
+.ai-msg.bot{background:var(--bg-2);color:var(--text-1);border:1px solid var(--border);border-left:3px solid var(--accent);}
+.ai-msg.user{background:color-mix(in srgb,var(--accent) 15%,var(--bg-2));border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);color:var(--text-0);align-self:flex-end;max-width:85%;}
+.ai-input-wrap{display:flex;align-items:center;gap:10px;padding:14px 18px;border-top:1px solid var(--border);background:color-mix(in srgb,var(--text-0) 2%,var(--bg-2));}
+.ai-input{flex-grow:1;background:var(--bg-1);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text-0);font-family:var(--font-mono);font-size:12.5px;outline:none;transition:border-color .2s;}
+.ai-input:focus{border-color:var(--accent);}
+.ai-send-btn{width:40px;height:40px;border-radius:10px;background:var(--accent);color:#fff;border:none;cursor:pointer;display:grid;place-items:center;font-size:16px;font-weight:bold;transition:transform .2s var(--ease),box-shadow .2s var(--ease);box-shadow:0 4px 14px -4px var(--glow);flex-shrink:0;}
+.ai-send-btn:hover{transform:scale(1.06);box-shadow:0 6px 18px -4px var(--glow);}
 footer{border-top:1px solid var(--border);}
 
 @media (max-width:1000px){
@@ -1413,9 +1410,25 @@ footer{border-top:1px solid var(--border);}
   .stat{padding:18px 8px;}
   .stat b{font-size:1.65rem;}
   
-  .op-mail-bar{padding:14px 16px;gap:12px;}
-  .op-mail-icon{width:34px;height:34px;}
-  .contact-card-item{padding:14px 16px;}
+  /* Contact Terminal Mobile Responsiveness */
+  .contact-wrap{grid-template-columns:1fr;gap:26px;}
+  .op-mail-bar{padding:16px 18px;gap:14px;}
+  .op-mail-icon{width:40px;height:40px;font-size:1.15rem;}
+  .op-mail-addr{font-size:13.5px;}
+  .copy-pill{padding:7px 14px;font-size:11px;}
+  #contactForm{padding:24px 18px;border-radius:18px;}
+  .field{margin-bottom:15px;}
+  .field label{font-size:10.5px;}
+  .field input,.field textarea{font-size:16px;padding:12px 14px;}
+  .contact-cards{gap:10px;margin-top:20px;}
+  .contact-card-item{padding:16px 18px;border-radius:14px;}
+  .ai-portal{border-radius:18px;}
+  .ai-portal-head{padding:14px 16px;}
+  .ai-chat-body{padding:16px;min-height:240px;max-height:300px;font-size:12px;}
+  .ai-msg{padding:10px 14px;border-radius:12px;}
+  .ai-input-wrap{padding:12px 14px;}
+  .ai-input{font-size:16px;padding:10px 12px;}
+
   footer{padding:30px 0;}
   footer .container{flex-direction:column;align-items:flex-start;gap:12px;}
 }
@@ -1431,6 +1444,16 @@ footer{border-top:1px solid var(--border);}
   .about-stats{grid-template-columns:1fr 1fr;gap:8px;}
   .about-stat:last-child{grid-column:span 2;}
   .stat-row{grid-template-columns:1fr 1fr;}
+
+  /* Ultra-compact phone adjustments */
+  .op-mail-bar{flex-direction:column;align-items:stretch;gap:12px;padding:15px 16px;}
+  .op-mail-left{width:100%;}
+  .op-mail-addr{font-size:12.8px;}
+  .copy-pill{width:100%;text-align:center;padding:8px 14px;}
+  .contact-card-item{flex-wrap:wrap;gap:10px;}
+  .contact-card-item div{max-width:calc(100% - 90px);}
+  .contact-card-item b{font-size:13.5px;}
+  .contact-card-item span{font-size:11px;}
 }
 </style>
 </head>
@@ -2793,7 +2816,7 @@ footer{border-top:1px solid var(--border);}
               <b>LinkedIn Profile</b>
               <span>linkedin.com/in/tanmay-das-dev</span>
             </div>
-            <span style="font-family:var(--font-mono);font-size:13px;color:var(--accent);">Connect &#8599;</span>
+            <span class="contact-card-action">Connect &#8599;</span>
           </a>
 
           <a href="tel:+918348146101" class="contact-card-item">
@@ -2801,7 +2824,7 @@ footer{border-top:1px solid var(--border);}
               <b>Phone / WhatsApp</b>
               <span>+91 8348146101</span>
             </div>
-            <span style="font-family:var(--font-mono);font-size:13px;color:var(--accent);">Call &#8599;</span>
+            <span class="contact-card-action">Call &#8599;</span>
           </a>
 
           <div class="contact-card-item">
@@ -2809,11 +2832,11 @@ footer{border-top:1px solid var(--border);}
               <b>Operational Base</b>
               <span>West Bengal, India &middot; UTC+5:30</span>
             </div>
-            <span style="font-family:var(--font-mono);font-size:12px;color:var(--accent);">Active</span>
+            <span class="contact-card-action">Active</span>
           </div>
 
           <div class="telemetry-card">
-            <h4><span style="width:8px;height:8px;border-radius:50%;background:#3ABF6E;display:inline-block;"></span> System Status: Online</h4>
+            <h4><span class="telemetry-dot"></span> System Status: Online</h4>
             <p>
               Visitor Telemetry: <strong id="view-counter" style="color:var(--accent);">...</strong><br>
               <span id="statusMsg" style="font-size:11.5px;color:var(--text-2);">System: Tracking active</span>
