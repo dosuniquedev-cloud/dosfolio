@@ -1108,13 +1108,28 @@ html[data-theme="light"] .service-card:hover{box-shadow:0 24px 48px -20px rgba(1
 
 /* Contact Terminal defined in master section below */
 
-/* ---------- Footer ---------- */
-footer{padding:44px 0;background:var(--bg-1);}
-footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-footer p{font-size:13px;color:var(--text-2);font-family:var(--font-mono);}
-.footer-links{display:flex;gap:20px;font-size:13px;}
-.footer-links a{color:var(--text-2);transition:color .2s;}
-.footer-links a:hover{color:var(--accent);}
+/* ---------- Premium Editorial Footer ---------- */
+footer{padding:68px 0 36px;background:var(--bg-1);border-top:1px solid var(--border);position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 55%, var(--border)), transparent);}
+.footer-grid{display:grid;grid-template-columns:1.25fr .88fr .88fr;gap:48px;margin-bottom:44px;}
+.footer-col-brand h3{font-family:var(--font-display);font-size:1.42rem;font-weight:700;letter-spacing:-.03em;color:var(--text-0);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.footer-col-brand h3 .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--glow);display:inline-block;}
+.footer-col-brand .footer-sub{font-size:13.2px;color:var(--text-2);line-height:1.64;margin-bottom:16px;max-width:360px;}
+.footer-telemetry{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-2);padding:5px 12px;border-radius:100px;background:var(--bg-2);border:1px solid var(--border);margin-bottom:18px;}
+.footer-dot{width:6px;height:6px;border-radius:50%;background:#10B981;box-shadow:0 0 8px rgba(16,185,129,.85);animation:pulseDot 2.4s ease-in-out infinite;flex-shrink:0;}
+.footer-cv-btn{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11.5px;font-weight:600;color:var(--text-0);padding:7px 15px;border-radius:100px;background:var(--bg-2);border:1px solid var(--border-strong);transition:all .25s var(--ease);}
+.footer-cv-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);box-shadow:0 4px 14px -4px var(--glow);}
+.footer-col h4{font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-1);margin-bottom:18px;}
+.footer-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px;}
+.footer-list a{font-family:var(--font-mono);font-size:12.5px;color:var(--text-2);display:inline-flex;align-items:center;gap:6px;transition:all .2s var(--ease);}
+.footer-list a:hover{color:var(--accent);transform:translateX(2px);}
+.footer-list a svg{opacity:.6;transition:opacity .2s;}
+.footer-list a:hover svg{opacity:1;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+.footer-bottom p{font-family:var(--font-mono);font-size:11.5px;color:var(--text-2);margin:0;}
+.footer-bottom-links{display:flex;align-items:center;gap:16px;}
+.footer-to-top{font-family:var(--font-mono);font-size:11.5px;font-weight:600;color:var(--text-2);display:inline-flex;align-items:center;gap:5px;transition:color .2s;}
+.footer-to-top:hover{color:var(--accent);}
 
 /* ---------- Back to Top Button ---------- */
 .back-to-top{position:fixed;bottom:24px;right:24px;z-index:90;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px var(--glow);opacity:0;visibility:hidden;transition:all .3s;}
@@ -1247,6 +1262,8 @@ html[data-theme="light"] .rate-card{box-shadow:inset 0 1px 0 rgba(255,255,255,.9
 .rate-card:hover::after{width:100%;}
 .rate-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 45%,var(--border-strong));box-shadow:0 24px 48px -20px rgba(0,0,0,.7),0 0 35px -18px var(--glow);}
 html[data-theme="light"] .rate-card:hover{box-shadow:0 24px 48px -20px rgba(15,23,42,.14),0 10px 24px -10px rgba(239,68,68,.22);}
+.rate-card.featured{border-color:color-mix(in srgb,var(--accent) 45%,var(--border-strong));background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 6%,var(--bg-1)),var(--bg-1));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 36px -16px var(--glow);}
+.rate-card.featured::after{width:100%;}
 .rate-card > div:first-child{position:relative;z-index:2;display:flex;flex-direction:column;flex:1 1 auto;}
 .rate-badge{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--bg-2));border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);padding:4px 11px;border-radius:100px;width:fit-content;margin-bottom:16px;}
 .rate-card h3{position:relative;z-index:2;font-size:1.22rem;font-weight:600;line-height:1.32;letter-spacing:-.025em;color:var(--text-0);margin-bottom:8px;min-height:3.2rem;display:flex;align-items:flex-start;}
@@ -1432,8 +1449,9 @@ footer{border-top:1px solid var(--border);}
   .ai-input-wrap{padding:12px 14px;}
   .ai-input{font-size:16px;padding:10px 12px;}
 
-  footer{padding:30px 0;}
-  footer .container{flex-direction:column;align-items:flex-start;gap:12px;}
+  footer{padding:48px 0 28px;}
+  .footer-grid{grid-template-columns:1fr;gap:32px;margin-bottom:32px;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px;}
 }
 
 @media (max-width: 420px) {
@@ -1477,7 +1495,7 @@ footer{border-top:1px solid var(--border);}
       <li><a href="#tools">Tools</a></li>
       <li><a href="#about">About me</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#pricing">Freelance Rates</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-tools">
@@ -2598,31 +2616,31 @@ footer{border-top:1px solid var(--border);}
         <div class="skill-box">
           <div class="skill-box-top"><span class="skill-num">02</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
           <div class="skill-box-title">Frameworks</div>
-          <div class="skill-tags"><span class="skill-pill">FastAPI</span><span class="skill-pill">Laravel</span><span class="skill-pill">React 19</span><span class="skill-pill">Next.js</span><span class="skill-pill">Node.js</span><span class="skill-pill">Tailwind CSS</span></div>
+          <div class="skill-tags"><span class="skill-pill">FastAPI</span><span class="skill-pill">Sails.js v1</span><span class="skill-pill">Next.js 15</span><span class="skill-pill">Laravel</span><span class="skill-pill">React 19</span><span class="skill-pill">React Native</span></div>
         </div>
 
         <div class="skill-box">
           <div class="skill-box-top"><span class="skill-num">03</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4V2M15 10V8M12 7h-2M20 7h-2"/><path d="M4 20l9-9"/><path d="M9 4l1.2 3.2L13.4 8.4 10.2 9.6 9 12.8 7.8 9.6 4.6 8.4 7.8 7.2z"/></svg></div>
           <div class="skill-box-title">Motion &amp; UI</div>
-          <div class="skill-tags"><span class="skill-pill">GSAP 3</span><span class="skill-pill">ScrollTrigger</span><span class="skill-pill">Framer Motion</span><span class="skill-pill">Space Grotesk</span><span class="skill-pill">Lucide Icons</span></div>
+          <div class="skill-tags"><span class="skill-pill">GSAP 3</span><span class="skill-pill">ScrollTrigger</span><span class="skill-pill">Framer Motion</span><span class="skill-pill">Tailwind CSS</span><span class="skill-pill">Radix UI</span><span class="skill-pill">Lenis Scroll</span></div>
         </div>
 
         <div class="skill-box">
           <div class="skill-box-top"><span class="skill-num">04</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
           <div class="skill-box-title">Platforms &amp; DBs</div>
-          <div class="skill-tags"><span class="skill-pill">PostgreSQL (Neon)</span><span class="skill-pill">Redis 7</span><span class="skill-pill">MongoDB (2dsphere)</span><span class="skill-pill">Firebase</span><span class="skill-pill">AWS / Docker</span></div>
+          <div class="skill-tags"><span class="skill-pill">PostgreSQL 16 (asyncpg)</span><span class="skill-pill">Redis 7</span><span class="skill-pill">MongoDB (2dsphere)</span><span class="skill-pill">Payload CMS 3.0</span><span class="skill-pill">Docker / AWS</span></div>
         </div>
 
         <div class="skill-box">
           <div class="skill-box-top"><span class="skill-num">05</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
           <div class="skill-box-title">Hardware &amp; IoT</div>
-          <div class="skill-tags"><span class="skill-pill">Web Serial API</span><span class="skill-pill">RFID POS Scanner</span><span class="skill-pill">ESC/POS Sockets</span><span class="skill-pill">LAN Claim Fencing</span><span class="skill-pill">COM3 @ 9600 Baud</span></div>
+          <div class="skill-tags"><span class="skill-pill">Web Serial API (COM3)</span><span class="skill-pill">RFID Hardware Bridge</span><span class="skill-pill">ESC/POS Raw Sockets</span><span class="skill-pill">mDNS Device Discovery</span><span class="skill-pill">Zero-Loss Print Fencing</span></div>
         </div>
 
         <div class="skill-box">
           <div class="skill-box-top"><span class="skill-num">06</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
           <div class="skill-box-title">Practices</div>
-          <div class="skill-tags"><span class="skill-pill">System Architecture</span><span class="skill-pill">Concurrency Control</span><span class="skill-pill">Double-Entry Ledgers</span><span class="skill-pill">Restic Disaster Recovery</span><span class="skill-pill">Lighthouse 95+</span></div>
+          <div class="skill-tags"><span class="skill-pill">Locust Load Testing</span><span class="skill-pill">PostgreSQL Row Locking</span><span class="skill-pill">Double-Entry Ledgers</span><span class="skill-pill">Restic Disaster Recovery</span><span class="skill-pill">Lighthouse 98+</span></div>
         </div>
       </div>
 
@@ -2693,97 +2711,97 @@ footer{border-top:1px solid var(--border);}
       <div class="rate-card">
         <div>
           <span class="rate-badge">Front-End &amp; Showcase</span>
-          <h3>Static Website / Landing Page</h3>
-          <div class="rate-price">$150+ <span>/ project</span></div>
-          <p>High-conversion editorial landing page benchmarked against Linear and Stripe with custom GSAP micro-interactions and dark/light mode.</p>
+          <h3>60fps Editorial &amp; Headless Showcase</h3>
+          <div class="rate-price">$190+ <span>/ project</span></div>
+          <p>High-conversion editorial web experiences benchmarked against Linear and Stripe with custom GSAP 3 micro-interactions, dark/light theme, and headless CMS setup.</p>
           <ul class="rate-features">
-            <li>Custom responsive layout</li>
-            <li>GSAP scroll animations</li>
-            <li>SEO &amp; Lighthouse 95+ score</li>
-            <li>Fast mobile delivery</li>
+            <li>Custom responsive layout &amp; typography</li>
+            <li>GSAP 3 &amp; Lenis smooth scroll motion</li>
+            <li>Lighthouse 98+ score guarantee</li>
+            <li>Headless CMS / Markdown blog setup</li>
           </ul>
         </div>
-        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;">Get Started</a>
+        <a href="#contact" data-package="Editorial &amp; Headless Showcase ($190+)" class="btn btn-ghost rate-btn" style="width:100%;justify-content:center;">Get Started</a>
       </div>
 
       <div class="rate-card">
         <div>
-          <span class="rate-badge">Full Interactive</span>
-          <h3>Dynamic Web App (React / Next.js)</h3>
-          <div class="rate-price">$450+ <span>/ project</span></div>
-          <p>Production-ready web application with reactive state management, authenticated dashboard, and rich UI component library.</p>
+          <span class="rate-badge">Full-Stack SaaS</span>
+          <h3>Dynamic Web App (React 19 / Next.js 15)</h3>
+          <div class="rate-price">$480+ <span>/ project</span></div>
+          <p>Production-ready SaaS platform with reactive state architecture, authenticated tenant dashboard, payment webhooks, and real-time telemetry.</p>
           <ul class="rate-features">
-            <li>React 19 / Next.js architecture</li>
-            <li>REST / GraphQL integration</li>
-            <li>Role-Based Access Control (RBAC)</li>
-            <li>Telemetry &amp; analytics setup</li>
+            <li>React 19 / Next.js 15 Server Actions</li>
+            <li>Stripe / payment checkout webhooks</li>
+            <li>Granular RBAC &amp; multi-tenant auth</li>
+            <li>Real-time telemetry &amp; analytics setup</li>
           </ul>
         </div>
-        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;">Get Started</a>
+        <a href="#contact" data-package="Dynamic Web App (React 19 / Next.js 15, $480+)" class="btn btn-ghost rate-btn" style="width:100%;justify-content:center;">Get Started</a>
       </div>
 
       <div class="rate-card">
         <div>
           <span class="rate-badge">Microservices</span>
-          <h3>Backend API &amp; Database Architecture</h3>
-          <div class="rate-price">$250+ <span>/ project</span></div>
-          <p>High-concurrency RESTful APIs engineered with Python FastAPI or Laravel, optimized for asyncpg PostgreSQL transactions.</p>
+          <h3>Backend API &amp; Distributed Systems</h3>
+          <div class="rate-price">$320+ <span>/ project</span></div>
+          <p>High-concurrency RESTful &amp; WebSocket APIs engineered with Python FastAPI or Sails.js, optimized for asyncpg PostgreSQL transactions.</p>
           <ul class="rate-features">
-            <li>Asynchronous endpoint handlers</li>
-            <li>Database migrations &amp; schemas</li>
-            <li>JWT authentication &amp; rate limiting</li>
-            <li>Redis caching layer</li>
+            <li>Asynchronous FastAPI / Sails.js endpoints</li>
+            <li>PostgreSQL 16 schemas &amp; asyncpg migrations</li>
+            <li>JWT auth, rate limiting &amp; CORS fencing</li>
+            <li>Redis 7 caching &amp; pub/sub streams</li>
           </ul>
         </div>
-        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;">Get Started</a>
+        <a href="#contact" data-package="Backend API &amp; Distributed Systems ($320+)" class="btn btn-ghost rate-btn" style="width:100%;justify-content:center;">Get Started</a>
       </div>
 
-      <div class="rate-card">
+      <div class="rate-card featured">
         <div>
-          <span class="rate-badge">IoT &amp; Hardware</span>
-          <h3>Hardware &amp; IoT Serial Bridge</h3>
-          <div class="rate-price">$500+ <span>/ project</span></div>
-          <p>Bridging physical hardware to web browsers (Web Serial API for RFID scanners, digital scales, ESC/POS LAN thermal printers).</p>
+          <span class="rate-badge" style="background:var(--accent);color:#fff;border-color:var(--accent);">&#9733; Flagship IoT</span>
+          <h3>Hardware &amp; IoT Web Serial Bridge</h3>
+          <div class="rate-price">$550+ <span>/ project</span></div>
+          <p>Bridging physical hardware to web browsers (Web Serial API for RFID scanners, digital scales, ESC/POS LAN thermal printers) with zero dropped packets.</p>
           <ul class="rate-features">
-            <li>Raw serial buffer protocol parser</li>
-            <li>Baud rate synchronization (9600)</li>
-            <li>Claim fencing &amp; lease tokens</li>
-            <li>POS counter direct integration</li>
+            <li>Web Serial API (COM3 @ 9600 baud) parser</li>
+            <li>ESC/POS raw thermal print dispatcher</li>
+            <li>Distributed Redis 7 claim lease fencing</li>
+            <li>POS counter direct browser integration</li>
           </ul>
         </div>
-        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;">Get Started</a>
+        <a href="#contact" data-package="Hardware &amp; IoT Web Serial Bridge ($550+)" class="btn btn-primary rate-btn" style="width:100%;justify-content:center;">Get Started</a>
       </div>
 
       <div class="rate-card">
         <div>
           <span class="rate-badge">Turnkey Enterprise</span>
-          <h3>Full Stack ERP System</h3>
-          <div class="rate-price">$900+ <span>/ project</span></div>
-          <p>Complete enterprise ERP covering real-time inventory deduction, supplier purchasing, POS counters, and automated GST/P&amp;L ledgers.</p>
+          <h3>Full Stack ERP &amp; POS System</h3>
+          <div class="rate-price">$950+ <span>/ project</span></div>
+          <p>Complete enterprise ERP covering real-time FIFO inventory deduction, supplier purchasing, POS counters, and automated GST/P&amp;L double-entry ledgers.</p>
           <ul class="rate-features">
-            <li>Dual-currency accounting engine</li>
-            <li>Omnichannel e-commerce sync</li>
-            <li>Hardware scanner integration</li>
-            <li>Multi-tier access hierarchy</li>
+            <li>Double-entry automated GST accounting</li>
+            <li>Real-time FIFO inventory deduction</li>
+            <li>Hardware scanner &amp; receipt integration</li>
+            <li>Multi-tier role &amp; branch hierarchy</li>
           </ul>
         </div>
-        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;">Get Started</a>
+        <a href="#contact" data-package="Full Stack ERP &amp; POS System ($950+)" class="btn btn-ghost rate-btn" style="width:100%;justify-content:center;">Get Started</a>
       </div>
 
       <div class="rate-card">
         <div>
-          <span class="rate-badge">Advisory</span>
+          <span class="rate-badge">Advisory &amp; Performance</span>
           <h3>Systems Advisory &amp; Bug Fixes</h3>
-          <div class="rate-price">$35 <span>/ hour</span></div>
-          <p>Direct architectural consulting, query optimization, high-priority bug resolution, or code audit for active codebases.</p>
+          <div class="rate-price">$40 <span>/ hour</span></div>
+          <p>Direct architectural consulting, database indexing, Locust concurrency stress testing, or escalated code audit for active production codebases.</p>
           <ul class="rate-features">
-            <li>Database performance tuning</li>
-            <li>Hardware bridge troubleshooting</li>
-            <li>Architecture refactoring</li>
-            <li>Same-day urgent response</li>
+            <li>PostgreSQL EXPLAIN ANALYZE query tuning</li>
+            <li>Locust load testing &amp; concurrency audit</li>
+            <li>Hardware bridge &amp; serial diagnostics</li>
+            <li>Same-day emergency turnaround</li>
           </ul>
         </div>
-        <a href="#contact" class="btn btn-ghost" style="width:100%;justify-content:center;">Book Consultation</a>
+        <a href="#contact" data-package="Systems Advisory &amp; Bug Fixes ($40/hr)" class="btn btn-ghost rate-btn" style="width:100%;justify-content:center;">Book Consultation</a>
       </div>
 
     </div>
@@ -2913,12 +2931,83 @@ footer{border-top:1px solid var(--border);}
 <!-- ========================================================================= -->
 <footer>
   <div class="container">
-    <p>&copy; 2026 Tanmay Das &middot; Dosfolio &middot; Senior Full-Stack &amp; Distributed Systems Architect</p>
-    <div class="footer-links">
-      <a href="https://github.com/dosuniquedev-cloud" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/tanmay-das-dev/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.academicae.com/" target="_blank" rel="noopener">Academicae</a>
-      <a href="https://www.rpssolutions.com/" target="_blank" rel="noopener">RPS Jewel Pro</a>
+    <div class="footer-grid">
+      <!-- Col 1: Identity & Telemetry -->
+      <div class="footer-col-brand">
+        <h3><span class="dot"></span>Dosfolio<span style="color:var(--accent);">.</span></h3>
+        <p class="footer-sub">Tanmay Das &mdash; Full Stack Engineer @ <strong>ResCount</strong>. Engineering high-concurrency enterprise platforms, real-time hardware-to-cloud bridges, and multimodal AI integrations.</p>
+        <div class="footer-telemetry">
+          <span class="footer-dot"></span>
+          <span>All systems operational &bull; West Bengal, India (UTC+5:30)</span>
+        </div>
+        <div>
+          <a href="assets/img/Tanmay_Das_Resume_new.pdf" download="Tanmay_Das_Resume.pdf" target="_blank" rel="noopener" class="footer-cv-btn" title="Download CV (PDF)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download CV (PDF)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Flagship Platforms (Live External Proofs) -->
+      <div class="footer-col">
+        <h4>Flagship Platforms</h4>
+        <ul class="footer-list">
+          <li>
+            <a href="https://www.alolab.in/" target="_blank" rel="noopener">
+              IIT Kharagpur (A-L-O Lab)
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://kentianchamber.in/" target="_blank" rel="noopener">
+              Kentian Chamber Healthcare
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Transmissions & Channels -->
+      <div class="footer-col">
+        <h4>Channels &amp; Transmissions</h4>
+        <ul class="footer-list">
+          <li>
+            <a href="https://github.com/dosuniquedev-cloud" target="_blank" rel="noopener">
+              GitHub (dosuniquedev-cloud)
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/tanmay-das-dev/" target="_blank" rel="noopener">
+              LinkedIn (tanmay-das-dev)
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:dastanmay30@gmail.com">
+              Direct Mail (dastanmay30)
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://wa.me/918348146101" target="_blank" rel="noopener">
+              WhatsApp (+91 8348146101)
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Strip -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tanmay Das &middot; Dosfolio &middot; Built with semantic HTML5, CSS3 &amp; GSAP</p>
+      <div class="footer-bottom-links">
+        <a href="#hero" class="footer-to-top">
+          Back to top
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </footer>
@@ -3309,16 +3398,18 @@ if(cliForm){
 &bull; <strong style="color:var(--text-0);">clear</strong> : Clear visual CLI output buffer.`;
         break;
       case 'whoami':
-        respDiv.innerHTML = `<span style="color:#3ABF6E;">[PROFILE]</span> Tanmay Das &mdash; Senior Full-Stack &amp; Distributed Systems Architect based in West Bengal, India.<br>Specialized in high-concurrency SaaS, physical hardware-to-cloud bridges (RFID, Web Serial API, LAN thermal printing), and multimodal vision OCR. Academic background: M.A. &amp; B.A. (Hons) English from University of Kalyani.`;
+        respDiv.innerHTML = `<span style="color:#3ABF6E;">[PROFILE]</span> Tanmay Das &mdash; Full Stack Engineer @ <strong>ResCount</strong> &amp; Distributed Systems Architect based in West Bengal, India.<br>Specialized in high-concurrency SaaS, physical hardware-to-cloud bridges (RFID, Web Serial API, LAN thermal printing), and multimodal vision OCR. Academic background: M.A. &amp; B.A. (Hons) English from University of Kalyani.`;
         break;
       case 'skills':
-        respDiv.innerHTML = `<span style="color:#3ABF6E;">[STACK]</span> Backend: FastAPI (Python), Laravel (PHP), Node.js, SQLAlchemy 2.0 (asyncpg).<br>Frontend: React 19, Next.js, TypeScript, Tailwind CSS, GSAP.<br>Databases: PostgreSQL (Neon), Redis 7, MongoDB (2dsphere geospatial).<br>Hardware: Web Serial API, RFID Scanners, ESC/POS LAN Thermal Printing.`;
+        respDiv.innerHTML = `<span style="color:#3ABF6E;">[STACK]</span><br>&bull; Backend: FastAPI (Python), Sails.js v1 (Node.js), Laravel (PHP), SQLAlchemy 2.0 (asyncpg).<br>&bull; Frontend &amp; Mobile: React 19, Next.js 15, React Native (Expo), TypeScript, Tailwind CSS, GSAP 3.<br>&bull; Databases: PostgreSQL 16 (Neon), Redis 7 (Streams/Locks), MongoDB (2dsphere).<br>&bull; Hardware &amp; IoT: Web Serial API (COM3 @ 9600), RFID Scanners, ESC/POS LAN Thermal Printing.`;
         break;
       case 'projects':
         respDiv.innerHTML = `<span style="color:#3ABF6E;">[FLAGSHIPS]</span><br>
-1. <strong>Academicae</strong> (academicae.com) &mdash; Scalable async REST API &amp; Hello Teacher AI educator dashboard.<br>
-2. <strong>RPS Jewel Pro</strong> (rpssolutions.com) &mdash; Enterprise jewellery ERP with Web Serial RFID scanner (-40% time) &amp; automated GST ledgers.<br>
-3. <strong>French Restaurant Fleet</strong> &mdash; Zero-loss LAN print agent with Redis 7 claim fencing.`;
+1. <strong>ResCount European Fleet</strong> &mdash; Multi-branch hospitality order orchestration &amp; zero-loss LAN print agent with Redis 7 claim fencing.<br>
+2. <strong>IIT Kharagpur (A-L-O Lab)</strong> (alolab.in) &mdash; Official optoelectronics research platform on Next.js 15, Payload CMS 3.0 &amp; serverless PostgreSQL.<br>
+3. <strong>RPS Jewel Pro</strong> (rpssolutions.com) &mdash; Enterprise jewellery ERP with Web Serial RFID scanner (-40% audit time) &amp; automated GST ledgers.<br>
+4. <strong>Academicae</strong> (academicae.com) &mdash; Scalable async REST API &amp; Hello Teacher AI educator dashboard in FastAPI.<br>
+5. <strong>Kentian Chamber</strong> (kentianchamber.in) &mdash; Healthcare practice platform with multimodal Gemini vision prescription OCR.`;
         break;
       case 'contact':
         respDiv.innerHTML = `<span style="color:#3ABF6E;">[CHANNELS]</span><br>
@@ -3336,6 +3427,18 @@ if(cliForm){
     cliOutput.scrollTop = cliOutput.scrollHeight;
   });
 }
+
+/* Auto-fill contact inquiry subject when clicking a rate card CTA */
+document.querySelectorAll('.rate-btn').forEach(btn=>{
+  btn.addEventListener('click', function(){
+    const pkg = this.getAttribute('data-package');
+    const subjInput = document.getElementById('subject');
+    if(pkg && subjInput){
+      subjInput.value = `Inquiry: ${pkg}`;
+      setTimeout(()=>{ subjInput.focus(); }, 350);
+    }
+  });
+});
 
 /* AI Assistant Portal (Image 7 Simulation) */
 const aiChatForm = document.getElementById('aiChatForm');
@@ -3368,10 +3471,12 @@ if(aiChatForm){
         botMsg.innerHTML = `<strong>AI:</strong> At RPS SOLUTIONS PVT. LTD., Tanmay spearheaded the full-stack architecture of RPS Jewel Pro using Laravel and React.js. He engineered live metal purity deduction, automated Shopify variants sync, and automated GST return accounting.`;
       } else if(qLower.includes('academicae') || qLower.includes('infomaticae') || qLower.includes('fastapi')){
         botMsg.innerHTML = `<strong>AI:</strong> At Infomaticae, Tanmay built scalable asynchronous REST APIs in FastAPI (Python) and React/React Native apps for Academicae (academicae.com), powering the "Hello Teacher" AI educator platform and real-time student analytics.`;
-      } else if(qLower.includes('french') || qLower.includes('print') || qLower.includes('restaurant') || qLower.includes('naanstreet')){
-        botMsg.innerHTML = `<strong>AI:</strong> For French commercial restaurant fleets (Naanstreet, Safran, WithSushiThai), Tanmay built a distributed LAN thermal print agent using dynamic mDNS discovery, claim fencing, and Redis 7 lease tokens to guarantee zero dropped or duplicate kitchen tickets over unstable Wi-Fi.`;
+      } else if(qLower.includes('french') || qLower.includes('print') || qLower.includes('restaurant') || qLower.includes('naanstreet') || qLower.includes('rescount')){
+        botMsg.innerHTML = `<strong>AI:</strong> As Full Stack Engineer at ResCount, Tanmay engineers distributed order orchestration and LAN thermal print agents for French restaurant fleets (Naanstreet, Safran, WithSushiThai) using mDNS discovery and Redis 7 lease claim fencing to ensure zero dropped kitchen tickets.`;
+      } else if(qLower.includes('iit') || qLower.includes('alo') || qLower.includes('research')){
+        botMsg.innerHTML = `<strong>AI:</strong> Tanmay engineered the official research web platform for the Advanced Laboratory for Optoelectronics (A-L-O Lab, E&ECE Dept, IIT Kharagpur at alolab.in) using Next.js 15, Payload CMS 3.0, and serverless PostgreSQL with dynamic BibTeX citation generation.`;
       } else if(qLower.includes('rate') || qLower.includes('price') || qLower.includes('cost') || qLower.includes('freelance')){
-        botMsg.innerHTML = `<strong>AI:</strong> Tanmay offers freelance packages starting from $150 for high-performance static websites, $450 for dynamic React/Next.js web apps, $500 for hardware/IoT Web Serial bridges, and $35/hr for system advisory and code audits.`;
+        botMsg.innerHTML = `<strong>AI:</strong> Tanmay offers freelance packages tailored to scale: $190+ for 60fps editorial/headless showcases, $480+ for dynamic React 19/Next.js SaaS web apps, $320+ for high-concurrency FastAPI/Sails backend APIs, $550+ for Web Serial RFID & LAN print hardware bridges, $950+ for full-scale ERP/POS systems, and $40/hr for architecture advisory and emergency audits.`;
       } else {
         botMsg.innerHTML = `<strong>AI:</strong> Tanmay Das is a Senior Full-Stack & Distributed Systems Architect specializing in Python (FastAPI), Laravel, React 19, Web Serial hardware bridges, and Google Gemini AI multimodal vision pipelines. Feel free to use the form on the left or write to dastanmay30@gmail.com!`;
       }
