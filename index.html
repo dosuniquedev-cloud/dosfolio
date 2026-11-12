@@ -79,7 +79,9 @@ h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-0);font-weight:600;
 .nav-links a:hover{color:var(--text-0);}
 .nav-links a.active{color:var(--text-0);}
 .nav-links a.active::after{content:'';position:absolute;left:14px;right:14px;bottom:3px;height:1px;background:var(--accent);}
-.nav-tools{display:flex;align-items:center;gap:6px;}
+.nav-tools{display:flex;align-items:center;gap:8px;}
+.nav-cv-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:100px;border:1px solid var(--border-strong);font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--text-0);background:var(--glass);transition:all .25s var(--ease);text-decoration:none;letter-spacing:.02em;}
+.nav-cv-btn:hover{border-color:var(--accent);background:color-mix(in srgb, var(--accent) 12%, transparent);color:var(--accent);transform:translateY(-1px);box-shadow:0 4px 18px var(--glow);}
 .icon-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;color:var(--text-1);transition:background .2s var(--ease),color .2s var(--ease);}
 .icon-btn:hover{background:var(--border);color:var(--text-0);}
 .burger{display:none;}
@@ -1479,6 +1481,10 @@ footer{border-top:1px solid var(--border);}
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-tools">
+      <a href="assets/img/Tanmay_Das_Resume_new.pdf" download="Tanmay_Das_Resume.pdf" target="_blank" rel="noopener" class="nav-cv-btn" title="Download CV (PDF)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>CV</span>
+      </a>
       <button class="icon-btn" aria-label="Search" id="searchBtn" title="Search site">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
@@ -1505,6 +1511,10 @@ footer{border-top:1px solid var(--border);}
       <p class="hero-desc">Full Stack Engineer at <strong>ResCount</strong>. I engineer high-concurrency enterprise platforms, real-time hardware-to-cloud bridges (RFID, LAN printing, Web Serial API), and production AI integrations across European commerce, academic research (<strong>IIT Kharagpur</strong>), and healthcare.</p>
       <div class="hero-cta">
         <a href="#portfolio" class="btn btn-primary magnetic">View Projects</a>
+        <a href="assets/img/Tanmay_Das_Resume_new.pdf" download="Tanmay_Das_Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost magnetic">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:2px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
         <a href="#contact" class="btn btn-ghost magnetic">Contact Me</a>
       </div>
       <div class="hero-links">
@@ -2456,7 +2466,7 @@ footer{border-top:1px solid var(--border);}
         <h2>Mission &amp; <span class="accent-text">journey.</span></h2>
       </div>
       <div class="reveal-head side">
-        <p>A Senior Systems Architect bridging complex backend logic, physical IoT hardware devices, and polished user experiences.</p>
+        <p>Full Stack Engineer at <strong>ResCount</strong> bridging high-concurrency cloud backends, physical hardware protocols, and refined editorial interfaces.</p>
         <div class="sec-meta"><span>West Bengal, India</span><span class="sep"></span><span>UTC+5:30</span><span class="sep"></span><span><b>Since 2013</b></span></div>
       </div>
     </div>
@@ -2469,13 +2479,13 @@ footer{border-top:1px solid var(--border);}
           "Great distributed platforms are built on robust state machines, sub-millisecond latencies, and zero-loss hardware telemetry."
         </div>
         <p class="about-copy about-copy-lead">
-          Hi, I'm <strong>Tanmay Das</strong>, a Senior Full-Stack &amp; Distributed Systems Architect based in West Bengal, India (UTC+5:30). My path into engineering was driven by an unyielding passion for logic, data integrity, and solving high-impact operational bottlenecks.
+          Hi, I'm <strong>Tanmay Das</strong>, a Full Stack &amp; Distributed Systems Engineer based in West Bengal, India (UTC+5:30). Currently, I engineer commercial web platforms, real-time print microservices, and multi-tenant architectures at <strong>ResCount</strong>.
         </p>
         <p class="about-copy">
-          With an academic foundation in English Literature from the University of Kalyani (M.A., B.A. Hons), I bring an exceptional standard of structural discipline, clear communication, and architectural documentation to software design. I don't just write code; I design systems that scale under real business loads.
+          With an academic foundation in English Literature from the University of Kalyani (M.A., B.A. Hons), I bring an exceptional standard of structural discipline, clear communication, and architectural documentation to software design. I don't just write application code; I architect systems where data integrity, low latency, and hardware reliability are paramount.
         </p>
         <p class="about-copy">
-          Recently, I have spearheaded enterprise Jewellery ERP systems at RPS Solutions, engineered custom RFID Web Serial scanner bridges that cut manual stock audits by 40%, built zero-packet-drop LAN thermal print agents for French restaurant fleets, and developed asynchronous REST APIs at Infomaticae for Academicae.
+          My recent milestones include architecting the official research platform for <strong>IIT Kharagpur (A-L-O Lab)</strong> with Next.js 15 &amp; Payload CMS, engineering custom RFID Web Serial scanner bridges that cut inventory processing by <strong>40%</strong> at RPS Solutions, building zero-loss LAN thermal print fleets for French restaurant chains at ResCount, and delivering high-concurrency async APIs for Academicae.
         </p>
 
         <div class="about-stats">
@@ -2503,6 +2513,13 @@ footer{border-top:1px solid var(--border);}
           </div>
           <div class="streak-val">100% Nominal (0 dropped)</div>
         </div>
+
+        <div style="margin-top:20px;">
+          <a href="assets/img/Tanmay_Das_Resume_new.pdf" download="Tanmay_Das_Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost magnetic" style="font-size:13.5px;padding:10px 20px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Complete Resume (PDF)
+          </a>
+        </div>
       </div>
 
       <div class="about-rail">
@@ -2510,10 +2527,18 @@ footer{border-top:1px solid var(--border);}
         <ul class="timeline">
           <li class="tl-item">
             <div class="tl-meta">
-              <span>Feb 2026 &ndash; Jul 2026</span>
+              <span>Aug 2026 &ndash; Present</span>
               <span class="tl-tag active">Active</span>
             </div>
-            <h4>Senior Software Engineer &middot; Infomaticae</h4>
+            <h4>Full Stack Engineer &middot; ResCount</h4>
+            <p>Architecting multi-branch commercial web platforms, distributed LAN thermal print agents with claim fencing and lease tokens (zero dropped kitchen tickets), and 8-stage governance state machines with atomic PostgreSQL promotions.</p>
+          </li>
+          <li class="tl-item">
+            <div class="tl-meta">
+              <span>Feb 2026 &ndash; Jul 2026</span>
+              <span class="tl-tag">AI EdTech</span>
+            </div>
+            <h4>Software Engineer &middot; Infomaticae</h4>
             <p>Engineered scalable asynchronous REST APIs with Python (FastAPI) and cross-platform apps with React &amp; React Native for Academicae (academicae.com). Built the "Hello Teacher" AI dashboard, student telemetry analytics, and asyncpg connection pooling.</p>
           </li>
           <li class="tl-item">
@@ -2526,11 +2551,11 @@ footer{border-top:1px solid var(--border);}
           </li>
           <li class="tl-item">
             <div class="tl-meta">
-              <span>2023 &ndash; 2024</span>
-              <span class="tl-tag">Systems Fleet</span>
+              <span>2015 &ndash; 2024</span>
+              <span class="tl-tag">Full SDLC &amp; Systems</span>
             </div>
-            <h4>Distributed Systems Specialist &middot; French Commercial Fleet</h4>
-            <p>Engineered distributed LAN thermal print agent (PrintAgentController) with dynamic network discovery, claim fencing, and Redis 7 lease tokens to eliminate duplicate or dropped kitchen tickets over unstable commercial Wi-Fi (Naanstreet, Safran, WithSushiThai).</p>
+            <h4>Independent Full-Stack Developer &amp; Technical Systems Specialist</h4>
+            <p>Delivered 10+ custom web platforms and scalable SaaS dashboards using PHP &amp; Laravel with third-party payment gateways, SMS APIs, and Google Auth. Concurrently authored structured technical documentation and educational frameworks, mastering the ability to translate intricate business requirements into precise, high-performance software specifications.</p>
           </li>
           <li class="tl-item">
             <div class="tl-meta">
@@ -2538,7 +2563,7 @@ footer{border-top:1px solid var(--border);}
               <span class="tl-tag">Postgraduate</span>
             </div>
             <h4>Academic Foundation &middot; University of Kalyani</h4>
-            <p>M.A. English and B.A. English (Hons). Cultivated structural analysis, precise documentation, and architectural communication clarity.</p>
+            <p>M.A. English and B.A. English (Hons). Cultivated structural analysis, precise technical documentation, and architectural communication clarity.</p>
           </li>
         </ul>
       </div>
