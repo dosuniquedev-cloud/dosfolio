@@ -85,7 +85,7 @@ h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-0);font-weight:600;
 .burger{display:none;}
 
 /* ---------- Hero ---------- */
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:100px;overflow:hidden;border-bottom:1px solid var(--border);}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 0 90px;overflow:hidden;border-bottom:1px solid var(--border);}
 .hero-bg{position:absolute;inset:0;z-index:-1;}
 .hero-bg .grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 60% 50% at 50% 30%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 60% 50% at 50% 30%,#000 40%,transparent 100%);opacity:.6;}
 .hero-bg .aurora{position:absolute;top:-20%;left:50%;width:1100px;height:700px;transform:translateX(-50%);background:radial-gradient(circle at 35% 30%,rgba(239,68,68,.16),transparent 55%),radial-gradient(circle at 70% 60%,rgba(220,38,38,.12),transparent 50%);filter:blur(40px);animation:auroraDrift 14s ease-in-out infinite;}
@@ -94,10 +94,10 @@ h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-0);font-weight:600;
 .hero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;}
 .hero-left h1{font-size:clamp(2.4rem,5.2vw,4.4rem);margin-bottom:18px;}
 .hero-left h1 .accent{color:var(--accent);}
-.hero-sub{font-family:var(--font-mono);font-size:14.5px;color:var(--text-2);margin-bottom:22px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.hero-sub{font-family:var(--font-mono);font-size:14.5px;color:var(--text-2);margin-bottom:20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
 .hero-sub .sep{color:var(--accent);}
-.hero-desc{font-size:1.06rem;color:var(--text-1);max-width:480px;margin-bottom:34px;}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px;}
+.hero-desc{font-size:1.06rem;color:var(--text-1);max-width:480px;margin-bottom:26px;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px;}
 .btn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-size:14.5px;font-weight:500;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
 .btn-primary{background:var(--accent);color:#fff;box-shadow:0 0 0 rgba(239,68,68,0);}
 .btn-primary:hover{box-shadow:0 8px 30px var(--glow);transform:translateY(-2px);}
@@ -106,7 +106,7 @@ h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-0);font-weight:600;
 .hero-links{display:flex;flex-wrap:wrap;gap:18px;font-size:13.5px;color:var(--text-2);}
 .hero-links a{display:flex;align-items:center;gap:6px;transition:color .2s;}
 .hero-links a:hover{color:var(--accent);}
-.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;padding-bottom:10px;}
 .badge{font-family:var(--font-mono);font-size:12px;padding:8px 14px;border:1px solid var(--border);border-radius:100px;color:var(--text-1);background:var(--glass);display:flex;align-items:center;gap:7px;}
 
 /* ---------- Hero workspace cluster (Premium 3D Layered Architecture) ---------- */
@@ -115,6 +115,7 @@ h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-0);font-weight:600;
   height:490px;
   perspective:1200px;
   transform-style:preserve-3d;
+  margin-bottom:12px;
 }
 .wspace-glow{
   position:absolute;
@@ -1498,10 +1499,10 @@ footer{border-top:1px solid var(--border);}
   <div class="hero-bg"><div class="grid"></div><div class="aurora"></div><div class="vignette"></div></div>
   <div class="container">
     <div class="hero-left">
-      <div class="eyebrow">PORTFOLIO / 2026</div>
-      <h1>Tanmay Das<br>builds <span class="accent">distributed</span><br>software.</h1>
-      <div class="hero-sub">Senior Systems Architect <span class="sep">&bull;</span> Hardware-to-Cloud Bridges <span class="sep">&bull;</span> High-Concurrency SaaS</div>
-      <p class="hero-desc">I engineer high-concurrency enterprise SaaS, physical-to-cloud hardware bridges (RFID, Web Serial API, LAN thermal printing), and multimodal Generative AI integrations.</p>
+      <div class="eyebrow">PORTFOLIO / 2026 &bull; FULL STACK &amp; DISTRIBUTED SYSTEMS</div>
+      <h1>Tanmay Das<br>builds <span class="accent">resilient systems</span><br>that scale.</h1>
+      <div class="hero-sub">Full Stack Engineer @ ResCount <span class="sep">&bull;</span> Hardware-to-Cloud Bridges <span class="sep">&bull;</span> Enterprise SaaS</div>
+      <p class="hero-desc">Full Stack Engineer at <strong>ResCount</strong>. I engineer high-concurrency enterprise platforms, real-time hardware-to-cloud bridges (RFID, LAN printing, Web Serial API), and production AI integrations across European commerce, academic research (<strong>IIT Kharagpur</strong>), and healthcare.</p>
       <div class="hero-cta">
         <a href="#portfolio" class="btn btn-primary magnetic">View Projects</a>
         <a href="#contact" class="btn btn-ghost magnetic">Contact Me</a>
@@ -1509,11 +1510,12 @@ footer{border-top:1px solid var(--border);}
       <div class="hero-links">
         <a href="https://github.com/dosuniquedev-cloud" target="_blank" rel="noopener">GitHub &#8599;</a>
         <a href="https://www.linkedin.com/in/tanmay-das-dev/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
-        <a href="https://www.academicae.com/" target="_blank" rel="noopener">Academicae &#8599;</a>
-        <a href="https://www.rpssolutions.com/" target="_blank" rel="noopener">RPS Jewel Pro &#8599;</a>
+        <a href="https://www.alolab.in/" target="_blank" rel="noopener">ALO Lab (IIT KGP) &#8599;</a>
+        <a href="https://kentianchamber.in/" target="_blank" rel="noopener">Kentian Chamber &#8599;</a>
       </div>
       <div class="badges">
-        <span class="badge">&#128994; Open to Collaborate</span>
+        <span class="badge">&#128994; Full Stack @ ResCount</span>
+        <span class="badge">&#127963;&#65039; Platform for IIT Kharagpur</span>
         <span class="badge">&#9889; -40% Inventory Time (RFID POS)</span>
         <span class="badge">&#128424;&#65039; Zero-Loss LAN Print Fencing</span>
       </div>
@@ -3038,6 +3040,18 @@ const snippets = [
     row = <span class="tok-kw">await</span> conn.fetchrow(
       <span class="tok-str">"SELECT * FROM items WHERE tag_id = $1"</span>, tag.uid)
     <span class="tok-kw">return</span> {<span class="tok-str">"purity"</span>: row[<span class="tok-str">"karat"</span>], <span class="tok-str">"stock"</span>: <span class="tok-punc">-1</span>}`
+},
+{
+  tab: 'alo_iitkgp.ts',
+  icon: 'TS',
+  lang: 'Next.js 15 / Payload',
+  code: `<span class="tok-com">// IIT Kharagpur A-L-O Lab Citation Engine</span>
+<span class="tok-kw">export async function</span> <span class="tok-fn">getBibTeX</span>(<span class="tok-var">paperId</span>: <span class="tok-fn">string</span>) {
+  <span class="tok-kw">const</span> doc = <span class="tok-kw">await</span> payload.findByID({
+    collection: <span class="tok-str">'publications'</span>, id: paperId });
+  <span class="tok-kw">return</span> <span class="tok-str">\`@article{\${doc.slug}, doi={\${doc.doi}}}\`</span>;
+}
+`
 },
 {
   tab: 'gemini_ocr.py',
