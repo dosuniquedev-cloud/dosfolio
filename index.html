@@ -1866,9 +1866,14 @@ html[data-theme="light"] .ai-portal{box-shadow:inset 0 1px 0 rgba(255,255,255,.9
 .ai-portal-badge{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#10B981;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);padding:3px 9px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;}
 .ai-portal-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:#10B981;box-shadow:0 0 6px rgba(16,185,129,.8);}
 .ai-chat-body{padding:20px;min-height:280px;max-height:360px;overflow-y:auto;display:flex;flex-direction:column;gap:14px;font-family:var(--font-mono);font-size:12.5px;}
-.ai-msg{line-height:1.65;padding:12px 16px;border-radius:14px;}
+.ai-msg{line-height:1.65;padding:12px 16px;border-radius:14px;word-break:break-word;}
 .ai-msg.bot{background:var(--bg-2);color:var(--text-1);border:1px solid var(--border);border-left:3px solid var(--accent);}
 .ai-msg.user{background:color-mix(in srgb,var(--accent) 15%,var(--bg-2));border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);color:var(--text-0);align-self:flex-end;max-width:85%;}
+.typing-dots{display:inline-flex;align-items:center;gap:4px;padding:4px 0;}
+.typing-dots span{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;animation:typingBounce 1.2s infinite ease-in-out;}
+.typing-dots span:nth-child(2){animation-delay:.2s;}
+.typing-dots span:nth-child(3){animation-delay:.4s;}
+@keyframes typingBounce{0%,80%,100%{transform:scale(0);opacity:.3;}40%{transform:scale(1);opacity:1;}}
 .ai-input-wrap{display:flex;align-items:center;gap:10px;padding:14px 18px;border-top:1px solid var(--border);background:color-mix(in srgb,var(--text-0) 2%,var(--bg-2));}
 .ai-input{flex-grow:1;background:var(--bg-1);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:var(--text-0);font-family:var(--font-mono);font-size:12.5px;outline:none;transition:border-color .2s;}
 .ai-input:focus{border-color:var(--accent);}
@@ -2754,7 +2759,7 @@ footer{border-top:1px solid var(--border);}
 
       <article class="service-card">
         <div class="service-card-top">
-          <span class="service-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg></span>
+          <span class="service-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="13" y2="16"/></svg></span>
           <span class="service-num"><b>05</b> / Applied GenAI</span>
         </div>
         <h3>Document Intelligence &amp; Vision OCR</h3>
@@ -3140,7 +3145,7 @@ footer{border-top:1px solid var(--border);}
 
       <article class="tools-feature-card">
         <div class="tools-card-top">
-          <span class="tools-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></svg></span>
+          <span class="tools-icon"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"/></svg></span>
           <span class="tools-index"><b>03</b> / AI &amp; Research</span>
         </div>
         <h4>Applied AI &amp; Research Engines</h4>
@@ -3297,7 +3302,7 @@ footer{border-top:1px solid var(--border);}
         </div>
 
         <div class="skill-box">
-          <div class="skill-box-top"><span class="skill-num">03</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4V2M15 10V8M12 7h-2M20 7h-2"/><path d="M4 20l9-9"/><path d="M9 4l1.2 3.2L13.4 8.4 10.2 9.6 9 12.8 7.8 9.6 4.6 8.4 7.8 7.2z"/></svg></div>
+          <div class="skill-box-top"><span class="skill-num">03</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
           <div class="skill-box-title">Motion &amp; UI</div>
           <div class="skill-tags"><span class="skill-pill">GSAP 3</span><span class="skill-pill">ScrollTrigger</span><span class="skill-pill">Framer Motion</span><span class="skill-pill">Tailwind CSS</span><span class="skill-pill">Radix UI</span><span class="skill-pill">Lenis Scroll</span></div>
         </div>
@@ -4296,13 +4301,29 @@ document.querySelectorAll('.rate-btn').forEach(btn=>{
   });
 });
 
-/* AI Assistant Portal (Image 7 Simulation) */
+/* AI Assistant Portal (Connected to Secure Cloudflare Gemini Worker) */
 const aiChatForm = document.getElementById('aiChatForm');
 const aiChatInput = document.getElementById('aiChatInput');
 const aiChatBody = document.getElementById('aiChatBody');
+const AI_WORKER_ENDPOINT = "https://dos-ai.dos-unique-dev.workers.dev/";
+const chatHistory = [];
+
+function escapeHtml(text) {
+  const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+function formatMarkdown(text) {
+  let safe = escapeHtml(text);
+  safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  safe = safe.replace(/`([^`]+)`/g, '<code style="background:var(--bg-1);padding:2px 5px;border-radius:4px;color:var(--accent);font-family:var(--font-mono);font-size:11.5px;">$1</code>');
+  safe = safe.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">$1</a>');
+  safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+  return safe;
+}
 
 if(aiChatForm){
-  aiChatForm.addEventListener('submit', (e)=>{
+  aiChatForm.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const query = aiChatInput.value.trim();
     if(!query) return;
@@ -4315,8 +4336,49 @@ if(aiChatForm){
     aiChatBody.appendChild(userMsg);
     aiChatBody.scrollTop = aiChatBody.scrollHeight;
 
-    // Simulate AI Response
-    setTimeout(()=>{
+    // Append Animated Typing Indicator
+    const typingMsg = document.createElement('div');
+    typingMsg.className = 'ai-msg bot';
+    typingMsg.id = 'aiTypingIndicator';
+    typingMsg.innerHTML = `<strong>AI:</strong> <span class="typing-dots"><span></span><span></span><span></span></span>`;
+    aiChatBody.appendChild(typingMsg);
+    aiChatBody.scrollTop = aiChatBody.scrollHeight;
+
+    try {
+      const response = await fetch(AI_WORKER_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: query,
+          history: chatHistory
+        })
+      });
+
+      const indicator = document.getElementById('aiTypingIndicator');
+      if (indicator) indicator.remove();
+
+      if (response.ok) {
+        const data = await response.json();
+        const reply = data.reply || "I am connected, but received an empty response.";
+
+        const botMsg = document.createElement('div');
+        botMsg.className = 'ai-msg bot';
+        botMsg.innerHTML = `<strong>AI:</strong> ${formatMarkdown(reply)}`;
+        aiChatBody.appendChild(botMsg);
+        aiChatBody.scrollTop = aiChatBody.scrollHeight;
+
+        chatHistory.push({ role: 'user', text: query });
+        chatHistory.push({ role: 'bot', text: reply });
+        return;
+      }
+      throw new Error(`Worker status ${response.status}`);
+
+    } catch (err) {
+      console.warn("Cloudflare worker fallback triggered:", err.message);
+      const indicator = document.getElementById('aiTypingIndicator');
+      if (indicator) indicator.remove();
+
+      // Graceful Intelligent Fallback (Zero breakdown guarantee)
       const botMsg = document.createElement('div');
       botMsg.className = 'ai-msg bot';
       const qLower = query.toLowerCase();
@@ -4338,7 +4400,7 @@ if(aiChatForm){
       }
       aiChatBody.appendChild(botMsg);
       aiChatBody.scrollTop = aiChatBody.scrollHeight;
-    }, 600);
+    }
   });
 }
 
