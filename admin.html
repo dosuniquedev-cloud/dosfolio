@@ -125,7 +125,42 @@
                     <small class="text-muted" id="adminEmailDisplay"></small>
                 </div>
             </div>
-            <button id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-success-subtle text-success border border-success px-2 py-1"><i class="bi bi-shield-check"></i> This PC Excluded from Tracking</span>
+                <button id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
+            </div>
+        </div>
+
+        <!-- STATS & COUNTER CONTROL BAR -->
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card p-3 bg-white h-100 border-start border-4 border-success">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <small class="text-muted fw-bold text-uppercase">Public Visitor Counter</small>
+                            <h2 class="fw-bold text-success mb-0" id="totalViewsDisplay">...</h2>
+                            <small class="text-muted" id="viewsSourceText">Live from Firestore dosfolio_stats</small>
+                        </div>
+                        <button class="btn btn-outline-success btn-sm" onclick="adjustViewsCount()" title="Correct or reduce view count to remove self visits">
+                            <i class="bi bi-pencil-square"></i> Adjust Count
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card p-3 bg-white h-100 border-start border-4 border-primary">
+                    <small class="text-muted fw-bold text-uppercase">Recorded Visitor Logs</small>
+                    <h2 class="fw-bold text-primary mb-0" id="totalLogsDisplay">...</h2>
+                    <small class="text-muted">Detailed IP & Device entries</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3 bg-white h-100 border-start border-4 border-info">
+                    <small class="text-muted fw-bold text-uppercase">Device Filter Status</small>
+                    <h5 class="fw-bold text-dark mt-1 mb-0"><i class="bi bi-laptop me-1 text-info"></i> Admin Device Filtered</h5>
+                    <small class="text-muted">Local visits & admin PC visits are automatically blocked from tracking.</small>
+                </div>
+            </div>
         </div>
 
         <div class="row">
@@ -150,6 +185,7 @@
                                     <th>Browser</th>
                                     <th>Screen</th>
                                     <th>IP Addr</th>
+                                    <th class="text-end pe-4">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="visitorsTable"></tbody>
@@ -210,7 +246,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-        import { getFirestore, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getFirestore, collection, getDocs, orderBy, query, doc, getDoc, updateDoc, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         // --- CONFIGURATION ---
         const firebaseConfig = {
@@ -227,23 +263,29 @@
         const db = getFirestore(app);
         const provider = new GoogleAuthProvider();
 
-        // ⚠️ YOUR EMAIL ONLY
-        // const MY_ADMIN_EMAIL = "dos.unique.dev@gmail.com";
-
         const ALLOWED_ADMINS = [
             "dos.unique.dev@gmail.com",
             "jishnu.unique@gmail.com"
-
         ];
+
+        // Known Admin/Creator IP to highlight self visits
+        const CREATOR_IPS = ["106.219.75.46", "127.0.0.1", "localhost", "::1"];
 
         // --- AUTH ---
         onAuthStateChanged(auth, (user) => {
             if (user && ALLOWED_ADMINS.includes(user.email)) {
+                // Permanently flag this browser as Admin so it is never registered in visitors or views
+                try {
+                    localStorage.setItem('dos_admin_device', 'true');
+                    localStorage.setItem('dos_exclude_telemetry', 'true');
+                } catch (e) {}
+
                 document.getElementById('loginSection').style.display = 'none';
                 document.getElementById('dashboardSection').style.display = 'block';
                 document.getElementById('adminName').innerText = user.displayName;
                 document.getElementById('adminEmailDisplay').innerText = user.email;
                 document.getElementById('adminAvatar').src = user.photoURL;
+                fetchStats();
                 fetchVisitors();
                 fetchContacts();
             } else if (user) {
@@ -259,6 +301,48 @@
             signInWithPopup(auth, provider).catch(e => document.getElementById('loginError').innerText = e.message);
         });
         document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
+
+        // --- STATS / COUNTER LOGIC ---
+        window.fetchStats = async function () {
+            const displayEl = document.getElementById('totalViewsDisplay');
+            try {
+                const statsRef = doc(db, "dosfolio_stats", "general");
+                const docSnap = await getDoc(statsRef);
+                if (docSnap.exists()) {
+                    displayEl.innerText = docSnap.data().views || 0;
+                } else {
+                    displayEl.innerText = "0";
+                }
+            } catch (err) {
+                console.error("Error fetching stats:", err);
+                displayEl.innerText = "Error";
+            }
+        };
+
+        window.adjustViewsCount = async function () {
+            const currentViews = document.getElementById('totalViewsDisplay').innerText;
+            const inputVal = prompt(
+                "Enter corrected Visitor Counter value (e.g. subtract your own self-visits or reset to actual count):",
+                currentViews !== "..." ? currentViews : "400"
+            );
+
+            if (inputVal === null) return;
+            const newCount = parseInt(inputVal.trim(), 10);
+            if (isNaN(newCount) || newCount < 0) {
+                alert("Please enter a valid positive number.");
+                return;
+            }
+
+            try {
+                const statsRef = doc(db, "dosfolio_stats", "general");
+                await setDoc(statsRef, { views: newCount }, { merge: true });
+                alert(`View count successfully updated to ${newCount}`);
+                fetchStats();
+            } catch (err) {
+                console.error("Error updating views:", err);
+                alert("Failed to update view counter: " + err.message);
+            }
+        };
 
         // --- HELPER FUNCTIONS ---
         function formatTime(timestamp) {
@@ -286,31 +370,36 @@
         // --- FETCH VISITORS ---
         window.fetchVisitors = async function () {
             const tbody = document.getElementById('visitorsTable');
-            tbody.innerHTML = '<tr><td colspan="9" class="text-center py-4">Loading data...</td></tr>';
+            const totalLogsEl = document.getElementById('totalLogsDisplay');
+            tbody.innerHTML = '<tr><td colspan="10" class="text-center py-4">Loading data...</td></tr>';
 
             try {
                 const q = query(collection(db, "visitors"), orderBy("timestamp", "desc"));
                 const snapshot = await getDocs(q);
+                if (totalLogsEl) totalLogsEl.innerText = snapshot.size;
+
                 let html = "";
+                snapshot.forEach(docSnap => {
+                    const d = docSnap.data();
+                    const docId = docSnap.id;
 
-                snapshot.forEach(doc => {
-                    const d = doc.data();
-
-                    // --- DATA EXTRACTION (FIXED PATHS) ---
-                    // 1. IP Data (Where City/Country lives)
+                    // 1. IP Data
                     const ipData = d.ip_info || {};
                     const city = ipData.city || 'Unknown';
                     const country = ipData.country || ipData.country_name || '-';
                     const ipAddr = ipData.ip || d.ip || 'Unknown';
                     const ipLatLong = ipData.lat_long || ipData.lat_long_approx || "0,0";
 
-                    // 2. GPS Data (Root level in new script)
+                    // Check if self/admin IP
+                    const isSelfIP = CREATOR_IPS.includes(ipAddr);
+
+                    // 2. GPS Data
                     const gpsPrecise = d.gps_precise || "Denied";
 
                     // 3. Device Data
                     const dev = d.device || {};
 
-                    // --- GENERATE GPS BUTTON ---
+                    // GPS Button
                     let gpsHtml = "";
                     if (gpsPrecise && !gpsPrecise.includes("Denied") && !gpsPrecise.includes("Timeout")) {
                         gpsHtml = `
@@ -323,7 +412,7 @@
                         gpsHtml = `<span class="text-muted small">${gpsPrecise}</span>`;
                     }
 
-                    // --- GENERATE IP LOCATION BUTTON ---
+                    // IP Location Button
                     let ipLocHtml = "";
                     if (ipLatLong && ipLatLong !== "0,0") {
                         ipLocHtml = `
@@ -336,12 +425,14 @@
                         ipLocHtml = `<span class="text-muted small">-</span>`;
                     }
 
-                    // --- RENDER ROW ---
-                    html += `<tr>
+                    html += `<tr class="${isSelfIP ? 'table-warning' : ''}">
                         <td class="ps-4 timestamp">${formatTime(d.timestamp)}</td>
                         
-                        <!-- City & Country (Fixed) -->
-                        <td class="fw-bold text-dark">${city}, <small class="text-muted fw-normal">${country}</small></td>
+                        <!-- City & Country -->
+                        <td class="fw-bold text-dark">
+                            ${city}, <small class="text-muted fw-normal">${country}</small>
+                            ${isSelfIP ? '<span class="badge bg-warning text-dark ms-1">Creator IP</span>' : ''}
+                        </td>
                         
                         <!-- GPS Column -->
                         <td>${gpsHtml}</td>
@@ -355,12 +446,31 @@
                         <td class="small">${dev.browser || '-'}</td>
                         <td class="small">${dev.screen || '-'}</td>
                         <td class="small font-monospace text-primary">${ipAddr}</td>
+
+                        <!-- Action Column -->
+                        <td class="text-end pe-4">
+                            <button onclick="deleteVisitorLog('${docId}')" class="btn btn-outline-danger btn-sm py-0 px-2" title="Delete this visitor log">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
                     </tr>`;
                 });
-                tbody.innerHTML = html || '<tr><td colspan="9" class="text-center py-4">No visitors yet</td></tr>';
+                tbody.innerHTML = html || '<tr><td colspan="10" class="text-center py-4">No visitors yet</td></tr>';
             } catch (e) {
                 console.error(e);
-                tbody.innerHTML = `<tr><td colspan="9" class="text-danger text-center">Error: ${e.message}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="10" class="text-danger text-center">Error: ${e.message}</td></tr>`;
+            }
+        };
+
+        // --- DELETE VISITOR LOG ---
+        window.deleteVisitorLog = async function (docId) {
+            if (!confirm("Are you sure you want to delete this visitor log from Firebase?")) return;
+            try {
+                await deleteDoc(doc(db, "visitors", docId));
+                fetchVisitors();
+            } catch (err) {
+                console.error("Error deleting log:", err);
+                alert("Failed to delete log: " + err.message);
             }
         };
 

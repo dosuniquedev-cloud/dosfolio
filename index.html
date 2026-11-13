@@ -91,6 +91,79 @@ body.preloading {
   visibility: hidden;
   pointer-events: none;
 }
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8em;
+  text-align: center;
+}
+.preloader-telemetry {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: preloaderFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes preloaderFadeUp {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.preloader-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: #f1f5f9;
+}
+html[data-theme="light"] .preloader-pill {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+}
+.preloader-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.9);
+  animation: pulseDot 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.preloader-tag {
+  font-weight: 600;
+  opacity: 0.85;
+}
+.preloader-sep {
+  opacity: 0.35;
+}
+.preloader-num {
+  font-weight: 700;
+  color: var(--accent, #FF5500);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+}
+.preloader-subtext {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-2, #94a3b8);
+  opacity: 0.7;
+}
 .device {
   position: relative;
   width: 4em;
@@ -1581,9 +1654,25 @@ footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;back
 .footer-list a:hover svg{opacity:1;}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
 .footer-bottom p{font-family:var(--font-mono);font-size:11.5px;color:var(--text-2);margin:0;}
+.footer-bottom-telemetry{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11.5px;color:var(--text-2);padding:6px 14px;border-radius:100px;background:var(--bg-2);border:1px solid var(--border);transition:all .25s var(--ease);}
+.footer-bottom-telemetry:hover{border-color:color-mix(in srgb,var(--accent) 35%,var(--border));color:var(--text-1);}
+.footer-bt-sep{opacity:.4;margin:0 2px;}
+.footer-bt-status{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#10B981;}
 .footer-bottom-links{display:flex;align-items:center;gap:16px;}
 .footer-to-top{font-family:var(--font-mono);font-size:11.5px;font-weight:600;color:var(--text-2);display:inline-flex;align-items:center;gap:5px;transition:color .2s;}
 .footer-to-top:hover{color:var(--accent);}
+
+/* ---------- Floating Bottom Telemetry Bar / Dock ---------- */
+.bottom-telemetry-pill{position:fixed;bottom:24px;left:24px;z-index:85;display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:100px;background:color-mix(in srgb,var(--bg-1) 85%,transparent);border:1px solid var(--border);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 8px 24px -4px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.06);font-family:var(--font-mono);font-size:11.5px;color:var(--text-1);text-decoration:none;cursor:pointer;transition:all .3s var(--ease);opacity:0;visibility:hidden;transform:translateY(14px);}
+.bottom-telemetry-pill.visible{opacity:1;visibility:visible;transform:translateY(0);}
+.bottom-telemetry-pill:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--border));box-shadow:0 12px 30px -4px rgba(0,0,0,.35),0 0 16px -4px var(--glow);transform:translateY(-2px);color:var(--text-0);}
+html[data-theme="light"] .bottom-telemetry-pill{background:rgba(255,255,255,.9);box-shadow:0 8px 24px -4px rgba(15,23,42,.08),inset 0 1px 0 rgba(255,255,255,.9);}
+.bottom-telemetry-pill .btp-count{font-weight:700;color:var(--accent);letter-spacing:.02em;}
+.bottom-telemetry-pill .btp-badge{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:100px;background:color-mix(in srgb,#10B981 12%,transparent);border:1px solid color-mix(in srgb,#10B981 25%,transparent);color:#10B981;}
+@media (max-width: 680px){
+  .bottom-telemetry-pill{bottom:16px;left:14px;padding:6px 12px;font-size:10.5px;gap:7px;}
+  .footer-bottom-telemetry{order:3;width:100%;justify-content:center;}
+}
 
 /* ---------- Back to Top Button ---------- */
 .back-to-top{position:fixed;bottom:24px;right:24px;z-index:90;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px var(--glow);opacity:0;visibility:hidden;transition:all .3s;}
@@ -1939,18 +2028,29 @@ footer{border-top:1px solid var(--border);}
 <!-- DEVICE PRELOADER (ONLY WHAT WAS REQUESTED)                                -->
 <!-- ========================================================================= -->
 <div class="preloader" id="preloader">
-	<div class="device">
-		<div class="device__a">
-			<div class="device__a-1"></div>
-			<div class="device__a-2"></div>
-		</div>
-		<div class="device__b"></div>
-		<div class="device__c"></div>
-		<div class="device__d"></div>
-		<div class="device__e"></div>
-		<div class="device__f"></div>
-		<div class="device__g"></div>
-	</div>
+  <div class="preloader-inner">
+    <div class="device">
+      <div class="device__a">
+        <div class="device__a-1"></div>
+        <div class="device__a-2"></div>
+      </div>
+      <div class="device__b"></div>
+      <div class="device__c"></div>
+      <div class="device__d"></div>
+      <div class="device__e"></div>
+      <div class="device__f"></div>
+      <div class="device__g"></div>
+    </div>
+    <div class="preloader-telemetry">
+      <div class="preloader-pill">
+        <span class="preloader-pulse"></span>
+        <span class="preloader-tag">Welcome, Explorer</span>
+        <span class="preloader-sep">#</span>
+        <span class="preloader-num"><span class="view-counter-val" id="preloader-counter">471</span></span>
+      </div>
+      <div class="preloader-subtext">HANDSHAKE VERIFIED &bull; ENTERING WORKSPACE</div>
+    </div>
+  </div>
 </div>
 
 <div class="spotlight" id="spotlight"></div>
@@ -3468,12 +3568,18 @@ footer{border-top:1px solid var(--border);}
             <span class="contact-card-action">Active</span>
           </div>
 
-          <div class="telemetry-card">
-            <h4><span class="telemetry-dot"></span> System Status: Online</h4>
-            <p>
-              Visitor Telemetry: <strong id="view-counter" style="color:var(--accent);">...</strong><br>
-              <span id="statusMsg" style="font-size:11.5px;color:var(--text-2);">System: Tracking active</span>
+          <div class="telemetry-card" id="contactTelemetryCard">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <h4 style="margin:0;"><span class="telemetry-dot"></span> System Status: Online</h4>
+              <span style="font-family:var(--font-mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;color:#10B981;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);padding:2px 8px;border-radius:100px;">Live Ping</span>
+            </div>
+            <p style="margin:0 0 8px;">
+              <span style="color:var(--text-1);font-weight:600;">Visitor Telemetry:</span> 
+              <strong id="view-counter" class="view-counter-val" style="color:var(--accent);font-size:15px;font-weight:700;margin-left:4px;">471</strong>
             </p>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span id="statusMsg" style="font-size:11px;color:var(--text-2);font-family:var(--font-mono);">System: Connected &middot; Tracking Active</span>
+            </div>
           </div>
         </div>
       </div>
@@ -3515,7 +3621,7 @@ footer{border-top:1px solid var(--border);}
         <p class="footer-sub">Tanmay Das &mdash; Full Stack Engineer @ <strong>ResCount</strong>. Engineering high-concurrency enterprise platforms, real-time hardware-to-cloud bridges, and multimodal AI integrations.</p>
         <div class="footer-telemetry">
           <span class="footer-dot"></span>
-          <span>All systems operational &bull; West Bengal, India (UTC+5:30)</span>
+          <span>All systems operational &bull; <strong class="view-counter-val" style="color:var(--accent);">471</strong> verified visits &bull; West Bengal, India (UTC+5:30)</span>
         </div>
         <div>
           <a href="assets/img/Tanmay_Das_Resume_new.pdf" download="Tanmay_Das_Resume.pdf" target="_blank" rel="noopener" class="footer-cv-btn" title="Download CV (PDF)">
@@ -3597,6 +3703,16 @@ footer{border-top:1px solid var(--border);}
     <!-- Bottom Strip -->
     <div class="footer-bottom">
       <p>&copy; 2026 Tanmay Das &middot; Dosfolio &middot; Built with semantic HTML5, CSS3 &amp; GSAP</p>
+      
+      <!-- Premium Telemetry Badge in Bottom Bar -->
+      <div class="footer-bottom-telemetry">
+        <span class="telemetry-dot"></span>
+        <span class="footer-bt-label">Visitor Telemetry:</span>
+        <strong class="view-counter-val" id="footer-bottom-counter" style="color:var(--accent);">471</strong>
+        <span class="footer-bt-sep">&bull;</span>
+        <span class="footer-bt-status">Online</span>
+      </div>
+
       <div class="footer-bottom-links">
         <a href="#hero" class="footer-to-top">
           Back to top
@@ -3606,6 +3722,14 @@ footer{border-top:1px solid var(--border);}
     </div>
   </div>
 </footer>
+
+<!-- Floating Live Telemetry Bottom Bar / Dock -->
+<a href="#contact" class="bottom-telemetry-pill" id="bottomTelemetryBar" title="Click to view full visitor telemetry &amp; system status">
+  <span class="telemetry-dot"></span>
+  <span class="btp-label">Visitor Telemetry:</span>
+  <strong class="view-counter-val" id="bottom-bar-counter">471</strong>
+  <span class="btp-badge">Live</span>
+</a>
 
 <!-- Back to top trigger -->
 <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -3659,6 +3783,8 @@ function openWebsite(){
   setTimeout(()=>{
     preloader.remove();
     if(window.ScrollTrigger) ScrollTrigger.refresh();
+    const btp = document.getElementById('bottomTelemetryBar');
+    if(btp) btp.classList.add('visible');
   }, 550);
 }
 
@@ -3671,13 +3797,34 @@ if(reduced){
   }, ANIMATION_DURATION);
 }
 
-/* Nav scroll state */
+/* Nav scroll state & Floating Telemetry Dock */
 const nav = document.getElementById('nav');
 const backToTop = document.getElementById('backToTop');
+const btp = document.getElementById('bottomTelemetryBar');
+
+if (btp) {
+  btp.addEventListener('click', (e) => {
+    e.preventDefault();
+    const contactSec = document.getElementById('contact');
+    if (contactSec) contactSec.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
 window.addEventListener('scroll', ()=>{ 
   const scrolled = window.scrollY > 20;
   nav.classList.toggle('scrolled', scrolled); 
   if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 350);
+
+  // Smoothly fade out floating bottom pill near footer so it never collides
+  if (btp && btp.classList.contains('visible')) {
+    const footer = document.querySelector('footer');
+    if (footer) {
+      const footerTop = footer.getBoundingClientRect().top;
+      const hideNearFooter = footerTop < (window.innerHeight - 30);
+      btp.style.opacity = hideNearFooter ? '0' : '1';
+      btp.style.pointerEvents = hideNearFooter ? 'none' : 'auto';
+    }
+  }
 });
 
 /* Mobile menu */
