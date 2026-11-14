@@ -357,10 +357,10 @@ window.logIshanChatMessage = async function(sessionPayload) {
             type: "ishan_ai_chat",
             sessionId: sessionId || `session_${Date.now()}`,
             turn: turn || 1,
-            name: `I.S.H.A.N AI: ${city}, ${country}`,
+            name: `DOS AI: ${city}, ${country}`,
             email: ipAddr,
-            subject: `I.S.H.A.N AI Chat: "${userQuery.slice(0, 36)}..."`,
-            message: `[VISITOR (${city}, ${country} | IP: ${ipAddr})]:\n${userQuery}\n\n[I.S.H.A.N AI]:\n${botReply}`,
+            subject: `DOS AI Chat: "${userQuery.slice(0, 36)}..."`,
+            message: `[VISITOR (${city}, ${country} | IP: ${ipAddr})]:\n${userQuery}\n\n[DOS AI]:\n${botReply}`,
             userQuery: userQuery,
             botReply: botReply,
             ip: ipAddr,
@@ -375,9 +375,9 @@ window.logIshanChatMessage = async function(sessionPayload) {
             device: devInfo,
             sentAt: new Date()
         });
-        console.log("I.S.H.A.N AI session conversation logged to Firestore.");
+        console.log("DOS AI session conversation logged to Firestore.");
     } catch (err) {
-        console.warn("Notice: I.S.H.A.N AI chat logging:", err.message);
+        console.warn("Notice: DOS AI chat logging:", err.message);
     }
 };
 
