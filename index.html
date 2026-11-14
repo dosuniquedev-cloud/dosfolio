@@ -1879,6 +1879,603 @@ html[data-theme="light"] .ai-portal{box-shadow:inset 0 1px 0 rgba(255,255,255,.9
 .ai-input:focus{border-color:var(--accent);}
 .ai-send-btn{width:40px;height:40px;border-radius:10px;background:var(--accent);color:#fff;border:none;cursor:pointer;display:grid;place-items:center;font-size:16px;font-weight:bold;transition:transform .2s var(--ease),box-shadow .2s var(--ease);box-shadow:0 4px 14px -4px var(--glow);flex-shrink:0;}
 .ai-send-btn:hover{transform:scale(1.06);box-shadow:0 6px 18px -4px var(--glow);}
+
+/* ---------- I.S.H.A.N AI Quantum Neural Floating Launcher & Window ---------- */
+.ishan-launcher-container{
+  position:fixed;
+  bottom:24px;
+  right:80px;
+  z-index:92;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Floating invitatory badge pill */
+.ishan-trigger-badge{
+  background:rgba(15,23,42,0.88);
+  border:1px solid color-mix(in srgb,var(--accent) 45%,rgba(255,255,255,0.15));
+  color:var(--text-0);
+  padding:6px 14px 6px 12px;
+  border-radius:100px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.02em;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  box-shadow:0 8px 24px -4px rgba(0,0,0,0.4),0 0 16px -2px rgba(255,106,61,0.25);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  transition:all .25s var(--ease);
+  user-select:none;
+}
+.ishan-trigger-badge:hover{
+  transform:translateY(-2px);
+  border-color:var(--accent);
+  box-shadow:0 12px 28px -2px rgba(255,106,61,0.35);
+}
+.ishan-trigger-badge.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(10px) scale(0.9);
+}
+.ishan-badge-spark{
+  color:var(--accent);
+  font-size:12px;
+  animation:spinSlow 8s linear infinite;
+  display:inline-block;
+}
+.ishan-badge-close{
+  margin-left:2px;
+  font-size:14px;
+  line-height:1;
+  color:var(--text-2);
+  cursor:pointer;
+  transition:color .2s;
+  padding:0 2px;
+}
+.ishan-badge-close:hover{color:var(--text-0);}
+
+@keyframes spinSlow{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+
+/* High-End Quantum AI Orb Trigger */
+.ishan-trigger{
+  position:relative;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at 35% 30%, rgba(255,255,255,0.42), transparent 50%), linear-gradient(135deg, #FF5722 0%, #FF8A4C 45%, #7C3AED 100%);
+  color:#fff;
+  box-shadow:0 10px 30px -4px rgba(255,106,61,0.55),0 0 22px 2px rgba(124,58,237,0.35),inset 0 1px 1px rgba(255,255,255,0.55);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;
+  will-change:transform;
+}
+.ishan-trigger:hover{
+  transform:translateY(-3px) scale(1.08);
+  box-shadow:0 16px 36px -2px rgba(255,106,61,0.65),0 0 28px 4px rgba(124,58,237,0.45);
+}
+
+/* Rotating Conic Aura Halo */
+.ishan-orb-aura{
+  position:absolute;
+  inset:-3px;
+  border-radius:50%;
+  background:conic-gradient(from 0deg, rgba(255,106,61,0.9), rgba(124,58,237,0.9), rgba(6,182,212,0.85), rgba(255,106,61,0.9));
+  z-index:-1;
+  animation:ishanOrbSpin 6s linear infinite;
+  filter:blur(3.5px);
+  opacity:0.85;
+  transition:opacity .3s;
+}
+@keyframes ishanOrbSpin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+
+/* Shockwave ripple ring on open */
+.ishan-orb-ripple{
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  border:2px solid var(--accent);
+  opacity:0;
+  pointer-events:none;
+}
+.ishan-orb-ripple.active{
+  animation:ishanRippleAnim .6s cubic-bezier(0.2,0.8,0.2,1) forwards;
+}
+@keyframes ishanRippleAnim{
+  0%{transform:scale(1);opacity:0.9;}
+  100%{transform:scale(1.9);opacity:0;}
+}
+
+/* Floating bounce animation */
+@keyframes ishanFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.ishan-float-anim:not(:hover):not(.active){animation:ishanFloat 3.4s ease-in-out infinite;}
+
+/* Close and Open Icons */
+.ishan-trigger-icon{transition:transform .35s var(--ease),opacity .25s;}
+.ishan-close-icon{display:none;transition:transform .35s var(--ease),opacity .25s;}
+.ishan-trigger.active .ishan-trigger-icon{display:none;}
+.ishan-trigger.active .ishan-close-icon{display:block;}
+
+/* Green Online Telemetry Radar */
+.ishan-trigger-dot{
+  position:absolute;
+  top:1px;
+  right:1px;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#10B981;
+  border:2px solid var(--bg-0);
+  box-shadow:0 0 8px #10B981;
+}
+.ishan-trigger-dot::before{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  border:1.5px solid #10B981;
+  animation:pulseRadar 2.2s cubic-bezier(0.25,1,0.5,1) infinite;
+}
+@keyframes pulseRadar{0%{transform:scale(0.8);opacity:1;}100%{transform:scale(2.2);opacity:0;}}
+
+/* ---------- Ultra-Luxe Chat Window Modal ---------- */
+.ishan-window{
+  position:fixed;
+  bottom:86px;
+  right:24px;
+  z-index:1000;
+  width:400px;
+  max-width:calc(100vw - 32px);
+  height:590px;
+  max-height:calc(100vh - 110px);
+  background:rgba(13,17,23,0.88);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  box-shadow:0 32px 85px -15px rgba(0,0,0,0.72),0 0 0 1px rgba(255,255,255,0.06),inset 0 1px 0 rgba(255,255,255,0.22);
+  -webkit-backdrop-filter:blur(36px) saturate(190%);
+  backdrop-filter:blur(36px) saturate(190%);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(24px) scale(0.92);
+  transform-origin:bottom right;
+  transition:opacity .35s cubic-bezier(.34,1.56,.64,1),transform .35s cubic-bezier(.34,1.56,.64,1),visibility .35s;
+}
+.ishan-window.open{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0) scale(1);
+}
+html[data-theme="light"] .ishan-window{
+  background:rgba(255,255,255,0.94);
+  box-shadow:0 30px 75px -15px rgba(15,23,42,0.22),0 0 0 1px rgba(15,23,42,0.06),inset 0 1px 0 rgba(255,255,255,0.95);
+  border-color:color-mix(in srgb,var(--accent) 30%,rgba(0,0,0,0.1));
+}
+
+/* Ambient Interior Lighting Meshes */
+.ishan-window-glow-top{
+  position:absolute;
+  top:-60px;
+  right:-60px;
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 70%);
+  pointer-events:none;
+  filter:blur(30px);
+  z-index:0;
+}
+.ishan-window-glow-bottom{
+  position:absolute;
+  bottom:-60px;
+  left:-60px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,106,61,0.2) 0%, transparent 70%);
+  pointer-events:none;
+  filter:blur(30px);
+  z-index:0;
+}
+
+/* Executive Header */
+.ishan-header{
+  position:relative;
+  z-index:1;
+  padding:15px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.02);
+  flex-shrink:0;
+}
+html[data-theme="light"] .ishan-header{
+  border-bottom-color:rgba(0,0,0,0.06);
+  background:rgba(0,0,0,0.02);
+}
+.ishan-header-left{display:flex;align-items:center;gap:12px;}
+.ishan-avatar{
+  position:relative;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg, rgba(255,106,61,0.22) 0%, rgba(124,58,237,0.28) 100%);
+  border:1px solid rgba(255,255,255,0.18);
+  color:var(--accent);
+  box-shadow:0 4px 14px -2px rgba(255,106,61,0.3);
+  flex-shrink:0;
+}
+.ishan-avatar-dot{
+  position:absolute;
+  bottom:-2px;
+  right:-2px;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#10B981;
+  box-shadow:0 0 6px #10B981;
+  border:1.5px solid var(--bg-1);
+}
+.ishan-title-row{display:flex;align-items:center;gap:8px;}
+.ishan-title{
+  font-family:var(--font-display);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.04em;
+  background:linear-gradient(135deg, #FFFFFF 40%, var(--accent) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+html[data-theme="light"] .ishan-title{
+  background:linear-gradient(135deg, #0f172a 40%, var(--accent) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.ishan-chip{
+  font-family:var(--font-mono);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#10B981;
+  background:rgba(16,185,129,0.14);
+  border:1px solid rgba(16,185,129,0.3);
+  padding:2px 7px;
+  border-radius:100px;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.ishan-live-beacon{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#10B981;
+  box-shadow:0 0 4px #10B981;
+  animation:beaconBlink 1.6s ease-in-out infinite;
+}
+@keyframes beaconBlink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.ishan-sub{font-family:var(--font-mono);font-size:10.5px;color:var(--text-2);display:block;letter-spacing:-.01em;}
+.ishan-header-actions{display:flex;align-items:center;gap:6px;}
+.ishan-action-btn{
+  width:32px;
+  height:32px;
+  border-radius:9px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  color:var(--text-2);
+  cursor:pointer;
+  transition:all .2s var(--ease);
+}
+.ishan-action-btn:hover{
+  background:rgba(255,255,255,0.1);
+  border-color:rgba(255,255,255,0.2);
+  color:var(--text-0);
+  transform:translateY(-1px);
+}
+html[data-theme="light"] .ishan-action-btn{
+  background:rgba(0,0,0,0.04);
+  border-color:rgba(0,0,0,0.08);
+}
+
+/* ---------- World-Class Swipable Prompts Deck ---------- */
+.ishan-prompts-container{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  background:color-mix(in srgb,var(--bg-2) 65%,transparent);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  flex-shrink:0;
+  overflow:hidden;
+}
+html[data-theme="light"] .ishan-prompts-container{
+  border-bottom-color:rgba(0,0,0,0.06);
+}
+.ishan-prompts{
+  display:flex;
+  gap:8px;
+  padding:10px 16px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  cursor:grab;
+  user-select:none;
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+  width:100%;
+}
+.ishan-prompts:active{cursor:grabbing;}
+.ishan-prompts::-webkit-scrollbar{display:none;}
+
+/* Gradient edge masks */
+.ishan-prompts-mask{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:36px;
+  pointer-events:none;
+  z-index:2;
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.ishan-prompts-mask.visible{opacity:1;}
+.ishan-mask-left{
+  left:0;
+  background:linear-gradient(to right, rgba(13,17,23,0.95), transparent);
+}
+.ishan-mask-right{
+  right:0;
+  background:linear-gradient(to left, rgba(13,17,23,0.95), transparent);
+}
+html[data-theme="light"] .ishan-mask-left{
+  background:linear-gradient(to right, rgba(255,255,255,0.95), transparent);
+}
+html[data-theme="light"] .ishan-mask-right{
+  background:linear-gradient(to left, rgba(255,255,255,0.95), transparent);
+}
+
+/* Swipable Pill Navigation Arrows */
+.ishan-pills-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:rgba(15,23,42,0.85);
+  border:1px solid rgba(255,255,255,0.18);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  z-index:3;
+  box-shadow:0 4px 12px rgba(0,0,0,0.35);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  transition:all .2s var(--ease);
+  opacity:0;
+  pointer-events:none;
+}
+.ishan-pills-arrow.visible{
+  opacity:1;
+  pointer-events:auto;
+}
+.ishan-pills-arrow:hover{
+  background:var(--accent);
+  border-color:var(--accent);
+  transform:translateY(-50%) scale(1.12);
+  box-shadow:0 6px 16px -2px var(--glow);
+}
+.ishan-pills-arrow.prev{left:6px;}
+.ishan-pills-arrow.next{right:6px;}
+
+/* Prompt Chips */
+.ishan-prompt-chip{
+  white-space:nowrap;
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:500;
+  padding:6px 13px;
+  border-radius:100px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  color:var(--text-1);
+  cursor:pointer;
+  transition:all .22s var(--ease);
+  flex-shrink:0;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  -webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);
+}
+html[data-theme="light"] .ishan-prompt-chip{
+  background:rgba(0,0,0,0.04);
+  border-color:rgba(0,0,0,0.08);
+}
+.ishan-prompt-chip:hover{
+  background:color-mix(in srgb,var(--accent) 16%,transparent);
+  border-color:color-mix(in srgb,var(--accent) 60%,transparent);
+  color:var(--text-0);
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px -2px rgba(255,106,61,0.32);
+}
+.chip-icon{font-size:11px;}
+
+/* ---------- Chat Body & Message Cards ---------- */
+.ishan-body{
+  position:relative;
+  z-index:1;
+  flex-grow:1;
+  padding:16px 18px;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  scroll-behavior:smooth;
+}
+.ishan-body .ai-msg{
+  padding:12px 16px;
+  font-size:12.5px;
+  line-height:1.6;
+  position:relative;
+  animation:msgFadeUp .28s cubic-bezier(0.16,1,0.3,1);
+}
+@keyframes msgFadeUp{0%{opacity:0;transform:translateY(8px);}100%{opacity:1;transform:translateY(0);}}
+
+.ishan-body .ai-msg.bot{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:16px;
+  border-bottom-left-radius:4px;
+  color:var(--text-0);
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+}
+html[data-theme="light"] .ishan-body .ai-msg.bot{
+  background:rgba(0,0,0,0.03);
+  border-color:rgba(0,0,0,0.08);
+  box-shadow:0 4px 16px rgba(0,0,0,0.04);
+}
+.ishan-body .ai-msg.user{
+  background:linear-gradient(135deg, var(--accent) 0%, #FF8A4C 100%);
+  color:#fff;
+  border-radius:16px;
+  border-bottom-right-radius:4px;
+  align-self:flex-end;
+  box-shadow:0 6px 20px -3px var(--glow);
+  max-width:88%;
+}
+
+.ishan-msg-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:6px;
+  font-size:10.5px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding-bottom:4px;
+}
+.ishan-sender{
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:.04em;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.ishan-msg-spark{font-size:10px;}
+.ishan-time{color:var(--text-2);font-size:9.5px;}
+.ishan-msg-text{line-height:1.62;word-break:break-word;}
+.ishan-msg-text strong{color:var(--text-0);font-weight:600;}
+
+/* Futuristic Typing Wave Indicator */
+.ishan-typing-wrap{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding:4px 0;
+}
+.ishan-typing-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  animation:typingWave 1.4s ease-in-out infinite;
+}
+.ishan-typing-dot:nth-child(2){animation-delay:.2s;}
+.ishan-typing-dot:nth-child(3){animation-delay:.4s;}
+@keyframes typingWave{0%,60%,100%{transform:translateY(0);opacity:0.4;}30%{transform:translateY(-6px);opacity:1;}}
+
+/* ---------- Console Input Footer ---------- */
+.ishan-footer{
+  position:relative;
+  z-index:1;
+  padding:12px 16px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.02);
+  flex-shrink:0;
+}
+html[data-theme="light"] .ishan-footer{
+  border-top-color:rgba(0,0,0,0.06);
+  background:rgba(0,0,0,0.02);
+}
+.ishan-input-wrap{display:flex;align-items:center;gap:8px;}
+.ishan-input{
+  flex-grow:1;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:12px;
+  padding:11px 16px;
+  color:var(--text-0);
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+html[data-theme="light"] .ishan-input{
+  background:rgba(0,0,0,0.03);
+  border-color:rgba(0,0,0,0.1);
+}
+.ishan-input:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 30%,transparent),0 6px 18px -4px rgba(255,106,61,0.25);
+}
+.ishan-send{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent) 0%,#FF8A4C 100%);
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  font-size:15px;
+  transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+  box-shadow:0 4px 14px -3px var(--glow);
+  flex-shrink:0;
+}
+.ishan-send:hover{
+  transform:scale(1.08);
+  box-shadow:0 6px 20px -3px var(--glow);
+}
+.ishan-footnote{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin-top:8px;
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  color:var(--text-2);
+  opacity:.75;
+}
+
+@media (max-width: 600px){
+  .ishan-launcher-container{bottom:18px;right:68px;}
+  .ishan-trigger{width:46px;height:46px;}
+  .ishan-trigger-badge{display:none;}
+  .back-to-top{bottom:18px;right:16px;width:42px;height:42px;}
+  .ishan-window{bottom:72px;right:10px;left:10px;width:auto;max-width:none;height:530px;border-radius:20px;}
+}
+
 footer{border-top:1px solid var(--border);}
 
 @media (max-width:1000px){
@@ -3589,22 +4186,22 @@ footer{border-top:1px solid var(--border);}
         </div>
       </div>
 
-      <!-- Right Column: AI Assistant Portal (From Image 7) -->
+      <!-- Right Column: I.S.H.A.N AI Assistant Portal -->
       <div>
         <div class="ai-portal">
           <div class="ai-portal-head">
             <div class="ai-portal-title">
-              <span>&#129302;</span> AI Assistant Portal
+              <span>&#129302;</span> I.S.H.A.N AI Portal
             </div>
-            <span class="ai-portal-badge">Host Synced</span>
+            <span class="ai-portal-badge">Gemini 3.5 Synced</span>
           </div>
           <div class="ai-chat-body" id="aiChatBody">
             <div class="ai-msg bot">
-              <strong>AI:</strong> Greetings! I am the portfolio assistant powered by Google Gemini. Ask me anything about my creator's skills, coding experience, technology choices, or hardware bridges!
+              <strong>I.S.H.A.N AI:</strong> Greetings! I am <strong>I.S.H.A.N AI</strong> (Intelligence System for Host Assistance &amp; Navigation), powered by Google Gemini. Ask me anything about Tanmay's skills, coding experience, technology choices, or hardware bridges!
             </div>
           </div>
           <form class="ai-input-wrap" id="aiChatForm">
-            <input class="ai-input" id="aiChatInput" type="text" placeholder="Query technical credentials..." autocomplete="off">
+            <input class="ai-input" id="aiChatInput" type="text" placeholder="Query technical credentials or rates..." autocomplete="off">
             <button type="submit" class="ai-send-btn" title="Send query">&#8250;</button>
           </form>
         </div>
@@ -3740,6 +4337,147 @@ footer{border-top:1px solid var(--border);}
 <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
 </a>
+
+<!-- I.S.H.A.N AI Floating Chatbot Launcher (Beside Up Arrow) -->
+<div class="ishan-launcher-container" id="ishanLauncherContainer">
+  <!-- Subtle Invitatory Badge Pill -->
+  <div class="ishan-trigger-badge" id="ishanTriggerBadge" role="button" tabindex="0" title="Click to chat with I.S.H.A.N AI">
+    <span class="ishan-badge-spark">✦</span>
+    <span class="ishan-badge-text">Ask I.S.H.A.N AI</span>
+    <span class="ishan-badge-close" id="ishanBadgeClose" title="Dismiss" aria-label="Dismiss">&times;</span>
+  </div>
+
+  <button class="ishan-trigger ishan-float-anim" id="ishanChatTrigger" aria-label="Open I.S.H.A.N AI Assistant" title="Chat with I.S.H.A.N AI">
+    <span class="ishan-orb-aura"></span>
+    <span class="ishan-orb-ripple" id="ishanOrbRipple"></span>
+    <span class="ishan-trigger-dot"></span>
+    <!-- Quantum Sparkle AI Glyph -->
+    <svg class="ishan-trigger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <defs>
+        <linearGradient id="ishanSparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="50%" stop-color="#FFE8DF"/>
+          <stop offset="100%" stop-color="#FFD4C2"/>
+        </linearGradient>
+      </defs>
+      <!-- Central 4-point Diamond Spark -->
+      <path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z" fill="url(#ishanSparkleGrad)" stroke="rgba(255,255,255,0.7)" stroke-width="0.8"/>
+      <!-- Satellite micro sparks -->
+      <circle cx="19" cy="5" r="1.5" fill="#FFFFFF"/>
+      <circle cx="5" cy="19" r="1" fill="#FFFFFF" opacity="0.8"/>
+    </svg>
+    <!-- Minimalist Close Cross Glyph -->
+    <svg class="ishan-close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+</div>
+
+<!-- I.S.H.A.N AI Premium Floating Chatbot Window -->
+<div class="ishan-window" id="ishanChatWindow" role="dialog" aria-label="I.S.H.A.N AI Assistant" aria-hidden="true">
+  <!-- Internal Ambient Glow Meshes -->
+  <div class="ishan-window-glow-top"></div>
+  <div class="ishan-window-glow-bottom"></div>
+
+  <!-- Executive Luxe Header -->
+  <div class="ishan-header">
+    <div class="ishan-header-left">
+      <div class="ishan-avatar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z" fill="currentColor"/>
+          <circle cx="19" cy="5" r="1.5" fill="currentColor"/>
+        </svg>
+        <span class="ishan-avatar-dot"></span>
+      </div>
+      <div>
+        <div class="ishan-title-row">
+          <span class="ishan-title">I.S.H.A.N AI</span>
+          <span class="ishan-chip"><span class="ishan-live-beacon"></span>Live Neural</span>
+        </div>
+        <span class="ishan-sub">Tanmay's Autonomous Portfolio Copilot</span>
+      </div>
+    </div>
+    <div class="ishan-header-actions">
+      <button class="ishan-action-btn" id="ishanClearBtn" title="Reset Session & Memory" aria-label="Clear session">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+      </button>
+      <button class="ishan-action-btn" id="ishanCloseBtn" aria-label="Close window" title="Minimize Copilot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- World-Class Swipable Prompts Deck -->
+  <div class="ishan-prompts-container" id="ishanPromptsContainer">
+    <div class="ishan-prompts-mask ishan-mask-left" id="ishanMaskLeft"></div>
+    <button class="ishan-pills-arrow prev" id="ishanPillsPrev" aria-label="Previous prompts" title="Swipe left">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+
+    <div class="ishan-prompts" id="ishanPrompts">
+      <button class="ishan-prompt-chip" data-query="What are Tanmay's freelance packages &amp; pricing?">
+        <span class="chip-icon">⚡</span> Rates &amp; Pricing
+      </button>
+      <button class="ishan-prompt-chip" data-query="Tell me about Tanmay's work at ResCount with LAN thermal print agents.">
+        <span class="chip-icon">🏢</span> ResCount Printing
+      </button>
+      <button class="ishan-prompt-chip" data-query="How did Tanmay build the Web Serial RFID hardware bridge?">
+        <span class="chip-icon">📡</span> Web Serial RFID
+      </button>
+      <button class="ishan-prompt-chip" data-query="What is Tanmay's experience with Shopify Liquid and custom storefronts?">
+        <span class="chip-icon">🛍️</span> Shopify Liquid
+      </button>
+      <button class="ishan-prompt-chip" data-query="Explain Tanmay's distributed systems architecture and database stack.">
+        <span class="chip-icon">🧠</span> Tech &amp; Databases
+      </button>
+      <button class="ishan-prompt-chip" data-query="Is Tanmay available for full-time senior engineering roles or relocation?">
+        <span class="chip-icon">💼</span> Full-Time &amp; Relocation
+      </button>
+      <button class="ishan-prompt-chip" data-query="What key production metrics and benchmarks has Tanmay achieved?">
+        <span class="chip-icon">🚀</span> Metrics &amp; Benchmarks
+      </button>
+      <button class="ishan-prompt-chip" data-query="How can I schedule a discovery call or reach Tanmay directly?">
+        <span class="chip-icon">📬</span> Book / Contact
+      </button>
+    </div>
+
+    <button class="ishan-pills-arrow next" id="ishanPillsNext" aria-label="Next prompts" title="Swipe right">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="ishan-prompts-mask ishan-mask-right" id="ishanMaskRight"></div>
+  </div>
+
+  <!-- Chat Messages Body -->
+  <div class="ishan-body" id="ishanBody">
+    <div class="ai-msg bot">
+      <div class="ishan-msg-header">
+        <span class="ishan-sender"><span class="ishan-msg-spark">✦</span> I.S.H.A.N AI</span>
+        <span class="ishan-time">Online</span>
+      </div>
+      <div class="ishan-msg-text">
+        Greetings! I am <strong>I.S.H.A.N AI</strong> (Intelligence System for Host Assistance &amp; Navigation), powered by Google Gemini 3.5.
+        <br><br>
+        Ask me anything about Tanmay's distributed architectures, Web Serial RFID hardware bridges, Shopify Liquid, full-stack stacks, or rates!
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Input Footer -->
+  <form class="ishan-footer" id="ishanForm">
+    <div class="ishan-input-wrap">
+      <input type="text" id="ishanInput" class="ishan-input" placeholder="Ask I.S.H.A.N AI anything..." autocomplete="off">
+      <button type="submit" id="ishanSendBtn" class="ishan-send" title="Send message" aria-label="Send message">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+    <div class="ishan-footnote">
+      <span><i class="bi bi-shield-lock me-1"></i>Gemini 3.5 Flash &bull; Cloudflare Edge</span>
+      <span>&bull;</span>
+      <span>Session Telemetry Active</span>
+    </div>
+  </form>
+</div>
 
 <!-- ========================================================================= -->
 <!-- SCRIPTS & GSAP CHOREOGRAPHY -->
@@ -4301,16 +5039,23 @@ document.querySelectorAll('.rate-btn').forEach(btn=>{
   });
 });
 
-/* AI Assistant Portal (Connected to Secure Cloudflare Gemini Worker) */
-const aiChatForm = document.getElementById('aiChatForm');
-const aiChatInput = document.getElementById('aiChatInput');
-const aiChatBody = document.getElementById('aiChatBody');
+/* ========================================================================= */
+/* I.S.H.A.N AI CHATBOT CONTROLLER & SESSION LOGGING ENGINE                  */
+/* ========================================================================= */
 const AI_WORKER_ENDPOINT = "https://dos-ai.dos-unique-dev.workers.dev/";
-const chatHistory = [];
+
+// Persistent session identifier across user visit
+let ishanSessionId = sessionStorage.getItem('ishan_session_id');
+if (!ishanSessionId) {
+  ishanSessionId = 'ishan_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7);
+  sessionStorage.setItem('ishan_session_id', ishanSessionId);
+}
+let ishanTurnCount = 0;
+const ishanHistory = [];
 
 function escapeHtml(text) {
   const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-  return text.replace(/[&<>"']/g, m => map[m]);
+  return String(text).replace(/[&<>"']/g, m => map[m]);
 }
 
 function formatMarkdown(text) {
@@ -4322,85 +5067,383 @@ function formatMarkdown(text) {
   return safe;
 }
 
-if(aiChatForm){
-  aiChatForm.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const query = aiChatInput.value.trim();
-    if(!query) return;
-    aiChatInput.value = '';
+function getIshanFallback(query) {
+  const qLower = query.toLowerCase();
+  if (qLower.includes('rfid') || qLower.includes('hardware') || qLower.includes('serial')) {
+    return "Tanmay engineered a custom hardware-to-cloud bridge using the Web Serial API at RPS Solutions. It connects handheld RFID scanners (COM3 @ 9600 baud) directly to web POS systems, cutting manual inventory audit times by 40%.";
+  } else if (qLower.includes('rps') || qLower.includes('jewel')) {
+    return "At RPS SOLUTIONS PVT. LTD., Tanmay spearheaded the full-stack architecture of RPS Jewel Pro using Laravel and React.js. He engineered live metal purity deduction, automated Shopify variants sync, and automated GST return accounting.";
+  } else if (qLower.includes('academicae') || qLower.includes('infomaticae') || qLower.includes('fastapi')) {
+    return "At Infomaticae, Tanmay built scalable asynchronous REST APIs in FastAPI (Python) and React/React Native apps for Academicae (academicae.com), powering the 'Hello Teacher' AI educator platform and real-time student analytics.";
+  } else if (qLower.includes('french') || qLower.includes('print') || qLower.includes('restaurant') || qLower.includes('rescount')) {
+    return "As Full Stack Engineer at ResCount, Tanmay engineers distributed order orchestration and LAN thermal print agents for French restaurant fleets (Naanstreet, Safran, WithSushiThai) using mDNS discovery and Redis 7 lease claim fencing.";
+  } else if (qLower.includes('iit') || qLower.includes('alo') || qLower.includes('research')) {
+    return "Tanmay engineered the official research web platform for the Advanced Laboratory for Optoelectronics (A-L-O Lab, E&ECE Dept, IIT Kharagpur at alolab.in) using Next.js 15, Payload CMS 3.0, and serverless PostgreSQL with dynamic BibTeX citation generation.";
+  } else if (qLower.includes('rate') || qLower.includes('price') || qLower.includes('cost') || qLower.includes('freelance')) {
+    return "Tanmay offers freelance packages tailored to scale: $190+ for editorial showcases, $480+ for dynamic React 19/Next.js SaaS web apps, $320+ for high-concurrency FastAPI/Sails backend APIs, $550+ for Web Serial RFID & LAN print hardware bridges, $950+ for full-scale ERP/POS systems, and $40/hr for architecture advisory and emergency audits.";
+  } else {
+    return "Tanmay Das is a Senior Full-Stack & Distributed Systems Architect specializing in Python (FastAPI), Laravel, React 19, Web Serial hardware bridges, and Google Gemini AI multimodal vision pipelines. Feel free to use the form on the left or write to dastanmay30@gmail.com!";
+  }
+}
 
-    // Append User Query
-    const userMsg = document.createElement('div');
-    userMsg.className = 'ai-msg user';
-    userMsg.textContent = query;
-    aiChatBody.appendChild(userMsg);
-    aiChatBody.scrollTop = aiChatBody.scrollHeight;
+async function sendIshanMessage(query, source) {
+  if (!query || !query.trim()) return;
+  query = query.trim();
 
-    // Append Animated Typing Indicator
-    const typingMsg = document.createElement('div');
-    typingMsg.className = 'ai-msg bot';
-    typingMsg.id = 'aiTypingIndicator';
-    typingMsg.innerHTML = `<strong>AI:</strong> <span class="typing-dots"><span></span><span></span><span></span></span>`;
-    aiChatBody.appendChild(typingMsg);
-    aiChatBody.scrollTop = aiChatBody.scrollHeight;
+  const ishanBody = document.getElementById('ishanBody');
+  const contactAiBody = document.getElementById('aiChatBody');
+  const targetBody = source === 'contact' ? contactAiBody : ishanBody;
 
-    try {
-      const response = await fetch(AI_WORKER_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: query,
-          history: chatHistory
-        })
+  // 1. Append User Message
+  const userMsg = document.createElement('div');
+  userMsg.className = 'ai-msg user';
+  userMsg.textContent = query;
+  if (targetBody) {
+    targetBody.appendChild(userMsg);
+    targetBody.scrollTop = targetBody.scrollHeight;
+  }
+
+  // 2. Append Typing Indicator
+  const typingMsg = document.createElement('div');
+  typingMsg.className = 'ai-msg bot';
+  typingMsg.id = 'activeTypingIndicator';
+  typingMsg.innerHTML = `
+    <div class="ishan-msg-header">
+      <span class="ishan-sender"><span class="ishan-msg-spark">✦</span> I.S.H.A.N AI</span>
+      <span class="ishan-time">Thinking...</span>
+    </div>
+    <div class="ishan-typing-wrap">
+      <span class="ishan-typing-dot"></span>
+      <span class="ishan-typing-dot"></span>
+      <span class="ishan-typing-dot"></span>
+    </div>`;
+  if (targetBody) {
+    targetBody.appendChild(typingMsg);
+    targetBody.scrollTop = targetBody.scrollHeight;
+  }
+
+  let finalReply = "";
+
+  try {
+    const response = await fetch(AI_WORKER_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: query,
+        history: ishanHistory
+      })
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      finalReply = data.reply || getIshanFallback(query);
+    } else {
+      finalReply = getIshanFallback(query);
+    }
+  } catch (err) {
+    console.warn("I.S.H.A.N AI worker notice:", err.message);
+    finalReply = getIshanFallback(query);
+  } finally {
+    const indicator = document.getElementById('activeTypingIndicator');
+    if (indicator) indicator.remove();
+  }
+
+  // 3. Render Bot Response
+  const botMsg = document.createElement('div');
+  botMsg.className = 'ai-msg bot';
+  const timeNow = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  botMsg.innerHTML = `
+    <div class="ishan-msg-header">
+      <span class="ishan-sender"><span class="ishan-msg-spark">✦</span> I.S.H.A.N AI</span>
+      <span class="ishan-time">${timeNow}</span>
+    </div>
+    <div class="ishan-msg-text">${formatMarkdown(finalReply)}</div>`;
+  if (targetBody) {
+    targetBody.appendChild(botMsg);
+    targetBody.scrollTop = targetBody.scrollHeight;
+  }
+
+  // 4. Update multi-turn history
+  ishanHistory.push({ role: 'user', text: query });
+  ishanHistory.push({ role: 'bot', text: finalReply });
+  ishanTurnCount++;
+
+  // 5. Log to Firebase Firestore with visitor IP, geo location, device & session ID
+  if (window.logIshanChatMessage) {
+    window.logIshanChatMessage({
+      sessionId: ishanSessionId,
+      userQuery: query,
+      botReply: finalReply,
+      turn: ishanTurnCount
+    });
+  }
+}
+
+// =========================================================================
+// I.S.H.A.N AI QUANTUM LAUNCHER & GSAP SPRING CHOREOGRAPHY
+// =========================================================================
+const ishanTrigger = document.getElementById('ishanChatTrigger');
+const ishanWindow = document.getElementById('ishanChatWindow');
+const ishanCloseBtn = document.getElementById('ishanCloseBtn');
+const ishanClearBtn = document.getElementById('ishanClearBtn');
+const ishanTriggerBadge = document.getElementById('ishanTriggerBadge');
+const ishanBadgeClose = document.getElementById('ishanBadgeClose');
+const ishanOrbRipple = document.getElementById('ishanOrbRipple');
+
+let isIshanWindowAnimating = false;
+
+function toggleIshanWindow(open) {
+  if (!ishanWindow || !ishanTrigger || isIshanWindowAnimating) return;
+  const shouldOpen = open !== undefined ? open : !ishanWindow.classList.contains('open');
+
+  if (shouldOpen) {
+    isIshanWindowAnimating = true;
+    ishanWindow.style.visibility = 'visible';
+    ishanWindow.classList.add('open');
+    ishanWindow.setAttribute('aria-hidden', 'false');
+    ishanTrigger.classList.add('active');
+    if (ishanTriggerBadge) ishanTriggerBadge.classList.add('hidden');
+
+    // Trigger shockwave ring
+    if (ishanOrbRipple) {
+      ishanOrbRipple.classList.remove('active');
+      void ishanOrbRipple.offsetWidth; // reflow
+      ishanOrbRipple.classList.add('active');
+    }
+
+    // World-class GSAP spring-back physics
+    if (window.gsap && !reduced) {
+      gsap.killTweensOf([ishanWindow, ishanTrigger]);
+      gsap.fromTo(ishanWindow, 
+        { opacity: 0, scale: 0.35, y: 35, transformOrigin: 'bottom right', filter: 'blur(16px)' },
+        { 
+          opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', duration: 0.44, 
+          ease: 'back.out(1.4)',
+          onComplete: () => { isIshanWindowAnimating = false; }
+        }
+      );
+      gsap.fromTo('.ishan-header', 
+        { y: -10, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.3, delay: 0.08, ease: 'power2.out' }
+      );
+      gsap.fromTo('.ishan-prompts-container', 
+        { x: 25, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.35, delay: 0.12, ease: 'power2.out', onComplete: updatePillScrollAffordance }
+      );
+      gsap.fromTo('#ishanBody > *', 
+        { y: 12, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.3, stagger: 0.05, delay: 0.16, ease: 'power2.out' }
+      );
+      gsap.to(ishanTrigger, { rotate: 90, duration: 0.3, ease: 'power2.out' });
+    } else {
+      isIshanWindowAnimating = false;
+      updatePillScrollAffordance();
+    }
+
+    setTimeout(() => {
+      const input = document.getElementById('ishanInput');
+      if (input) input.focus();
+    }, 280);
+  } else {
+    isIshanWindowAnimating = true;
+    ishanTrigger.classList.remove('active');
+    ishanWindow.setAttribute('aria-hidden', 'true');
+
+    if (window.gsap && !reduced) {
+      gsap.killTweensOf([ishanWindow, ishanTrigger]);
+      gsap.to(ishanTrigger, { rotate: 0, duration: 0.28, ease: 'power2.out' });
+      gsap.to(ishanWindow, {
+        opacity: 0,
+        scale: 0.35,
+        y: 30,
+        filter: 'blur(14px)',
+        duration: 0.26,
+        ease: 'power3.in',
+        onComplete: () => {
+          ishanWindow.classList.remove('open');
+          ishanWindow.style.visibility = 'hidden';
+          isIshanWindowAnimating = false;
+          if (ishanTriggerBadge && !sessionStorage.getItem('ishan_badge_dismissed')) {
+            ishanTriggerBadge.classList.remove('hidden');
+          }
+        }
       });
+    } else {
+      ishanWindow.classList.remove('open');
+      ishanWindow.style.visibility = 'hidden';
+      isIshanWindowAnimating = false;
+    }
+  }
+}
 
-      const indicator = document.getElementById('aiTypingIndicator');
-      if (indicator) indicator.remove();
+if (ishanTrigger) {
+  ishanTrigger.addEventListener('click', () => toggleIshanWindow());
+}
+if (ishanCloseBtn) {
+  ishanCloseBtn.addEventListener('click', () => toggleIshanWindow(false));
+}
+if (ishanTriggerBadge) {
+  ishanTriggerBadge.addEventListener('click', (e) => {
+    if (e.target && e.target.id === 'ishanBadgeClose') return;
+    toggleIshanWindow(true);
+  });
+}
+if (ishanBadgeClose) {
+  ishanBadgeClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (ishanTriggerBadge) ishanTriggerBadge.classList.add('hidden');
+    sessionStorage.setItem('ishan_badge_dismissed', 'true');
+  });
+}
 
-      if (response.ok) {
-        const data = await response.json();
-        const reply = data.reply || "I am connected, but received an empty response.";
+// Auto hide badge after 9 seconds if not clicked
+if (ishanTriggerBadge && sessionStorage.getItem('ishan_badge_dismissed')) {
+  ishanTriggerBadge.classList.add('hidden');
+} else if (ishanTriggerBadge) {
+  setTimeout(() => {
+    if (ishanTriggerBadge && !ishanWindow?.classList.contains('open')) {
+      ishanTriggerBadge.classList.add('hidden');
+    }
+  }, 9500);
+}
 
-        const botMsg = document.createElement('div');
-        botMsg.className = 'ai-msg bot';
-        botMsg.innerHTML = `<strong>AI:</strong> ${formatMarkdown(reply)}`;
-        aiChatBody.appendChild(botMsg);
-        aiChatBody.scrollTop = aiChatBody.scrollHeight;
+// =========================================================================
+// WORLD-CLASS SWIPABLE PROMPTS DECK CONTROLLER (TOUCH + DRAG + ARROWS + WHEEL)
+// =========================================================================
+const ishanPrompts = document.getElementById('ishanPrompts');
+const ishanPillsPrev = document.getElementById('ishanPillsPrev');
+const ishanPillsNext = document.getElementById('ishanPillsNext');
+const ishanMaskLeft = document.getElementById('ishanMaskLeft');
+const ishanMaskRight = document.getElementById('ishanMaskRight');
 
-        chatHistory.push({ role: 'user', text: query });
-        chatHistory.push({ role: 'bot', text: reply });
+function updatePillScrollAffordance() {
+  if (!ishanPrompts) return;
+  const scrollLeft = ishanPrompts.scrollLeft;
+  const maxScroll = ishanPrompts.scrollWidth - ishanPrompts.clientWidth;
+
+  const canScrollLeft = scrollLeft > 6;
+  const canScrollRight = scrollLeft < (maxScroll - 6);
+
+  if (ishanPillsPrev) ishanPillsPrev.classList.toggle('visible', canScrollLeft);
+  if (ishanPillsNext) ishanPillsNext.classList.toggle('visible', canScrollRight);
+  if (ishanMaskLeft) ishanMaskLeft.classList.toggle('visible', canScrollLeft);
+  if (ishanMaskRight) ishanMaskRight.classList.toggle('visible', canScrollRight);
+}
+
+if (ishanPrompts) {
+  ishanPrompts.addEventListener('scroll', updatePillScrollAffordance, { passive: true });
+  window.addEventListener('resize', updatePillScrollAffordance);
+
+  // Arrow click scroll
+  if (ishanPillsPrev) {
+    ishanPillsPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      ishanPrompts.scrollBy({ left: -190, behavior: 'smooth' });
+    });
+  }
+  if (ishanPillsNext) {
+    ishanPillsNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      ishanPrompts.scrollBy({ left: 190, behavior: 'smooth' });
+    });
+  }
+
+  // Mouse wheel horizontal translation
+  ishanPrompts.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      ishanPrompts.scrollLeft += e.deltaY * 0.9;
+    }
+  }, { passive: false });
+
+  // Mouse drag-to-scroll with click cancellation if dragged
+  let isDragging = false;
+  let startX = 0;
+  let scrollStart = 0;
+  let wasDragged = false;
+
+  ishanPrompts.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    wasDragged = false;
+    startX = e.pageX - ishanPrompts.offsetLeft;
+    scrollStart = ishanPrompts.scrollLeft;
+    ishanPrompts.style.scrollBehavior = 'auto';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const x = e.pageX - ishanPrompts.offsetLeft;
+    const walk = (x - startX) * 1.35;
+    if (Math.abs(walk) > 4) wasDragged = true;
+    ishanPrompts.scrollLeft = scrollStart - walk;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      ishanPrompts.style.scrollBehavior = 'smooth';
+      setTimeout(() => { wasDragged = false; }, 60);
+    }
+  });
+
+  // Attach click listener to prompt chips with drag prevention
+  ishanPrompts.querySelectorAll('.ishan-prompt-chip').forEach(chip => {
+    chip.addEventListener('click', function(e) {
+      if (wasDragged) {
+        e.preventDefault();
+        e.stopPropagation();
         return;
       }
-      throw new Error(`Worker status ${response.status}`);
+      const query = this.getAttribute('data-query');
+      sendIshanMessage(query, 'floating');
+    });
+  });
+}
 
-    } catch (err) {
-      console.warn("Cloudflare worker fallback triggered:", err.message);
-      const indicator = document.getElementById('aiTypingIndicator');
-      if (indicator) indicator.remove();
-
-      // Graceful Intelligent Fallback (Zero breakdown guarantee)
-      const botMsg = document.createElement('div');
-      botMsg.className = 'ai-msg bot';
-      const qLower = query.toLowerCase();
-
-      if(qLower.includes('rfid') || qLower.includes('hardware') || qLower.includes('serial')){
-        botMsg.innerHTML = `<strong>AI:</strong> Tanmay engineered a custom hardware-to-cloud bridge using the Web Serial API at RPS Solutions. It connects handheld RFID scanners (COM3 @ 9600 baud) directly to the web POS counter, cutting manual inventory audit times by 40%.`;
-      } else if(qLower.includes('rps') || qLower.includes('jewel')){
-        botMsg.innerHTML = `<strong>AI:</strong> At RPS SOLUTIONS PVT. LTD., Tanmay spearheaded the full-stack architecture of RPS Jewel Pro using Laravel and React.js. He engineered live metal purity deduction, automated Shopify variants sync, and automated GST return accounting.`;
-      } else if(qLower.includes('academicae') || qLower.includes('infomaticae') || qLower.includes('fastapi')){
-        botMsg.innerHTML = `<strong>AI:</strong> At Infomaticae, Tanmay built scalable asynchronous REST APIs in FastAPI (Python) and React/React Native apps for Academicae (academicae.com), powering the "Hello Teacher" AI educator platform and real-time student analytics.`;
-      } else if(qLower.includes('french') || qLower.includes('print') || qLower.includes('restaurant') || qLower.includes('naanstreet') || qLower.includes('rescount')){
-        botMsg.innerHTML = `<strong>AI:</strong> As Full Stack Engineer at ResCount, Tanmay engineers distributed order orchestration and LAN thermal print agents for French restaurant fleets (Naanstreet, Safran, WithSushiThai) using mDNS discovery and Redis 7 lease claim fencing to ensure zero dropped kitchen tickets.`;
-      } else if(qLower.includes('iit') || qLower.includes('alo') || qLower.includes('research')){
-        botMsg.innerHTML = `<strong>AI:</strong> Tanmay engineered the official research web platform for the Advanced Laboratory for Optoelectronics (A-L-O Lab, E&ECE Dept, IIT Kharagpur at alolab.in) using Next.js 15, Payload CMS 3.0, and serverless PostgreSQL with dynamic BibTeX citation generation.`;
-      } else if(qLower.includes('rate') || qLower.includes('price') || qLower.includes('cost') || qLower.includes('freelance')){
-        botMsg.innerHTML = `<strong>AI:</strong> Tanmay offers freelance packages tailored to scale: $190+ for 60fps editorial/headless showcases, $480+ for dynamic React 19/Next.js SaaS web apps, $320+ for high-concurrency FastAPI/Sails backend APIs, $550+ for Web Serial RFID & LAN print hardware bridges, $950+ for full-scale ERP/POS systems, and $40/hr for architecture advisory and emergency audits.`;
-      } else {
-        botMsg.innerHTML = `<strong>AI:</strong> Tanmay Das is a Senior Full-Stack & Distributed Systems Architect specializing in Python (FastAPI), Laravel, React 19, Web Serial hardware bridges, and Google Gemini AI multimodal vision pipelines. Feel free to use the form on the left or write to dastanmay30@gmail.com!`;
-      }
-      aiChatBody.appendChild(botMsg);
-      aiChatBody.scrollTop = aiChatBody.scrollHeight;
+if (ishanClearBtn) {
+  ishanClearBtn.addEventListener('click', () => {
+    const ishanBody = document.getElementById('ishanBody');
+    if (ishanBody) {
+      ishanBody.innerHTML = `
+        <div class="ai-msg bot">
+          <div class="ishan-msg-header">
+            <span class="ishan-sender"><span class="ishan-msg-spark">✦</span> I.S.H.A.N AI</span>
+            <span class="ishan-time">Online</span>
+          </div>
+          <div class="ishan-msg-text">
+            Session cleared. Ask me anything about Tanmay's distributed systems, Web Serial RFID hardware bridges, Shopify Liquid, or rates!
+          </div>
+        </div>`;
     }
+    ishanHistory.length = 0;
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && ishanWindow && ishanWindow.classList.contains('open')) {
+    toggleIshanWindow(false);
+  }
+});
+
+const ishanForm = document.getElementById('ishanForm');
+const ishanInput = document.getElementById('ishanInput');
+if (ishanForm && ishanInput) {
+  ishanForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const query = ishanInput.value;
+    ishanInput.value = '';
+    sendIshanMessage(query, 'floating');
+  });
+}
+
+const aiChatForm = document.getElementById('aiChatForm');
+const aiChatInput = document.getElementById('aiChatInput');
+if (aiChatForm && aiChatInput) {
+  aiChatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const query = aiChatInput.value;
+    aiChatInput.value = '';
+    sendIshanMessage(query, 'contact');
   });
 }
 

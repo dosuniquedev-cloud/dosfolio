@@ -124,6 +124,9 @@ async function trackVisitor() {
             ipData = { ip: "Unknown", city: "Unknown", country_name: "Unknown" };
         }
 
+        // Store IP data globally for I.S.H.A.N AI conversation logging
+        window.dosIpData = ipData;
+
         // Secondary exclusion check with resolved IP
         if (!isExcluded && isExcludedDevice(ipData)) {
             isExcluded = true;
@@ -330,6 +333,53 @@ if (telemetryCard) {
         window.location.reload();
     });
 }
+
+// --- I.S.H.A.N AI SESSION CONVERSATION LOGGING ---
+window.logIshanChatMessage = async function(sessionPayload) {
+    try {
+        const { sessionId, userQuery, botReply, turn } = sessionPayload;
+        const ipInfo = window.dosIpData || {};
+        
+        let devInfo = { os: "Unknown", browser: "Unknown", screen: `${window.screen.width}x${window.screen.height}` };
+        try {
+            if (window.UAParser) {
+                const res = new window.UAParser().getResult();
+                devInfo.os = `${res.os.name || ''} ${res.os.version || ''}`.trim() || 'Unknown';
+                devInfo.browser = res.browser.name || 'Unknown';
+            }
+        } catch(e) {}
+
+        const city = ipInfo.city || 'Unknown';
+        const country = ipInfo.country_name || ipInfo.country || 'Unknown';
+        const ipAddr = ipInfo.ip || 'Unknown';
+
+        await addDoc(collection(db, "contacts"), {
+            type: "ishan_ai_chat",
+            sessionId: sessionId || `session_${Date.now()}`,
+            turn: turn || 1,
+            name: `I.S.H.A.N AI: ${city}, ${country}`,
+            email: ipAddr,
+            subject: `I.S.H.A.N AI Chat: "${userQuery.slice(0, 36)}..."`,
+            message: `[VISITOR (${city}, ${country} | IP: ${ipAddr})]:\n${userQuery}\n\n[I.S.H.A.N AI]:\n${botReply}`,
+            userQuery: userQuery,
+            botReply: botReply,
+            ip: ipAddr,
+            ip_info: {
+                ip: ipAddr,
+                city: city,
+                region: ipInfo.region || '',
+                country: country,
+                lat_long: `${ipInfo.latitude || 0}, ${ipInfo.longitude || 0}`,
+                org: ipInfo.org || ipInfo.asn || 'Unknown'
+            },
+            device: devInfo,
+            sentAt: new Date()
+        });
+        console.log("I.S.H.A.N AI session conversation logged to Firestore.");
+    } catch (err) {
+        console.warn("Notice: I.S.H.A.N AI chat logging:", err.message);
+    }
+};
 
 // --- REAL-TIME DYNAMIC TELEMETRY SYNC ---
 // Sets up a Firestore onSnapshot listener so the counter updates in real-time across all open clients
